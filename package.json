@@ -4,9 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "prettier": "pretier --write src/**/*.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "^0.12.0",
+    "@discordjs/rest": "^0.4.0",
+    "discord-api-types": "~0.32.1",
+    "discord.js": "^14.0.0-dev.1652400693-aed687b",
+    "chalk": "^4.1.2",
+    "prettier": "^2.6.2"
+  }
 }
