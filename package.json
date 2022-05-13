@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "prettier": "pretier --write src/**/*.js"
+    "prettier": "prettier ."
   },
   "keywords": [],
   "author": "",
