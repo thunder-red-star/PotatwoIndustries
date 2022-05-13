@@ -1,0 +1,13 @@
+{
+  "token": "your-token-here",
+  "defaultPrefix": "!",
+  "interactions": {
+    "deployGuildId": "your-deploy-guild-id-here"
+  },
+  "branding": {
+    "default": {
+      "name": "Your Bot Name Here",
+      "color": "#123456"
+    }
+  }
+}
