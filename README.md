@@ -1,5 +1,5 @@
 # potatwo industries
-<img src="assets/potatwo.png" alt="potatwo industries" width="200" height="200">
+<img src="src/assets/potatwo.png" alt="potatwo industries" width="200" height="200">
 
 This is a Potato Industries reboot.
 ## Backstory
