@@ -4,7 +4,7 @@ const Chalk = require('chalk');
 
 module.exports = (client) => {
 	console.log(Chalk.green('[Event Loader]'), 'Loading events...');
-	let events = fs.readdirSync('./src/loaders/');
+	let events = fs.readdirSync('./src/events/');
 	for (let i = 0; i < events.length; i++) {
 		if (!events[i].endsWith('.js')) {
 			return;
