@@ -1,7 +1,7 @@
 // Potatwo Industries Message Command Loader
 const fs = require('fs');
 const Chalk = require('chalk');
-const { Collection } = require('@discordjs/builders');
+const { Collection } = require('discord.js');
 
 module.exports = (client) => {
 	console.log(Chalk.green('[Message Command Loader]'), 'Loading message commands...');

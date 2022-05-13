@@ -1,7 +1,7 @@
 // Potatwo Industries Interaction Command Loader
 const fs = require('fs');
 const Chalk = require('chalk');
-const { Collection } = require('@discordjs/builders');
+const { Collection } = require('discord.js');
 
 module.exports = (client) => {
 	console.log(Chalk.green('[Interaction Command Loader]'), 'Loading interaction commands...');
