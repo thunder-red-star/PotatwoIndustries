@@ -3,7 +3,8 @@ const fs = require('fs');
 const Chalk = require('chalk');
 
 module.exports = (client) => {
-	let events = fs.readdirSync('./src/events/');
+	console.log(Chalk.green('[Event Loader]'), 'Loading events...');
+	let events = fs.readdirSync('./src/loaders/');
 	for (let i = 0; i < events.length; i++) {
 		if (!events[i].endsWith('.js')) {
 			return;
@@ -11,6 +12,6 @@ module.exports = (client) => {
 		let event = events[i].split('.')[0];
 		let eventFile = require(`../../events/${event}`);
 		client.on(event, (...args) => eventFile(client, ...args));
-		console.log(Chalk.green(`Loaded event: ${event}`));
+		console.log(Chalk.green('[Event Loader]'), `Loaded event: ${event}`);
 	}
 }

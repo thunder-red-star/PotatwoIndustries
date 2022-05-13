@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const eventLoader = require('./utils/events/eventLoader');
+const Loaders = require('./utils/loaders/loaders');
 const config = require('./config/config.json');
 
 const client = new Discord.Client({
@@ -7,7 +7,11 @@ const client = new Discord.Client({
 	partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 })
 
-// Load events
-eventLoader(client);
+// Load loaders
+Loaders.eventLoader(client);
+
+// Load all commands
+Loaders.messageCommandLoader(client);
+Loaders.interactionCommandLoader(client);
 
 client.login(config.token);
