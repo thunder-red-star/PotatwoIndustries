@@ -2,10 +2,8 @@ const fs = require('fs');
 
 // Database class (for manipulating the JSON database of the bot)
 class Database {
-	constructor(filePath = './data/database.json') {
-		this.filePath = filePath;
-		this.data = {};
-	}
+	static filePath = './data/database.json';
+	static data = {};
 
 	static setFilePath(filePath) {
 		this.filePath = filePath;
@@ -18,8 +16,8 @@ class Database {
 		this.data = JSON.parse(fs.readFileSync(this.filePath, 'utf8'));
 	}
 
-	static write(data) {
-		fs.writeFileSync(this.filePath, JSON.stringify(data, null, 4), 'utf8');
+	static write() {
+		fs.writeFileSync(this.filePath, JSON.stringify(this.data, null, 4), 'utf8');
 	}
 
 	static get(key) {
@@ -121,4 +119,10 @@ class Database {
 			}
 		}
 	}
+
+	static dump () {
+		return this.data;
+	}
 }
+
+module.exports = Database;

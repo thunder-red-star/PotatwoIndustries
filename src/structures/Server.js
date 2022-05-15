@@ -26,13 +26,28 @@ class Server {
 		this.serverConfig = config;
 	}
 
+	setPrefix(prefix) {
+		this.serverPrefix = prefix;
+	}
+
 	// Edit a config option.
 	editConfig(key, value) {
 		this.serverConfig[key] = value;
 	}
 
-	// Static method to return a server object from a server id.
-	static getServer(serverId) {
-		return serverList[serverId];
+	fromJSON(json) {
+		this.serverId = json.serverId;
+		this.serverPrefix = json.serverPrefix;
+		this.serverConfig = json.serverConfig;
+	}
+
+	toJSON() {
+		return {
+			serverId: this.serverId,
+			serverPrefix: this.serverPrefix,
+			serverConfig: this.serverConfig
+		};
 	}
 }
+
+module.exports = Server;

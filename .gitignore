@@ -1,5 +1,10 @@
 src/config/config.json
 db/
+src/data/
+src/data/database.json
+src/logs/
+logs/
+data/
 node_modules/
 .idea/
 .DS_Store
