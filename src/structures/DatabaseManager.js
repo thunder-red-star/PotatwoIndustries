@@ -21,3 +21,5 @@ class DatabaseManager {
 		Database.write();
 	}
 }
+
+module.exports = DatabaseManager;
