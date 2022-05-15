@@ -1,3 +1,5 @@
+const Item = require('./Item');
+
 class Inventory {
 	// Inventory class, allows storage of arrays of items and counts
 	constructor() {
@@ -5,11 +7,22 @@ class Inventory {
 	}
 
 	fromJSON(json) {
-		this.data = json;
-	}
+		this.data = json.map(itemEntry => {
+				return {
+					item: new Item(itemEntry.item),
+					count: itemEntry.count
+				};
+			});
+		}
+
 
 	toJSON() {
-		return this.data;
+		return this.data.map(itemEntry => {
+			return {
+				item: itemEntry.item.toJSON(),
+				count: itemEntry.count
+			};
+		});
 	}
 
 	add(item, count = 1) {
@@ -45,6 +58,10 @@ class Inventory {
 		} else {
 			return this.data[item];
 		}
+	}
+
+	has(item) {
+		return this.data[item] !== undefined && this.data[item] > 0;
 	}
 }
 

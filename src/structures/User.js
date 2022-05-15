@@ -3,13 +3,34 @@ const Inventory = require('./Inventory');
 class User {
 	// Class representing the profile of a discord bot user.
 	id = null;
+	blacklisted = false;
 	count = 0;
-	inv = null;
+	inventory = null;
 
 	constructor (id) {
 		this.id = id;
 		this.count = 0;
-		this.inv = new Inventory();
+		this.inventory = new Inventory();
+	}
+
+	// Set count
+	setCount (count) {
+		this.count = count;
+	}
+
+	// Get count
+	getCount () {
+		return this.count;
+	}
+
+	// Toggle blacklisted
+	toggleBlacklisted () {
+		this.blacklisted = !this.blacklisted;
+	}
+
+	// Get blacklisted
+	isBlacklisted () {
+		return this.blacklisted;
 	}
 
 	fromJSON (json) {

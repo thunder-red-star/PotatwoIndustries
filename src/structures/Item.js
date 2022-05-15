@@ -14,6 +14,24 @@ class Item {
 			throw new Error ("No use function defined for item: " + this.name);
 		}
 	}
+
+	fromJSON (json) {
+		this.name = json.name;
+		this.description = json.description;
+		this.type = json.type;
+		this.aliases = json.aliases;
+		this.use = json.use;
+	}
+
+	toJSON () {
+		return {
+			name: this.name,
+			description: this.description,
+			type: this.type,
+			aliases: this.aliases,
+			use: this.use
+		};
+	}
 }
 
 module.exports = Item;
