@@ -15,11 +15,11 @@ class ServerManager {
         this.servers.splice(this.servers.indexOf(server), 1);
     }
 
-    getServer(id) {
+    get(id) {
         return this.servers.find(server => server.id === id);
     }
 
-    getServers() {
+    getAll() {
         return this.servers;
     }
 

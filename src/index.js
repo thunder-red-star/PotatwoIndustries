@@ -8,6 +8,8 @@ const client = new Discord.Client({
 	partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 })
 
+client.config = config;
+
 // Load loaders
 Loaders.eventLoader(client);
 
