@@ -1,6 +1,7 @@
 {
   "token": "your-token-here",
   "defaultPrefix": "!",
+  "owner": "your-discord-id-here",
   "interactions": {
     "deployGuildId": "your-deploy-guild-id-here"
   },

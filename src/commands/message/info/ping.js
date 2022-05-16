@@ -3,6 +3,8 @@
 module.exports = {
 	botPermissions: ["SEND_MESSAGES"],
 	userPermissions: [],
+	enabled: true,
+	guildOnly: false,
 	name: "ping",
 	aliases: ["pong"],
 	description: "Check the bot's ping.",
