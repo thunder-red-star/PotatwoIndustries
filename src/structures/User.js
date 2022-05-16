@@ -2,15 +2,12 @@ const Inventory = require('./Inventory');
 
 class User {
 	// Class representing the profile of a discord bot user.
-	id = null;
-	blacklisted = false;
-	count = 0;
-	inventory = null;
 
-	constructor (id) {
+	constructor (id = "") {
 		this.id = id;
 		this.count = 0;
 		this.inventory = new Inventory();
+		this.blacklisted = false;
 	}
 
 	// Set count
@@ -34,17 +31,19 @@ class User {
 	}
 
 	fromJSON (json) {
-		let user = new User(json.id);
-		user.count = json.count;
-		user.inv = new Inventory().fromJSON(json.inv);
-		return user;
+		this.id = json.id;
+		this.count = json.count;
+		this.inventory = new Inventory().fromJSON(json.inventory);
+		this.blacklisted = json.blacklisted;
+		return this;
 	}
 
-	toJSON (user) {
+	toJSON () {
 		return {
-			id: user.id,
-			count: user.count,
-			inv: user.inv.toJSON()
+			id: this.id,
+			count: this.count,
+			inventory: this.inventory.toJSON(),
+			blacklisted: this.blacklisted
 		};
 	}
 }

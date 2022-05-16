@@ -3,31 +3,33 @@
 const Server = require('./Server');
 
 class ServerManager {
-    constructor() {
-        this.servers = [];
-    }
+	constructor() {
+		this.servers = [];
+	}
 
-    addServer(server) {
-        this.servers.push(server);
-    }
+	addServer(serverId) {
+		this.servers.push(new Server(serverId));
+	}
 
-    removeServer(server) {
-        this.servers.splice(this.servers.indexOf(server), 1);
-    }
+	removeServer(serverId) {
+		this.servers = this.servers.filter(server => server.serverId !== serverId);
+	}
 
-    get(id) {
-        return this.servers.find(server => server.id === id);
-    }
+	get(id) {
+		return this.servers.find(server => server.serverId === id);
+	}
 
-    getAll() {
-        return this.servers;
-    }
+	getAll() {
+		return this.servers;
+	}
 
-		toJSON() {
-			return this.servers.map(server => server.toJSON());
-		}
+	toJSON() {
+		return this.servers.map(server => server.toJSON());
+	}
 
-		fromJSON(json) {
-			this.servers = json.map(server => new Server().fromJSON(server));
-		}
+	fromJSON(json) {
+		this.servers = json.map(server => new Server(server.serverId).fromJSON(server));
+	}
 }
+
+module.exports = ServerManager;

@@ -6,12 +6,12 @@ class UserManager {
 		this.users = [];
 	}
 
-	addUser(user) {
-		this.users.push(user);
+	addUser(userId) {
+		this.users.push(new User(userId));
 	}
 
-	removeUser(user) {
-		this.users.splice(this.users.indexOf(user), 1);
+	removeUser(userId) {
+		this.users = this.users.filter(user => user.id !== userId);
 	}
 
 	get(id) {
@@ -27,10 +27,13 @@ class UserManager {
 	}
 
 	fromJSON(json) {
-		this.users = json.users.map(user => new User().fromJSON(user));
+		this.users = json.map(user => new User().fromJSON(user));
 	}
 
 	toJSON() {
+		console.log(this.users)
 		return this.users.map(user => user.toJSON());
 	}
 }
+
+module.exports = UserManager;

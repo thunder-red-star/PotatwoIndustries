@@ -17,20 +17,14 @@ class Item {
 
 	fromJSON (json) {
 		this.name = json.name;
-		this.description = json.description;
-		this.type = json.type;
-		this.aliases = json.aliases;
-		this.use = json.use;
+		this.description = json.description || "";
+		this.type = json.type || "";
+		this.aliases = json.aliases || [];
+		this.use = json.use || null;
 	}
 
 	toJSON () {
-		return {
-			name: this.name,
-			description: this.description,
-			type: this.type,
-			aliases: this.aliases,
-			use: this.use
-		};
+		return this.name;
 	}
 }
 

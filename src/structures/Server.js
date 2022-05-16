@@ -1,8 +1,8 @@
 class Server {
 	// Class representing a discord server the bot is in.
-	constructor(server) {
-		this.serverId = server;
-		this.serverPrefix = server.name.toLowerCase();
+	constructor(serverId = "") {
+		this.serverId = serverId;
+		this.serverPrefix = "";
 		this.serverConfig = {};
 	}
 
@@ -39,6 +39,7 @@ class Server {
 		this.serverId = json.serverId;
 		this.serverPrefix = json.serverPrefix;
 		this.serverConfig = json.serverConfig;
+		return this;
 	}
 
 	toJSON() {
