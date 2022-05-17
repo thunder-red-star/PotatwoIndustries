@@ -88,6 +88,14 @@ module.exports = async (message) => {
   // The command is not in cooldown, so we can run the command
 	try {
 		let parsedArgs = await ArgsParser(message, cmd.args);
+		// If the parsed args does not contain every required argument, return an error
+		for (let arg of cmd.args) {
+			if (arg.required && !parsedArgs.has(arg.name)) {
+				return message.channel.send({
+					content: client.messages.noArgs.replace("{argument}", arg.name).replace("{type}", arg.type)
+				});
+			}
+		}
 		cmd.run(message, client, parsedArgs);
 		console.log(`[${message.guild.name}] ${message.author.tag} ran the command ${cmd.name}`);
 		// Add the command to the cooldown collection
