@@ -40,11 +40,6 @@ module.exports = async function (message, argTemplate) {
 		// Get the current argument
 		let arg = argTemplate[i];
 
-		// If this is the last argument in the template, join the remaining arguments with spaces
-		if (i === argTemplate.length - 1) {
-			arg = argsArray.slice(i).join(' ');
-		}
-
 		// Get the current argument name
 		let argName = arg.name;
 
@@ -72,7 +67,13 @@ module.exports = async function (message, argTemplate) {
 		} else {
 			// The current argument was found
 			// Set the current argument value to the found value
-			argValue = argsArray[i];
+
+			// If the argument is the last argument in the template, join the remaining arguments with spaces
+			if (i === argTemplate.length - 1) {
+				argValue = argsArray.slice(i).join(' ');
+			} else {
+				argValue = argsArray[i];
+			}
 		}
 
 		// Check if the current argument is the correct type
