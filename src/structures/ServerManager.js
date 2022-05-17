@@ -28,7 +28,11 @@ class ServerManager {
 	}
 
 	fromJSON(json) {
-		this.servers = json.map(server => new Server(server.serverId).fromJSON(server));
+		try {
+			this.servers = json.map(server => new Server(server.serverId).fromJSON(server));
+		} catch (e) {
+			// This should only happen when the server list is empty
+		}
 	}
 }
 

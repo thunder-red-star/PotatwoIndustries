@@ -27,7 +27,11 @@ class UserManager {
 	}
 
 	fromJSON(json) {
-		this.users = json.map(user => new User().fromJSON(user));
+		try {
+			this.users = json.map(user => new User().fromJSON(user));
+		} catch (e) {
+			// This should only happen if the user list is empty
+		}
 	}
 
 	toJSON() {
