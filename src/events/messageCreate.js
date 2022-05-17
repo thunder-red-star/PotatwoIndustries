@@ -18,6 +18,7 @@ module.exports = async (message) => {
 	} catch (e) {
 		prefix = client.config.prefix;
 	}
+	console.log(`Prefix: ${prefix}`);
 	if (!message.content.startsWith(prefix)) return;
 
 	// Get the command and the args
