@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const Loaders = require('./utils/loaders/loaders');
 const config = require('./config/config.json');
 const Database = require('./structures/DatabaseManager');
+const Messages = require('./assets/messages.json');
 
 const client = new Discord.Client({
 	intents: new Discord.IntentsBitField(131071),
@@ -18,6 +19,8 @@ Loaders.messageCommandLoader(client);
 Loaders.interactionCommandLoader(client);
 
 // Load the database
-client.database = new Database().load();
+client.database = new Database();
+client.database.load();
+client.messages = Messages;
 
 client.login(config.token);

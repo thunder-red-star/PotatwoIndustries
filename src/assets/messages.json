@@ -7,7 +7,7 @@
   "disabledCommand": "❌ That command is disabled.",
   "noArgsGeneric": "❌ You need to provide some arguments. Try `{prefix}help {command}`.",
   "noArgs": "❌ This command requires the argument `{argument}` of type `{type}`.",
-  "unexpectedError": "⚠️ An unexpected error occurred. This is most likely a bug. The error has been logged, but to expedite the fix, please contact the developer. The error code is `{error}`.",
+  "unexpectedError": "⚠️ An unexpected error occurred. This is most likely a bug. Here's the error: \n```{error}```",
   "kickSuccess": "✅ Successfully kicked {user}.",
   "kickAdmin": "❌ You can't kick an admin.",
   "kickSelf": "❌ You can't kick yourself.",
