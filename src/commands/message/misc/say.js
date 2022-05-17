@@ -31,12 +31,12 @@ module.exports = {
 			} else {
 				return match;
 			}
-		}).then(messageToSend => {
-			// Send the message.
-			message.channel.send({
-				content: messageToSend,
-				disableMentions: "everyone"
-			});
+		})
+
+		// Send the message.
+		message.channel.send({
+			content: messageToSend,
+			disableMentions: "everyone"
 		});
 	}
 }
