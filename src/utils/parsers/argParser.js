@@ -59,7 +59,7 @@ module.exports = async function (message, argTemplate) {
 		if (argRequired && argsArray.length <= i) {
 			// The current argument is required, but it was not found
 			// Return null
-			return null;
+			argValue = null;
 		} else if (argsArray.length <= i) {
 			// The current argument is not required, but it was not found
 			// Set the current argument value to the default value
