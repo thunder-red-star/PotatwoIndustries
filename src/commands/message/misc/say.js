@@ -23,8 +23,15 @@ module.exports = {
 		// Assume args are all parsed, and provided as an object with keys. Get the message key.
 		let messageToSend = args.message;
 
-		// Clear the message content of ping and mention mentions.
-		messageToSend = messageToSend.replace(/<@!?\d+>/g, "").replace(/<@&\d+>/g, "");
+		// Find mentions (<@id> and <@!id>) and replace them with @Username#Discriminator
+		messageToSend = messageToSend.replace(/<@!?(\d+)>/g, async (match, id) => {
+			const user = await client.users.fetch(id);
+			if (user) {
+				return `@${user.username}#${user.discriminator}`;
+			} else {
+				return match;
+			}
+		});
 
 		// Send the message.
 		message.channel.send(messageToSend);
