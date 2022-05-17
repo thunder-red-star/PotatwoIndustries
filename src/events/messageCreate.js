@@ -94,10 +94,18 @@ module.exports = async (message) => {
 		if (client.cooldowns.has(command)) {
 			let cooldown = client.cooldowns.get(command);
 			cooldown.set(message.author.id, Date.now() + cmd.cooldown);
+			// Remove the command from the collection after the cooldown has passed
+			setTimeout(() => {
+				cooldown.delete(message.author.id);
+			}, cmd.cooldown);
 		} else {
 			client.cooldowns.set(command, new Collection());
 			let cooldown = client.cooldowns.get(command);
 			cooldown.set(message.author.id, Date.now() + cmd.cooldown);
+			// Remove the command from the collection after the cooldown has passed
+			setTimeout(() => {
+				cooldown.delete(message.author.id);
+			}, cmd.cooldown);
 		}
 	} catch (err) {
 		console.error(err);
