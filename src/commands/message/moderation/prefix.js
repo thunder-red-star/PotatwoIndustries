@@ -22,7 +22,12 @@ module.exports = {
 	run: async function(message, client, args) {
 		let prefix = args.prefix;
 		if (!prefix || prefix === null) {
-			client.database.servers.get(message.guild.id).setPrefix(client.config.defaultPrefix);
+			let server = client.database.servers.get(message.guild.id);
+			if (!server) {
+				client.database.servers.addServer(message.guild.id);
+				server = client.database.servers.get(message.guild.id);
+			}
+			server.setPrefix(client.config.prefix);
 			return message.reply({
 				embed: {
 					title: "Prefix Reset",
@@ -50,7 +55,12 @@ module.exports = {
 				});
 			}
 			else {
-				client.database.servers.get(message.guild.id).setPrefix(prefix);
+				let server = client.database.servers.get(message.guild.id);
+				if (!server) {
+					client.database.servers.addServer(message.guild.id);
+					server = client.database.servers.get(message.guild.id);
+				}
+				server.setPrefix(prefix);
 				return message.reply({
 					embed: {
 						title: "Prefix Set",
