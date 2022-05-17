@@ -78,7 +78,7 @@ module.exports = async function (message, argTemplate) {
 			if (isNaN(argValue)) {
 				// The current argument value is not a number
 				// Return null
-				return null;
+				argValue = null;
 			} else {
 				// The current argument value is a number
 				// Set the current argument value to the parsed number
@@ -98,7 +98,7 @@ module.exports = async function (message, argTemplate) {
 			} else {
 				// The current argument value is not true or false
 				// Return null
-				return null;
+				argValue = null;
 			}
 		} else if (argType === 'user') {
 			// The current argument is a user
@@ -135,12 +135,12 @@ module.exports = async function (message, argTemplate) {
 					} else {
 						// The current argument value is not a username#discriminator
 						// Return null
-						return null;
+						argValue = null;
 					}
 				} else {
 					// The current argument value is not a username#discriminator
 					// Return null
-					return null;
+					argValue = null;
 				}
 			}
 		} else if (argType === 'channel') {
@@ -168,7 +168,7 @@ module.exports = async function (message, argTemplate) {
 				} else {
 					// The current argument value is not a name
 					// Return null
-					return null;
+					argValue = null;
 				}
 			}
 		} else if (argType === 'role') {
@@ -196,7 +196,7 @@ module.exports = async function (message, argTemplate) {
 				} else {
 					// The current argument value is not a name
 					// Return null
-					return null;
+					argValue = null;
 				}
 			}
 		} else {
