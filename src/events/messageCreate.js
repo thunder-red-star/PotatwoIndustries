@@ -90,7 +90,7 @@ module.exports = async (message) => {
 		let parsedArgs = await ArgsParser(message, cmd.args);
 		// If the parsed args does not contain every required argument, return an error
 		for (let arg of cmd.args) {
-			if (arg.required && !parsedArgs.includes(arg.name)) {
+			if (arg.required && parsedArgs[arg.name] === undefined) {
 				return message.channel.send({
 					content: client.messages.noArgs.replace("{argument}", arg.name).replace("{type}", arg.type)
 				});
