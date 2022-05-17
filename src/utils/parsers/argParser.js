@@ -30,7 +30,7 @@ module.exports = async function (message, argTemplate) {
 	// string can be parsed as a string
 
 	// Split the arguments into an array
-	let argsArray = message.content.split(' ');
+	let argsArray = message.content.split(' ').slice(1);
 
 	// Create an object to store the parsed arguments
 	let parsedArgs = {};
