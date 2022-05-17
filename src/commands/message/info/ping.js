@@ -19,7 +19,7 @@ module.exports = {
 		const ping = msg.createdTimestamp - message.createdTimestamp;
 		const apiPing = client.ws.ping;
 		msg.edit({
-			content: `Pong! Latency is ${ping}ms. API Latency is ${apiPing}ms.`,
+			content: `🏓 Pong! Latency is ${ping}ms. API Latency is ${apiPing}ms.`,
 		});
 	}
 }
