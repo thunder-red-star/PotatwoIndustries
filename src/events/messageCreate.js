@@ -34,7 +34,10 @@ module.exports = async (message) => {
 	if (cmd.guildOnly && !guild) return;
 
 	// Check if the command user was blacklisted
-	if (client.database.users.get(message.author.id).isBlacklisted()) return;
+	let user = client.database.users.get(message.author.id);
+	if (user) {
+		if (user.blacklisted) return;
+	}
 
 	// Permission check for bot, if command was used in a guild
 	if (cmd.botPermissions && guild) {
