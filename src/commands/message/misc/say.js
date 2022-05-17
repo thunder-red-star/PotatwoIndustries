@@ -24,16 +24,19 @@ module.exports = {
 		let messageToSend = args.message;
 
 		// Find mentions (<@id> and <@!id>) and replace them with @Username#Discriminator
-		messageToSend = await messageToSend.replace(/<@!?(\d+)>/g, async (match, id) => {
+		messageToSend = messageToSend.replace(/<@!?(\d+)>/g, async (match, id) => {
 			const user = await client.users.fetch(id);
 			if (user) {
 				return `@${user.username}#${user.discriminator}`;
 			} else {
 				return match;
 			}
+		}).then(messageToSend => {
+			// Send the message.
+			message.channel.send({
+				content: messageToSend,
+				disableMentions: "everyone"
+			});
 		});
-
-		// Send the message.
-		message.channel.send(messageToSend);
 	}
 }
