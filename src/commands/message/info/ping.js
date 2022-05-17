@@ -13,7 +13,7 @@ module.exports = {
 	cooldown: 1000,
 	args: [],
 	run: async function(message, client, args) {
-		const msg = await message.channel.send({
+		const msg = await message.reply({
 			content: "Ping?",
 		});
 		const ping = msg.createdTimestamp - message.createdTimestamp;
