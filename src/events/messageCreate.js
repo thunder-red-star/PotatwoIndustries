@@ -87,7 +87,8 @@ module.exports = async (message) => {
 
   // The command is not in cooldown, so we can run the command
 	try {
-		cmd.run(client, message, ArgsParser(message, cmd.args));
+		let parsedArgs = await ArgsParser(message, cmd.args);
+		cmd.run(client, message, parsedArgs);
 		console.log(`[${message.guild.name}] ${message.author.tag} ran the command ${cmd.name}`);
 		// Add the command to the cooldown collection
 		if (client.cooldowns.has(command)) {

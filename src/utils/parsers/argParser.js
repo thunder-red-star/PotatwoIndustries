@@ -1,4 +1,4 @@
-module.exports = function (args, argTemplate) {
+module.exports = async function (message, argTemplate) {
 	// Function to parse arguments in Discord messages
 	/* Example args message input: say hello */
 	// First argument is the command, so ignore it
@@ -30,7 +30,7 @@ module.exports = function (args, argTemplate) {
 	// string can be parsed as a string
 
 	// Split the arguments into an array
-	let argsArray = args.split(' ');
+	let argsArray = message.content.split(' ');
 
 	// Create an object to store the parsed arguments
 	let parsedArgs = {};
@@ -109,11 +109,11 @@ module.exports = function (args, argTemplate) {
 				if (argValue.startsWith('<@!')) {
 					// The current argument value is a snowflake
 					// Set the current argument value to the parsed snowflake
-					argValue = argValue.slice(3, argValue.length - 1);
+					argValue = await message.client.users.fetch(argValue.slice(3, argValue.length - 1));
 				} else {
 					// The current argument value is a mention
 					// Set the current argument value to the parsed snowflake
-					argValue = argValue.slice(2, argValue.length - 1);
+					argValue = await message.client.users.fetch(argValue.slice(2, argValue.length - 1));
 				}
 			} else {
 				// The current argument value is not a snowflake, mention, or username#discriminator
@@ -127,11 +127,11 @@ module.exports = function (args, argTemplate) {
 					if (argValueArray.length === 1) {
 						// The current argument value is a username
 						// Set the current argument value to the parsed username
-						argValue = argValueArray[0];
+						argValue = message.client.users.cache.find(user => user.username === argValueArray[0]);
 					} else if (argValueArray.length === 2) {
 						// The current argument value is a username#discriminator
 						// Set the current argument value to the parsed username#discriminator
-						argValue = argValueArray[0] + '#' + argValueArray[1];
+						argValue = message.client.users.cache.find(user => user.username === argValueArray[0] && user.discriminator === argValueArray[1]);
 					} else {
 						// The current argument value is not a username#discriminator
 						// Return null
@@ -152,11 +152,11 @@ module.exports = function (args, argTemplate) {
 				if (argValue.startsWith('<#!')) {
 					// The current argument value is a snowflake
 					// Set the current argument value to the parsed snowflake
-					argValue = argValue.slice(3, argValue.length - 1);
+					argValue = await message.client.channels.fetch(argValue.slice(3, argValue.length - 1));
 				} else {
 					// The current argument value is a mention
 					// Set the current argument value to the parsed snowflake
-					argValue = argValue.slice(2, argValue.length - 1);
+					argValue = await message.client.channels.fetch(argValue.slice(2, argValue.length - 1));
 				}
 			} else {
 				// The current argument value is not a snowflake, mention, or name
@@ -180,11 +180,11 @@ module.exports = function (args, argTemplate) {
 				if (argValue.startsWith('<@&!')) {
 					// The current argument value is a snowflake
 					// Set the current argument value to the parsed snowflake
-					argValue = argValue.slice(3, argValue.length - 1);
+					argValue = await message.client.roles.fetch(argValue.slice(3, argValue.length - 1));
 				} else {
 					// The current argument value is a mention
 					// Set the current argument value to the parsed snowflake
-					argValue = argValue.slice(2, argValue.length - 1);
+					argValue = await message.client.roles.fetch(argValue.slice(2, argValue.length - 1));
 				}
 			} else {
 				// The current argument value is not a snowflake, mention, or name
