@@ -76,7 +76,7 @@ module.exports = async (message) => {
 	// Check if the command is in cooldown. The command cooldown will be found in client.cooldowns in the collection with the command name
 	if (client.cooldowns.has(command)) {
 		let cooldown = client.cooldowns.get(command);
-		if (cooldown.has(message.author.id)) {
+		if (cooldown.has(message.author.id) && cooldown.get(message.author.id) > Date.now()) {
 			let time = cooldown.get(message.author.id);
 			let remaining = time - Date.now();
 			return message.channel.send({
@@ -94,18 +94,9 @@ module.exports = async (message) => {
 		if (client.cooldowns.has(command)) {
 			let cooldown = client.cooldowns.get(command);
 			cooldown.set(message.author.id, Date.now() + cmd.cooldown);
-			// Remove the command from the collection after the cooldown has passed
-			setTimeout(() => {
-				cooldown.delete(message.author.id);
-			}, cmd.cooldown);
 		} else {
 			client.cooldowns.set(command, new Collection());
 			let cooldown = client.cooldowns.get(command);
-			cooldown.set(message.author.id, Date.now() + cmd.cooldown);
-			// Remove the command from the collection after the cooldown has passed
-			setTimeout(() => {
-				cooldown.delete(message.author.id);
-			}, cmd.cooldown);
 		}
 	} catch (err) {
 		console.error(err);
