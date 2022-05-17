@@ -7,7 +7,12 @@ module.exports = async (client) => {
 	client.cooldowns = new Collection();
 
 	// For each command, create a cooldown collection and add it to the original cooldown collection
-	client.commands.forEach(command => {
+	client.messageCommands.forEach(command => {
+		client.cooldowns.set(command.name, new Collection());
+	});
+
+	client.interactionCommands.forEach(command => {
+		if (client.cooldowns.get(command.name)) return;
 		client.cooldowns.set(command.name, new Collection());
 	});
 
