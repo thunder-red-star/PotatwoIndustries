@@ -54,21 +54,20 @@ module.exports = {
 					}]
 				});
 			}
-			else {
-				let server = client.database.servers.get(message.guild.id);
-				if (!server) {
-					client.database.servers.addServer(message.guild.id);
-					server = client.database.servers.get(message.guild.id);
-				}
-				server.setPrefix(prefix);
-				return message.reply({
-					embeds: [{
-						title: "Prefix Set",
-						description: client.customEmojis.check + " The server's prefix has been set to `" + prefix + "`.",
-						color: client.colors.success
-					}]
-				});
+
+			let server = client.database.servers.get(message.guild.id);
+			if (!server) {
+				client.database.servers.addServer(message.guild.id);
+				server = client.database.servers.get(message.guild.id);
 			}
+			server.setPrefix(prefix);
+			return message.reply({
+				embeds: [{
+					title: "Prefix Set",
+					description: client.customEmojis.check + " The server's prefix has been set to `" + prefix + "`.",
+					color: client.colors.success
+				}]
+			});
 		}
 		// Write to database.
 		client.database.write();
