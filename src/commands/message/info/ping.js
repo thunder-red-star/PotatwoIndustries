@@ -13,9 +13,13 @@ module.exports = {
 	cooldown: 1000,
 	args: [],
 	run: async function(message, client, args) {
-		const msg = await message.channel.send("Ping?");
+		const msg = await message.channel.send({
+			content: "Ping?",
+		});
 		const ping = msg.createdTimestamp - message.createdTimestamp;
 		const apiPing = this.client.ws.ping;
-		msg.edit(`Pong! Latency is ${ping}ms. API Latency is ${apiPing}ms.`);
+		msg.edit({
+			content: `Pong! Latency is ${ping}ms. API Latency is ${apiPing}ms.`,
+		});
 	}
 }
