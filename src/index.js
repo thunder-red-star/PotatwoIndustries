@@ -24,7 +24,7 @@ Loaders.interactionCommandLoader(client);
 // Load the database
 client.database = new Database();
 client.database.load();
-console.log(Chalk.green("[Database] Loaded JSON database."));
+console.log(Chalk.green("[Database]") + " Loaded JSON database");
 
 client.messages = Messages;
 client.colors = colors;
