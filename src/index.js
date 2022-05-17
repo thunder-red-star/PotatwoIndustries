@@ -3,6 +3,7 @@ const Loaders = require('./utils/loaders/loaders');
 const config = require('./config/config.json');
 const Database = require('./structures/DatabaseManager');
 const Messages = require('./assets/messages.json');
+const Chalk = require('chalk');
 
 const client = new Discord.Client({
 	intents: new Discord.IntentsBitField(131071),
@@ -21,6 +22,8 @@ Loaders.interactionCommandLoader(client);
 // Load the database
 client.database = new Database();
 client.database.load();
+console.log(Chalk.green("[Database] Loaded JSON database."));
+
 client.messages = Messages;
 
 client.login(config.token);
