@@ -29,29 +29,29 @@ module.exports = {
 			}
 			server.setPrefix(client.config.prefix);
 			return message.reply({
-				embed: {
+				embeds: [{
 					title: "Prefix Reset",
 					description: client.customEmojis.check + " The server's prefix has been reset to `" + client.config.defaultPrefix + "`.",
 					color: client.colors.success
-				}
+				}]
 			});
 		} else {
 			if (prefix.split(" ").length > 1) {
 				return message.reply({
-					embed: {
+					embeds: [{
 						title: "Prefix Error",
 						description: client.customEmojis.warning + " The prefix cannot contain spaces.",
 						color: client.colors.warning
-					}
+					}]
 				});
 			}
 			if (prefix.length > 5) {
 				return message.reply({
-					embed: {
+					embeds: [{
 						title: "Prefix Error",
 						description: client.customEmojis.warning + " The prefix cannot be longer than 5 characters.",
 						color: client.colors.warning
-					}
+					}]
 				});
 			}
 			else {
@@ -62,11 +62,11 @@ module.exports = {
 				}
 				server.setPrefix(prefix);
 				return message.reply({
-					embed: {
+					embeds: [{
 						title: "Prefix Set",
 						description: client.customEmojis.check + " The server's prefix has been set to `" + prefix + "`.",
 						color: client.colors.success
-					}
+					}]
 				});
 			}
 		}
