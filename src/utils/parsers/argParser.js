@@ -40,6 +40,11 @@ module.exports = async function (message, argTemplate) {
 		// Get the current argument
 		let arg = argTemplate[i];
 
+		// If this is the last argument in the template, join the remaining arguments with spaces
+		if (i === argTemplate.length - 1) {
+			arg = argsArray.slice(i).join(' ');
+		}
+
 		// Get the current argument name
 		let argName = arg.name;
 
