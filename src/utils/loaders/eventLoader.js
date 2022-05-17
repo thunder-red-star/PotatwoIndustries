@@ -10,8 +10,7 @@ module.exports = (client) => {
 			return;
 		}
 		let event = events[i].split('.')[0];
-		let eventFile = require(`../../events/${event}`);
-		client.on(event, (...args) => eventFile(client, ...args));
+		client.on(event, require(`../../events/${event}`));
 		console.log(Chalk.green('[Event Loader]'), `Loaded event: ${event}`);
 	}
 }
