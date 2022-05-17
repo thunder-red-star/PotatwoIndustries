@@ -6,6 +6,8 @@ const {Collection} = require("discord.js");
 module.exports = async (message) => {
 	let client = message.client;
 
+	console.log(`[${message.guild.name}] ${message.author.tag} (${message.author.id}) said: ${message.content}`);
+
 	// Ignore bots and webhooks
 	if (message.author.bot) return;
 	if (message.webhookId) return;
