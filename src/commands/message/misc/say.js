@@ -24,7 +24,7 @@ module.exports = {
 		let messageToSend = args.message;
 
 		// Find mentions (<@id> and <@!id>) and replace them with @Username#Discriminator
-		messageToSend = messageToSend.replace(/<@!?(\d+)>/g, async (match, id) => {
+		messageToSend = await messageToSend.replace(/<@!?(\d+)>/g, async (match, id) => {
 			const user = await client.users.fetch(id);
 			if (user) {
 				return `@${user.username}#${user.discriminator}`;
