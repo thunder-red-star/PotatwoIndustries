@@ -1,7 +1,7 @@
 // Bot say command.
 
 module.exports = {
-	botPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "ATTACH_FILES"],
+	botPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "ATTACH_FILES", "USE_EXTERNAL_EMOJIS"],
 	userPermissions: ["MANAGE_MESSAGES"],
 	enabled: true,
 	guildOnly: false,
