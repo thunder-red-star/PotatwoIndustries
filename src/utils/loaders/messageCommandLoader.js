@@ -15,7 +15,7 @@ module.exports = (client) => {
 			if (!commandFile.endsWith('.js')) {
 				continue;
 			}
-			let command = require(`./${commandDirectory}/${commandFile}`);
+			let command = require(`../../commands/message/${commandDirectory}/${commandFile}`);
 			client.messageCommands.set(command.name, command);
 			console.log(Chalk.green('[Message Command Loader]'), `Loaded message command: ${command.name}`);
 		}

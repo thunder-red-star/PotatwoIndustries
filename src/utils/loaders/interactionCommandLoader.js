@@ -15,7 +15,7 @@ module.exports = (client) => {
 			if (!commandFile.endsWith('.js')) {
 				continue;
 			}
-			let command = require(`./${commandDirectory}/${commandFile}`);
+			let command = require(`../../commands/interaction/${commandDirectory}/${commandFile}`);
 			client.interactionCommands.set(command.name, command);
 			console.log(Chalk.green('[Interaction Command Loader]'), `Loaded interaction command: ${command.name}`);
 		}
