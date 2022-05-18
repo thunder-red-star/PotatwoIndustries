@@ -19,7 +19,7 @@ module.exports = {
     run: async function(message, client, args) {
         // Check if the user already has an account.
         let user = client.database.users.get(message.author.id);
-        if (user) {
+        if (!user) {
             return message.reply({
                 embeds: [{
                     color: client.colors.warning,
