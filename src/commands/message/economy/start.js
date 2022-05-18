@@ -19,7 +19,7 @@ module.exports = {
             return message.reply({
                 embeds: [{
                     color: client.colors.warning,
-                    description: client.customEmojis.warning + "You've already started!"
+                    description: client.customEmojis.warning + " You've already started!"
                 }]
             });
         } else {
@@ -28,10 +28,11 @@ module.exports = {
             let user = await client.database.users.get(message.author.id);
             // Give the user some potatoes.
             await user.addPotatoes(500);
+            client.database.write();
             return message.reply({
                 embeds: [{
                     color: client.colors.success,
-                    description: client.customEmojis.success + "You now have an economy account! I've given you **500** " + client.customEmojis.potato + " as a starting gift."
+                    description: client.customEmojis.check + " You now have an economy account! I've given you **500** " + client.customEmojis.potato + " as a starting gift."
                 }]
             });
         }
