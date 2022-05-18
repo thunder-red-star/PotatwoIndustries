@@ -17,6 +17,7 @@ class Database {
 	}
 
 	static write() {
+		console.log(fs.readdirSync('.'));
 		fs.writeFileSync(this.filePath, JSON.stringify(this.data, null, 4), 'utf8');
 	}
 
