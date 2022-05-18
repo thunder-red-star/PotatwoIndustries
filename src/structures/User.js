@@ -11,12 +11,17 @@ class User {
 	}
 
 	// Set count
-	setCount (count) {
+	setPotatoes (count) {
 		this.count = count;
 	}
 
+	// Add count
+	addPotatoes (count) {
+		this.count += count;
+	}
+
 	// Get count
-	getCount () {
+	getPotatoes () {
 		return this.count;
 	}
 
