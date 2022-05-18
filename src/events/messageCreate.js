@@ -44,12 +44,12 @@ module.exports = async (message) => {
 		for (let perm of cmd.botPermissions) {
 			try {
 				if (!guild.members.cache.get(client.user.id).permissions.has(perm)) return message.channel.send({
-					content: client.messages.botNoPermission,
+					content: client.messages.botNoPermission.replace("{permission}", perm),
 				});
 			} catch (err) {
 				// DM the user if the bot can't send messages to the channel
 				return message.author.send({
-					content: client.messages.botNoPermissionDM,
+					content: client.messages.botNoPermissionDM.replace("{permission}", perm),
 				});
 			}
 		}
