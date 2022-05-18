@@ -23,7 +23,7 @@ module.exports = {
             return message.reply({
                 embeds: [{
                     color: client.colors.warning,
-                    description: client.customEmojis.warning + " You haven't started an account yet. Use `" + client.config.prefix + "start` to start one."
+                    description: client.customEmojis.warning + " You haven't started an account yet. Use `" + client.config.defaultPrefix + "start` to start one."
                 }]
             });
         } else {
