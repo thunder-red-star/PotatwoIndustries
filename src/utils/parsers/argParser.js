@@ -109,7 +109,7 @@ module.exports = async function (message, argTemplate) {
 		} else if (argType === 'user') {
 			// The current argument is a user
 			// Check if the current argument value is a snowflake, mention, or username#discriminator
-			if (argValue.startsWith('<@') && argValue.endsWith('>')) {
+			if (argValue.startsWith('<@') && argValue.endsWith('>') && argValue !== null) {
 				// The current argument value is a snowflake, mention, or username#discriminator
 				// Check if the current argument value is a snowflake
 				if (argValue.startsWith('<@!')) {
