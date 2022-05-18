@@ -14,11 +14,9 @@ class Database {
 			fs.writeFileSync(this.filePath, '{}');
 		}
 		this.data = JSON.parse(fs.readFileSync(this.filePath, 'utf8'));
-		console.log(`Data: ${JSON.stringify(this.data)}`);
 	}
 
 	static write() {
-		console.log("Writing database...");
 		fs.writeFileSync(this.filePath, JSON.stringify(this.data, null, 4), 'utf8');
 	}
 
