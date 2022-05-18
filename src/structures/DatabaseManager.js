@@ -11,8 +11,10 @@ class DatabaseManager {
 	}
 
 	load () {
-		this.servers = new ServerManager().fromJSON(Database.get('servers'));
-		this.users = new UserManager().fromJSON(Database.get('users'));
+		this.servers = new ServerManager()
+		this.servers.fromJSON(Database.get('servers'));
+		this.users = new UserManager()
+		this.users.fromJSON(Database.get('users'));
 	}
 
 	write () {
