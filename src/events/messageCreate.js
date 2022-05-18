@@ -40,10 +40,11 @@ module.exports = async (message) => {
 	}
 
 	// Permission check for bot, if command was used in a guild
+	let me = await guild.members.fetch(client.user.id);
 	if (cmd.botPermissions && guild) {
 		for (let perm of cmd.botPermissions) {
 			try {
-				if (!guild.members.cache.get(client.user.id).permissions.has(perm)) return message.channel.send({
+				if (!me.permissions.has(perm)) return message.channel.send({
 					content: client.messages.botNoPermission.replace("{permission}", perm),
 				});
 			} catch (err) {
