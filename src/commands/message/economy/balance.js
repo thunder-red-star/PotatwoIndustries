@@ -25,20 +25,20 @@ module.exports = {
     let targetAccount = await client.database.users.get(target.id);
     if (!targetAccount) {
       return message.reply({
-        embed: {
+        embeds: [{
           title: "Error",
           description: client.customEmojis.cross + (target.id === message.author.id ? " You don't have an account yet!" : ` ${target.username} doesn't have an account yet!`),
           color: client.colors.error
-        }
+        }]
       });
     } else {
       // Send the balance.
       return message.reply({
-        embed: {
+        embeds: [{
           title: target.id === message.author.id ? "Your balance" : `${target.username}'s balance`,
           description: `${client.customEmojis.potato} **${targetAccount.count}** potatoes`,
           color: client.colors.potato
-        }
+        }]
       });
     }
   }
