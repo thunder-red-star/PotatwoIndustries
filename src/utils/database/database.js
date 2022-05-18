@@ -2,7 +2,7 @@ const fs = require('fs');
 
 // Database class (for manipulating the JSON database of the bot)
 class Database {
-	static filePath = './data/database.json';
+	static filePath = './src/data/database.json';
 	static data = {};
 
 	static setFilePath(filePath) {
@@ -17,7 +17,6 @@ class Database {
 	}
 
 	static write() {
-		console.log(fs.readdirSync('.'));
 		fs.writeFileSync(this.filePath, JSON.stringify(this.data, null, 4), 'utf8');
 	}
 
