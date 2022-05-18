@@ -43,17 +43,18 @@ module.exports = async (message) => {
 	let me = await guild.members.fetch(client.user.id);
 	if (cmd.botPermissions && guild) {
 		for (let perm of cmd.botPermissions) {
-			if (!me.permissions.has(perm)) try {
-				return message.channel.send({
-					content: client.messages.botNoPermission.replace("{permission}", perm),
-				});
-			} catch (err) {
-				// DM the user if the bot can't send messages to the channel
-				return message.author.send({
-					content: client.messages.botNoPermissionDM.replace("{permission}", perm),
-				});
+			if (!me.permissions.has(perm)) {
+				try {
+					return message.channel.send({
+						content: client.messages.botNoPermission.replace("{permission}", perm),
+					});
+				} catch (err) {
+					// DM the user if the bot can't send messages to the channel
+					return message.author.send({
+						content: client.messages.botNoPermissionDM.replace("{permission}", perm),
+					});
+				}
 			}
-		}
 		}
 	}
 
