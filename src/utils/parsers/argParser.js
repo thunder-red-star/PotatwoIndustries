@@ -109,7 +109,7 @@ module.exports = async function(message, argTemplate) {
     } else if (argType === "user") {
       // The current argument is a user
       // Check if the current argument value is a snowflake, mention, or username#discriminator
-      if (argValue === null) {
+      if (argValue === null || argValue === undefined) {
         // The current argument value is not a snowflake, mention, or username#discriminator
         // Return null
         argValue = null;
