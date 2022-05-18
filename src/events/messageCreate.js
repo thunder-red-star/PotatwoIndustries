@@ -43,8 +43,8 @@ module.exports = async (message) => {
 	let me = await guild.members.fetch(client.user.id);
 	if (cmd.botPermissions && guild) {
 		for (let perm of cmd.botPermissions) {
-			try {
-				if (!me.permissions.has(perm)) return message.channel.send({
+			if (!me.permissions.has(perm)) try {
+				return message.channel.send({
 					content: client.messages.botNoPermission.replace("{permission}", perm),
 				});
 			} catch (err) {
@@ -53,6 +53,7 @@ module.exports = async (message) => {
 					content: client.messages.botNoPermissionDM.replace("{permission}", perm),
 				});
 			}
+		}
 		}
 	}
 
