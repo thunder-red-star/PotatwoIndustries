@@ -13,11 +13,9 @@ class DatabaseManager {
 	load () {
 		Database.load();
 		this.servers = new ServerManager()
-		console.log(Database.get('servers'));
 		this.servers.fromJSON(Database.get('servers'));
 		console.log(this.servers)
 		this.users = new UserManager()
-		console.log(Database.get('users'));
 		this.users.fromJSON(Database.get('users'));
 		console.log(this.users)
 	}

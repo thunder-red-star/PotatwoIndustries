@@ -31,7 +31,6 @@ class UserManager {
 	}
 
 	toJSON() {
-		console.log(this.users)
 		return this.users.map(user => user.toJSON());
 	}
 }

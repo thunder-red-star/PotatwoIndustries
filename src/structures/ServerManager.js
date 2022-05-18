@@ -1,6 +1,7 @@
 // Server list manager (holds an array of servers)
 
 const Server = require('./Server');
+const User = require("./User");
 
 class ServerManager {
 	constructor() {
@@ -28,9 +29,7 @@ class ServerManager {
 	}
 
 	fromJSON(json) {
-		this.servers = json.map(server => {
-			new Server(server.serverId).fromJSON(server)
-		});
+		this.servers = json.map(server => new Server().fromJSON(server));
 	}
 }
 
