@@ -35,6 +35,7 @@ module.exports = {
                 potatoCount = Math.floor(Math.random() * (1 - -50) + -50);
             }
             user.addPotatoes(potatoCount);
+            client.database.write();
             if (potatoCount > 0) {
                 return message.reply({
                     embeds: [{
@@ -50,7 +51,6 @@ module.exports = {
                     }]
                 });
             }
-            client.database.write();
         }
     }
 };
