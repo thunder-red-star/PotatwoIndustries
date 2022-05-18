@@ -20,5 +20,19 @@
   "reloadSuccess": "✅ Successfully reloaded {command}.",
   "reloadNoCommand": "❌ I don't know that command.",
   "shutdownSuccess": "✅ Successfully shut down the bot. Goodbye!",
-  "restartSuccess": "✅ Successfully restarted the bot."
+  "restartSuccess": "✅ Successfully restarted the bot.",
+  "farmPositivePotatoes": [
+    "Some of your potatoes decided to get married, and you got **{amount}** {potato}.",
+    "Your hard work has paid off. You got **{amount}** {potato}.",
+    "You managed to farm **{amount}** {potato}.",
+    "When farming potatoes, a depressed potato drops **{amount}** {potato}.",
+    "Dank Memer gave you **{amount}** {potato} (???).",
+    "Nick the Potato was feeling generous, so he gave you **{amount}** {potato}."
+  ],
+  "farmNegativePotatoes": [
+    "Your potatoes didn't like you, and they ran away (you lost **{amount}** {potato}).",
+    "You lost **{amount}** {potato} due to a nuclear airstrike on your warehouse.",
+    "You tripped and fell, losing **{amount}** {potato}.",
+    "Your potatoes became rotten, and they spoiled (you lost **{amount}** {potato})."
+  ]
 }
