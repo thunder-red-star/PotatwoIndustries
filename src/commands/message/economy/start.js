@@ -17,10 +17,10 @@ module.exports = {
         let user = await client.database.users.get(message.author.id);
         if (user) {
             return message.reply({
-                embed: {
+                embeds: [{
                     color: client.colors.warning,
                     description: client.customEmojis.warning + "You've already started!"
-                }
+                }]
             });
         } else {
             // Create the user.
@@ -29,10 +29,10 @@ module.exports = {
             // Give the user some potatoes.
             await user.addPotatoes(500);
             return message.reply({
-                embed: {
+                embeds: [{
                     color: client.colors.success,
                     description: client.customEmojis.success + "You now have an economy account! I've given you **500** " + client.customEmojis.potato + " as a starting gift."
-                }
+                }]
             });
         }
     }
