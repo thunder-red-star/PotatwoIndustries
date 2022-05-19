@@ -137,7 +137,7 @@ module.exports = async function(message, argTemplate) {
           // The current argument value is a username#discriminator
           // Split the current argument value into an array
           let argValueArray = argValue.split("#");
-
+          console.log(argValueArray);
           // Check if the current argument value is a username
           if (argValueArray.length === 1) {
             // The current argument value is a username
