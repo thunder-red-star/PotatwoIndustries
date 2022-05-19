@@ -55,7 +55,7 @@ module.exports = {
         } else if (type === undefined || type === null) {
             type = "all";
         }
-        if (count === undefined || count === null) {
+        if (count === undefined || count === null || count === 0) {
             return message.reply({
                 embeds: [{
                     title: "Error",
