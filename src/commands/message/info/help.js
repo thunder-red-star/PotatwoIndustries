@@ -49,7 +49,10 @@ module.exports = {
             await messagePaginator(message, paginatorEmbeds);
         } else {
             // Find the command.
-            let command = client.messageCommands.find(command => command.name === args.query || command.messageCommandAliases.includes(args.query));
+            let command = client.messageCommands.get(args.command.toLowerCase());
+            if (!command) {
+                command = client.messageCommands.get(client.messageCommandAliases.get(args.command.toLowerCase()));
+            }
             if (!command) {
                 return message.reply({
                     embeds: [{
