@@ -26,7 +26,7 @@ module.exports = {
     run: async function(message, client, args) {
         // If no query is provided, send a list of commands.
         let serverPrefix = client.getServerPrefix(message);
-        if (!args.query) {
+        if (!args.command) {
             // Scan directory of messageCommands for commands.
             let paginatorEmbeds = [];
             let modules = fs.readdirSync("./src/commands/message");
