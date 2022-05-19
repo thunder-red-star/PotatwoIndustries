@@ -43,6 +43,7 @@ module.exports = {
         let count = args.count;
         let type = args.type;
         let reason = args.reason;
+        console.log(count)
 
         if (!types.includes(type) && ((type !== undefined) && (type !== null))) {
             return message.reply({
