@@ -108,6 +108,7 @@ module.exports = async function(message, argTemplate) {
       }
     } else if (argType === "user") {
       console.log(argValue);
+      console.log(argValue.length);
       // The current argument is a user
       // Check if the current argument value is a snowflake, mention, or username#discriminator
       if (argValue === null || argValue === undefined) {
