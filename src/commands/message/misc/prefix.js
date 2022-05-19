@@ -28,6 +28,7 @@ module.exports = {
 				server = client.database.servers.get(message.guild.id);
 			}
 			server.setPrefix(client.config.prefix);
+			client.database.write();
 			return message.reply({
 				embeds: [{
 					title: "Prefix Reset",
@@ -61,6 +62,7 @@ module.exports = {
 				server = client.database.servers.get(message.guild.id);
 			}
 			server.setPrefix(prefix);
+			client.database.write();
 			return message.reply({
 				embeds: [{
 					title: "Prefix Set",
@@ -69,7 +71,6 @@ module.exports = {
 				}]
 			});
 		}
-		// Write to database.
-		client.database.write();
+		// Write to database
 	}
 };
