@@ -58,7 +58,7 @@ module.exports = async function(message, pages) {
     await msg.edit({
         content: `Page ${page + 1} of ${pages.length}`,
         embeds: [pages[page]],
-        components: [actionRow]
+        components: [newActionRow]
     });
 
     // Create the button collector
