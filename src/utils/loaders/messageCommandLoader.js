@@ -6,6 +6,7 @@ const { Collection } = require('discord.js');
 module.exports = (client) => {
 	console.log(Chalk.green('[Message Command Loader]'), 'Loading message commands...');
 	client.messageCommands = new Collection();
+	client.messageCommandAliases = new Collection();
 	let commandDirectories = fs.readdirSync('./src/commands/message');
 	for (let i = 0; i < commandDirectories.length; i++) {
 		let commandDirectory = commandDirectories[i];
@@ -17,6 +18,11 @@ module.exports = (client) => {
 			}
 			let command = require(`../../commands/message/${commandDirectory}/${commandFile}`);
 			client.messageCommands.set(command.name, command);
+			if (command.aliases) {
+				for (let k = 0; k < command.aliases.length; k++) {
+					client.messageCommandAliases.set(command.aliases[k], command.name);
+				}
+			}
 			console.log(Chalk.green('[Message Command Loader]'), `Loaded message command: ${command.name}`);
 		}
 	}
