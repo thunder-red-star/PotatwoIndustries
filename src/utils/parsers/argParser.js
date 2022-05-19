@@ -149,9 +149,16 @@ module.exports = async function(message, argTemplate) {
               argValue = null;
             }
           } else {
-            // The current argument value is not a username#discriminator
-            // Return null
-            argValue = null;
+            // If the argument is 18 characters long, it is a snowflake
+            if (argValue.length === 18) {
+              // The current argument value is a snowflake
+              // Set the current argument value to the parsed snowflake
+              argValue = await message.client.users.fetch(argValue);
+            } else {
+                // The current argument value is not a snowflake, mention, or username#discriminator
+                // Return null
+                argValue = null;
+            }
           }
         }
       } else {
