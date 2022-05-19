@@ -36,7 +36,10 @@ module.exports = {
                     .setDescription("You can use `" + client.prefix + "help <command>` to get more information about a command.");
                 for (let j = 0; j < commandsInModule.length; j++) {
                     let command = require(`../../../commands/message/${modules[i]}/${commandsInModule[j]}`);
-                    moduleEmbed.addField(`${client.config.default}${command.name}`, command.description);
+                    moduleEmbed.addField({
+                        name: `${client.config.defaultPrefix}${command.name}`,
+                        value: command.description
+                    });
                 }
                 paginatorEmbeds.push(moduleEmbed);
             }
