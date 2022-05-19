@@ -34,5 +34,33 @@
     "You lost **{amount}** {potato} due to a nuclear airstrike on your warehouse.",
     "You tripped and fell, losing **{amount}** {potato}.",
     "Your potatoes became rotten, and they spoiled (you lost **{amount}** {potato})."
+  ],
+  "begPotatoes": [
+    "Elon Musk gave you **{amount2}** dollars, which you used to buy **{amount}** {potato} (since potatoes are obviously worth more than money).",
+    "You look up at the sky and see **{amount}** {potato} fall into your arms.",
+    "Another potato farmer dropped **{amount}** {potato} on the ground, which you now have.",
+    "You received **{amount}** {potato} from {person}.",
+    "**{amount}** {potato} spontaneously appear in your hands.",
+  ],
+  "people": [
+    "Donald Trump",
+    "Elon Musk",
+    "that one weird dude in your class",
+    "Dank Memer",
+    "<@!698218089010954481>",
+    "Eren Jeager",
+    "the kid who thinks its 2018",
+    "Barack Obama",
+    "<@!710709742791819274>",
+    "the guy who thinks he's better than you",
+    "Queen Elizabeth II",
+    "Obama's dog",
+    "Rihanna",
+    "Bill Gates",
+    "The chief developer of Discord",
+    "Willy Wonka",
+    "the original Potato Industries",
+    "Bill Nye the Science Guy",
+    "Simp515TheReal"
   ]
 }
