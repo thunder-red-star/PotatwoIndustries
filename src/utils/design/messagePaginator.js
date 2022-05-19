@@ -93,7 +93,7 @@ module.exports = async function(message, pages) {
         // Reset the timeout
         collector.resetTimer();
 
-        let actionRow = new DJSBuilders.ActionRow();
+        let newActionRow = new DJSBuilders.ActionRow();
         for (let i = 0; i < buttonArray.length; i++) {
             let newButton = buttonArray[i];
             if (page === 0 && (i === 0 || i === 1)) {
@@ -102,14 +102,14 @@ module.exports = async function(message, pages) {
             if (page === pages.length - 1 && (i === 3 || i === 4)) {
                 newButton.setDisabled(true);
             }
-            actionRow.addComponents(newButton);
+            newActionRow.addComponents(newButton);
         }
 
         // Send the new page
         await msg.edit({
             content: `Page ${page + 1} of ${pages.length}`,
             embeds: [pages[page]],
-            components: [actionRow]
+            components: [newActionRow]
         });
     });
 
