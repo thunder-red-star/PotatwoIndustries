@@ -55,7 +55,15 @@ module.exports = {
         } else if (type === undefined || type === null) {
             type = "all";
         }
-
+        if (count === undefined || count === null) {
+            return message.reply({
+                embeds: [{
+                    title: "Error",
+                    description: client.customEmojis.cross + " You must specify a number of messages to delete.",
+                    color: client.colors.error
+                }]
+            })
+        }
         if (count > 100) {
             return message.reply({
                 embeds: [{
