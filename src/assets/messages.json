@@ -36,7 +36,7 @@
     "Your potatoes became rotten, and they spoiled (you lost **{amount}** {potato})."
   ],
   "begPotatoes": [
-    "Elon Musk gave you **{amount2}** dollars, which you used to buy **{amount}** {potato} (since potatoes are obviously worth more than money).",
+    "{person} gave you **{amount2}** dollars, which you used to buy **{amount}** {potato} (since potatoes are obviously worth more than money).",
     "You look up at the sky and see **{amount}** {potato} fall into your arms.",
     "Another potato farmer dropped **{amount}** {potato} on the ground, which you now have.",
     "You received **{amount}** {potato} from {person}.",
