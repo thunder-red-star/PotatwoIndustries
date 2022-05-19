@@ -5,6 +5,7 @@ const colors = require('./assets/colors.json');
 const emojis = require('./assets/emojis.json');
 const Database = require('./structures/DatabaseManager');
 const Messages = require('./assets/messages.json');
+const getServerPrefix = require('./utils/parsers/getServerPrefix');
 const Chalk = require('chalk');
 
 const client = new Discord.Client({
@@ -29,5 +30,6 @@ console.log(Chalk.green("[Database]") + " Loaded JSON database");
 client.messages = Messages;
 client.colors = colors;
 client.customEmojis = emojis;
+client.getServerPrefix = getServerPrefix;
 
 client.login(config.token);
