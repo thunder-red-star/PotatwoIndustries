@@ -21,7 +21,7 @@ module.exports = {
   ],
   run: async function(message, client, args) {
     // Check if the user already has an account.
-    let target = args.target || message.author;
+    let target = (args.target !== null && args.target !== undefined) ? args.target : message.author;
     let targetAccount = await client.database.users.get(target.id);
     if (!targetAccount) {
       return message.reply({
