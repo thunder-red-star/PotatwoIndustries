@@ -58,7 +58,7 @@ module.exports = {
                 return message.reply({
                     embeds: [{
                         color: client.colors.error,
-                        description: client.customEmojis.error + " I couldn't find a command with that name."
+                        description: client.customEmojis.cross + " I couldn't find a command with that name."
                     }]
                 });
             } else {
