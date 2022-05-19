@@ -76,7 +76,7 @@ module.exports = async function(message, pages) {
                 }
                 break;
             case 'discard':
-                message.delete();
+                msg.delete();
                 return;
             case 'forward':
                 if (page < pages.length - 1) {
