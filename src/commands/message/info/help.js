@@ -88,7 +88,7 @@ module.exports = {
                     })
                     .addField({
                         name: "Cooldown",
-                        value: `${ms(command.cooldown)}`,
+                        value: `${ms(command.cooldown, { long: true })}`,
                     })
                     .addField({
                         name: "Permissions Required",
