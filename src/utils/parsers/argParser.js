@@ -150,6 +150,7 @@ module.exports = async function(message, argTemplate) {
             }
           } else {
             // If the argument is 18 characters long, it is a snowflake
+            console.log(argValue.length);
             if (argValue.length === 18) {
               // The current argument value is a snowflake
               // Set the current argument value to the parsed snowflake
