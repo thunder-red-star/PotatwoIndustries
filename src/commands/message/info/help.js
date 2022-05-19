@@ -35,7 +35,8 @@ module.exports = {
                 let commandsInModule = fs.readdirSync(`./src/commands/message/${modules[i]}`).filter(file => file.endsWith(".js"));
                 let moduleEmbed = new DJSBuilders.Embed()
                     .setTitle(`${upperCaseModule} Commands`)
-                    .setDescription("You can use `" + serverPrefix + "help <command>` to get more information about a command.");
+                    .setDescription("You can use `" + serverPrefix + "help <command>` to get more information about a command.")
+                    .setColor(client.colors.success);
                 for (let j = 0; j < commandsInModule.length; j++) {
                     let command = require(`../../../commands/message/${modules[i]}/${commandsInModule[j]}`);
                     moduleEmbed.addField({
