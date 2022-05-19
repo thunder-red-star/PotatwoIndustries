@@ -98,7 +98,7 @@ module.exports = {
                     });
                 message.reply({
                     embeds: [helpEmbed]
-                }
+                });
             }
         }
     }
