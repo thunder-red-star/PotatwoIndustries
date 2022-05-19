@@ -139,11 +139,7 @@ module.exports = async function(message, argTemplate) {
           let argValueArray = argValue.split("#");
           console.log(argValueArray);
           // Check if the current argument value is a username
-          if (argValueArray.length === 1) {
-            // The current argument value is a username
-            // Set the current argument value to the parsed username
-            argValue = message.client.users.cache.find(user => user.username === argValueArray[0]);
-          } else if (argValueArray.length === 2) {
+          if (argValueArray.length === 2) {
             // The current argument value is a username#discriminator
             // Set the current argument value to the parsed username#discriminator
             argValue = message.client.users.cache.find(user => user.username === argValueArray[0] && user.discriminator === argValueArray[1]);
@@ -153,15 +149,14 @@ module.exports = async function(message, argTemplate) {
             argValue = null;
           }
         } else {
-            // If the argument is 18 characters long, it is a snowflake
-            if (argValue.length === 18) {
+            // If the argument is 18 characters long and contains only numbers, it is a snowflake
+            if (argValue.length === 18 && argValue.match(/^\d+$/)) {
                 // The current argument value is a snowflake
                 // Set the current argument value to the parsed snowflake
                 argValue = await message.client.users.fetch(argValue);
             } else {
-                // The current argument value is not a snowflake, mention, or username#discriminator
-                // Return null
-                argValue = null;
+              // Try to find a user with the current argument value as a username
+                argValue = message.client.users.cache.find(user => user.username === argValue);
             }
         }
       }
