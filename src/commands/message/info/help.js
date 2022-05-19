@@ -38,7 +38,8 @@ module.exports = {
                     let command = require(`../../../commands/message/${modules[i]}/${commandsInModule[j]}`);
                     moduleEmbed.addField({
                         name: `${client.config.defaultPrefix}${command.name}`,
-                        value: command.description
+                        value: command.description,
+                        inline: false
                     });
                 }
                 paginatorEmbeds.push(moduleEmbed);
