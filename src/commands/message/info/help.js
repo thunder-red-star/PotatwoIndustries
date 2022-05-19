@@ -1,5 +1,5 @@
 // Bot ping command.
-const messagePaginator = require("../../../utils/messagePaginator");
+const messagePaginator = require("../../../utils/design/messagePaginator");
 const fs = require("fs");
 const DJSBuilders = require("@discordjs/builders");
 
