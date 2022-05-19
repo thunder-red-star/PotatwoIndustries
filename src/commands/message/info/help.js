@@ -30,7 +30,7 @@ module.exports = {
             let modules = fs.readdirSync("./src/commands/message");
             for (let i = 0; i < modules.length; i++) {
                 let upperCaseModule = modules[i].charAt(0).toUpperCase() + modules[i].slice(1);
-                let commandsInModule = fs.readdirSync(`./src/commands/message/${modules[i]}`);
+                let commandsInModule = fs.readdirSync(`./src/commands/message/${modules[i]}`).filter(file => file.endsWith(".js"));
                 let moduleEmbed = new DJSBuilders.Embed()
                     .setTitle(`${upperCaseModule} Commands`)
                     .setDescription("You can use `" + client.prefix + "help <command>` to get more information about a command.");
