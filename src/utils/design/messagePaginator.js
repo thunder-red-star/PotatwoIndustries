@@ -37,7 +37,7 @@ module.exports = function(message, pages) {
     // Create the button row
     let actionRow = new DJSBuilders.ActionRow();
     for (let i = 0; i < buttonArray.length; i++) {
-        actionRow.addComponent(buttonArray[i]);
+        actionRow.addComponents(buttonArray[i]);
     }
 
     // Send the page with the array of buttons
@@ -107,7 +107,7 @@ module.exports = function(message, pages) {
             // Create a new action row, but with all buttons disabled
             let actionRow = new DJSBuilders.ActionRow();
             for (let i = 0; i < buttonArray.length; i++) {
-                actionRow.addComponent(buttonArray[i].setDisabled(true));
+                actionRow.addComponents(buttonArray[i].setDisabled(true));
             }
 
             // Send the new page
