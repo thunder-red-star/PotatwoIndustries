@@ -12,12 +12,7 @@ module.exports = async (message) => {
 
 	// Check if the message starts with the prefix
 	let guild = message.guild;
-	let prefix;
-	try {
-		prefix = client.database.servers.get(guild.id).getPrefix();
-	} catch (e) {
-		prefix = client.config.defaultPrefix;
-	}
+	let prefix = client.getServerPrefix(message);
 	if (!message.content.startsWith(prefix)) return;
 
 	// Get the command and the args

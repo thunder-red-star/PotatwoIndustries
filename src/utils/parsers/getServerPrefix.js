@@ -7,4 +7,5 @@ module.exports = function(message) {
     } else {
         prefix = message.client.config.defaultPrefix;
     }
+    return prefix;
 }
