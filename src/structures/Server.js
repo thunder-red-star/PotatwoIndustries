@@ -1,7 +1,7 @@
 class Server {
 	// Class representing a discord server the bot is in.
-	constructor() {
-		this.serverId = "";
+	constructor(serverId = "") {
+		this.serverId = serverId;
 		this.serverPrefix = "";
 		this.serverConfig = {};
 	}
