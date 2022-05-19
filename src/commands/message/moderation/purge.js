@@ -44,7 +44,7 @@ module.exports = {
         let type = args.type;
         let reason = args.reason;
 
-        if (!types.includes(type) && (type !== undefined) && (type !== null)) {
+        if (!types.includes(type) && ((type !== undefined) || (type !== null))) {
             return message.reply({
                 embeds: [{
                     title: "Error",
