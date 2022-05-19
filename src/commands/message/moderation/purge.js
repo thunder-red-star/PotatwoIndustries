@@ -91,7 +91,7 @@ module.exports = {
                 if (type === "all") {
                     // Fetch and delete all messages
                     await message.channel.bulkDelete(count, true, true);
-                    return message.reply({
+                    return message.channel.send({
                         embeds: [{
                             title: "Success",
                             description: client.customEmojis.check + " Successfully deleted " + count + " messages.",
@@ -105,7 +105,7 @@ module.exports = {
                     }).then(messages => messages.filter(m => m.author.bot));
                     // Delete the messages
                     await message.channel.bulkDelete(messages, true, true);
-                    return message.reply({
+                    return message.channel.send({
                         embeds: [{
                             title: "Success",
                             description: client.customEmojis.check + " Successfully deleted " + count + " bot messages.",
@@ -119,7 +119,7 @@ module.exports = {
                     }).then(messages => messages.filter(m => !m.author.bot));
                     // Delete the messages
                     await message.channel.bulkDelete(messages, true, true);
-                    return message.reply({
+                    return message.channel.send({
                         embeds: [{
                             title: "Success",
                             description: client.customEmojis.check + " Successfully deleted " + count + " user messages.",
@@ -133,7 +133,7 @@ module.exports = {
                     }).then(messages => messages.filter(m => m.author.id === message.author.id));
                     // Delete the messages
                     await message.channel.bulkDelete(messages, true, true);
-                    return message.reply({
+                    return message.channel.send({
                         embeds: [{
                             title: "Success",
                             description: client.customEmojis.check + " Successfully deleted " + count + " messages from you.",
