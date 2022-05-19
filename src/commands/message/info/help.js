@@ -33,7 +33,7 @@ module.exports = {
                 let commandsInModule = fs.readdirSync(`./src/commands/message/${modules[i]}`);
                 let moduleEmbed = new DJSBuilders.Embed()
                     .setTitle(`${upperCaseModule} Commands`)
-                    .setDescription("");
+                    .setDescription("You can use `" + client.prefix + "help <command>` to get more information about a command.");
                 for (let j = 0; j < commandsInModule.length; j++) {
                     let command = require(`../../../commands/message/${modules[i]}/${commandsInModule[j]}`);
                     moduleEmbed.addField(`${client.config.default}${command.name}`, command.description);
