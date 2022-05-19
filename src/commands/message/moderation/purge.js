@@ -43,7 +43,6 @@ module.exports = {
         let count = args.count;
         let type = args.type;
         let reason = args.reason;
-        console.log(count)
 
         if (!types.includes(type) && ((type !== undefined) && (type !== null))) {
             return message.reply({
@@ -56,7 +55,8 @@ module.exports = {
         } else if (type === undefined || type === null) {
             type = "all";
         }
-        if (count === undefined || count === null || count === 0) {
+        // Check for isNaN
+        if (count === undefined || count === null || count.toString().includes("NaN")) {
             return message.reply({
                 embeds: [{
                     title: "Error",
