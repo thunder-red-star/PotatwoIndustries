@@ -90,10 +90,7 @@ module.exports = {
                 // Handle message types
                 if (type === "all") {
                     // Fetch and delete all messages
-                    await message.channel.bulkDelete({
-                        limit: count,
-                        reason: reason
-                    })
+                    await message.channel.bulkDelete(count, true, true);
                     return message.reply({
                         embeds: [{
                             title: "Success",
@@ -102,12 +99,12 @@ module.exports = {
                         }]
                     });
                 } else if (type === "bots") {
-                    // Fetch and delete bot messages
-                    await message.channel.bulkDelete({
+                    // Fetch bot messages
+                    let messages = await message.channel.messages.fetch({
                         limit: count,
-                        reason: reason,
-                        filter: (m) => m.author.bot
-                    });
+                    }).then(messages => messages.filter(m => m.author.bot));
+                    // Delete the messages
+                    await message.channel.bulkDelete(messages, true, true);
                     return message.reply({
                         embeds: [{
                             title: "Success",
@@ -116,12 +113,12 @@ module.exports = {
                         }]
                     });
                 } else if (type === "users") {
-                    // Fetch and delete user messages
-                    await message.channel.bulkDelete({
+                    // Fetch user messages
+                    let messages = await message.channel.messages.fetch({
                         limit: count,
-                        reason: reason,
-                        filter: (m) => !m.author.bot
-                    })
+                    }).then(messages => messages.filter(m => !m.author.bot));
+                    // Delete the messages
+                    await message.channel.bulkDelete(messages, true, true);
                     return message.reply({
                         embeds: [{
                             title: "Success",
@@ -130,12 +127,12 @@ module.exports = {
                         }]
                     });
                 } else if (type === "author") {
-                    // Fetch and delete messages from the author
-                    await message.channel.bulkDelete({
+                    // Fetch author messages
+                    let messages = await message.channel.messages.fetch({
                         limit: count,
-                        reason: reason,
-                        filter: (m) => m.author.id === message.author.id
-                    });
+                    }).then(messages => messages.filter(m => m.author.id === message.author.id));
+                    // Delete the messages
+                    await message.channel.bulkDelete(messages, true, true);
                     return message.reply({
                         embeds: [{
                             title: "Success",
