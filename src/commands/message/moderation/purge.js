@@ -52,6 +52,8 @@ module.exports = {
                     color: client.colors.error
                 }]
             })
+        } else if (type === undefined || type === null) {
+            type = "all";
         }
 
         if (count > 100) {
