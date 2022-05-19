@@ -93,6 +93,18 @@ module.exports = async function(message, pages) {
         // Reset the timeout
         collector.resetTimer();
 
+        let actionRow = new DJSBuilders.ActionRow();
+        for (let i = 0; i < buttonArray.length; i++) {
+            let newButton = buttonArray[i];
+            if (page === 0 && (i === 0 || i === 1)) {
+                newButton.setDisabled(true);
+            }
+            if (page === pages.length - 1 && (i === 3 || i === 4)) {
+                newButton.setDisabled(true);
+            }
+            actionRow.addComponents(newButton);
+        }
+
         // Send the new page
         await msg.edit({
             content: `Page ${page + 1} of ${pages.length}`,
