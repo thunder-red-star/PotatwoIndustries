@@ -14,7 +14,7 @@ module.exports = {
   aliases: [],
   description: "Beg for potatoes",
   detailedDescription: "You can beg for potatoes with this command. You can get a lot of potatoes from famous people here.",
-  cooldown: 120000,
+  cooldown: 0,
   args: [],
   run: async function(message, client, args) {
     // Check if the user already has an account.
