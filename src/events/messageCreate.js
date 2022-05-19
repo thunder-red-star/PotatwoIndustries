@@ -26,7 +26,7 @@ module.exports = async (message) => {
 	// Check if the command exists
 	let cmd = client.messageCommands.get(command);
 	if (!cmd) {
-		cmd = client.messageCommandAliases.get(command);
+		cmd = client.messageCommands.get(client.messageCommandAliases.get(command));
 		if (!cmd) return;
 	}
 
