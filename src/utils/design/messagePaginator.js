@@ -30,7 +30,7 @@ const buttonArray = [
     })
 ];
 
-module.exports = function(message, pages) {
+module.exports = async function(message, pages) {
     // Message should be a Discord.Message
     // Pages should be an array of Discord.Embeds or DJSBuilders.Embed
 
@@ -41,7 +41,7 @@ module.exports = function(message, pages) {
     }
 
     // Send the page with the array of buttons
-    let msg = message.reply({
+    let msg = await message.reply({
         content: "Loading...",
     })
 

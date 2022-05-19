@@ -44,7 +44,7 @@ module.exports = {
                 }
                 paginatorEmbeds.push(moduleEmbed);
             }
-            messagePaginator(message, paginatorEmbeds);
+            await messagePaginator(message, paginatorEmbeds);
         }t
     }
 }
