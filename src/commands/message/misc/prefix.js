@@ -21,13 +21,13 @@ module.exports = {
 	],
 	run: async function(message, client, args) {
 		let prefix = args.prefix;
-		if (!prefix || prefix === null) {
+		if (!prefix || prefix === null || prefix === "") {
 			let server = client.database.servers.get(message.guild.id);
 			if (!server) {
 				client.database.servers.addServer(message.guild.id);
 				server = client.database.servers.get(message.guild.id);
 			}
-			server.setPrefix(client.config.prefix);
+			server.setPrefix(client.config.defaultPrefix);
 			client.database.write();
 			return message.reply({
 				embeds: [{
