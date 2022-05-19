@@ -34,10 +34,17 @@ module.exports = async function(message, pages) {
     // Message should be a Discord.Message
     // Pages should be an array of Discord.Embeds or DJSBuilders.Embed
 
-    // Create the button row
-    let actionRow = new DJSBuilders.ActionRow();
+    let newActionRow = new DJSBuilders.ActionRow();
     for (let i = 0; i < buttonArray.length; i++) {
-        actionRow.addComponents(buttonArray[i]);
+        // Copy the button into a new button
+        let newButton = new DJSBuilders.ButtonComponent().setCustomId(buttonArray[i].customId).setStyle(buttonArray[i].style).setEmoji(buttonArray[i].emoji);
+        if (page === 0 && (i === 0 || i === 1)) {
+            newButton.setDisabled(true);
+        }
+        if (page === pages.length - 1 && (i === 3 || i === 4)) {
+            newButton.setDisabled(true);
+        }
+        newActionRow.addComponents(newButton);
     }
 
     // Send the page with the array of buttons
@@ -95,7 +102,8 @@ module.exports = async function(message, pages) {
 
         let newActionRow = new DJSBuilders.ActionRow();
         for (let i = 0; i < buttonArray.length; i++) {
-            let newButton = buttonArray[i];
+            // Copy the button into a new button
+            let newButton = new DJSBuilders.ButtonComponent().setCustomId(buttonArray[i].customId).setStyle(buttonArray[i].style).setEmoji(buttonArray[i].emoji);
             if (page === 0 && (i === 0 || i === 1)) {
                 newButton.setDisabled(true);
             }
