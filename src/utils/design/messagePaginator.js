@@ -88,6 +88,8 @@ module.exports = async function(message, pages) {
                 break;
         }
 
+        await button.deferUpdate();
+
         // Reset the timeout
         collector.resetTimer();
 
