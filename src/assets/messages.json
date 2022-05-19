@@ -40,7 +40,7 @@
     "You look up at the sky and see **{amount}** {potato} fall into your arms.",
     "Another potato farmer dropped **{amount}** {potato} on the ground, which you now have.",
     "You received **{amount}** {potato} from {person}.",
-    "**{amount}** {potato} spontaneously appear in your hands.",
+    "**{amount}** {potato} spontaneously appear in your hands."
   ],
   "people": [
     "Donald Trump",
