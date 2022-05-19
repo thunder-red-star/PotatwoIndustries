@@ -35,6 +35,7 @@ module.exports = async function(message, pages) {
     // Pages should be an array of Discord.Embeds or DJSBuilders.Embed
 
     let newActionRow = new DJSBuilders.ActionRow();
+    let page = 0;
     for (let i = 0; i < buttonArray.length; i++) {
         // Copy the button into a new button
         let newButton = new DJSBuilders.ButtonComponent().setCustomId(buttonArray[i].custom_id).setStyle(buttonArray[i].style).setEmoji(buttonArray[i].emoji);
@@ -52,7 +53,6 @@ module.exports = async function(message, pages) {
         content: "Loading...",
     })
 
-    let page = 0;
 
     // Send the first page
     await msg.edit({
@@ -103,7 +103,7 @@ module.exports = async function(message, pages) {
         let newActionRow = new DJSBuilders.ActionRow();
         for (let i = 0; i < buttonArray.length; i++) {
             // Copy the button into a new button
-            let newButton = new DJSBuilders.ButtonComponent().setCustomId(buttonArray[i].customId).setStyle(buttonArray[i].style).setEmoji(buttonArray[i].emoji);
+            let newButton = new DJSBuilders.ButtonComponent().setCustomId(buttonArray[i].custom_id).setStyle(buttonArray[i].style).setEmoji(buttonArray[i].emoji);
             if (page === 0 && (i === 0 || i === 1)) {
                 newButton.setDisabled(true);
             }
