@@ -10,7 +10,7 @@ module.exports = {
   enabled: true,
   guildOnly: false,
   ownerOnly: false,
-  name: "farm",
+  name: "beg",
   aliases: [],
   description: "Beg for potatoes",
   detailedDescription: "You can beg for potatoes with this command. You can get a lot of potatoes from famous people here.",
