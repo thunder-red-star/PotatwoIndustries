@@ -37,13 +37,17 @@ module.exports = {
                     .setTitle(`${upperCaseModule} Commands`)
                     .setDescription("You can use `" + serverPrefix + "help <command>` to get more information about a command.")
                     .setColor(client.colors.success);
-                for (let j = 0; j < commandsInModule.length; j++) {
-                    let command = require(`../../../commands/message/${modules[i]}/${commandsInModule[j]}`);
-                    moduleEmbed.addField({
-                        name: `\`${serverPrefix}${command.name}\``,
-                        value: command.description,
-                        inline: false
-                    });
+                if (commandsInModule.length > 0) {
+                    for (let j = 0; j < commandsInModule.length; j++) {
+                        let command = require(`../../../commands/message/${modules[i]}/${commandsInModule[j]}`);
+                        moduleEmbed.addField({
+                            name: `\`${serverPrefix}${command.name}\``,
+                            value: command.description,
+                            inline: false
+                        });
+                    }
+                } else {
+                    moduleEmbed.setDescription("No commands (yet).");
                 }
                 paginatorEmbeds.push(moduleEmbed);
             }
