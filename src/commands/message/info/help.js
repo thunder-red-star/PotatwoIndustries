@@ -63,6 +63,9 @@ module.exports = {
             } else {
                 // Send the command's help message.
                 let cmdArgString = "";
+                if (command.args.length > 0) {
+                    cmdArgString += " ";
+                }
                 for (let i = 0; i < command.args.length; i++) {
                     if (i > 0) cmdArgString += " ";
                     if (command.args[i].required) {
@@ -77,7 +80,7 @@ module.exports = {
                     .setColor(client.colors.success)
                     .addField({
                         name: "Usage",
-                        value: `\`${serverPrefix}${command.name} ${cmdArgString}\``,
+                        value: `\`${serverPrefix}${command.name}${cmdArgString}\``,
                     })
                     .addField({
                         name: "Aliases",
