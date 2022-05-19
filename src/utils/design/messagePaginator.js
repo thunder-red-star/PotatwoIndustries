@@ -123,9 +123,7 @@ module.exports = async function(message, pages) {
 
     collector.on('end', async (collected, reason) => {
         // If message was deleted, do nothing
-        if (reason === 'messageDelete') {
-            return;
-        } else if (reason === 'time') {
+        try {
             // Create a new action row, but with all buttons disabled
             let actionRow = new DJSBuilders.ActionRow();
             for (let i = 0; i < buttonArray.length; i++) {
@@ -138,6 +136,8 @@ module.exports = async function(message, pages) {
                 embeds: [pages[page]],
                 components: [actionRow]
             });
+        } catch (e) {
+            // Do nothing since message was deleted
         }
     });
 
