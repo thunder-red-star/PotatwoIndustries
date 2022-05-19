@@ -48,7 +48,7 @@ module.exports = async function(message, pages) {
     let page = 0;
 
     // Send the first page
-    msg.edit({
+    await msg.edit({
         content: `Page ${page + 1} of ${pages.length}`,
         embeds: [pages[page]],
         components: [actionRow]
@@ -59,13 +59,13 @@ module.exports = async function(message, pages) {
         button !== null;
     };
 
-    const collector = msg.createMessageComponentCollector(filter, {
+    const collector = await msg.createMessageComponentCollector(filter, {
         filter,
         timeout: 60000
     });
 
     // Add the button collector event listeners
-    collector.on('collect', (button) => {
+    collector.on('collect', async (button) => {
         switch (button.customId) {
             case 'first':
                 page = 0;
@@ -92,14 +92,14 @@ module.exports = async function(message, pages) {
         collector.resetTimer();
 
         // Send the new page
-        msg.edit({
+        await msg.edit({
             content: `Page ${page + 1} of ${pages.length}`,
             embeds: [pages[page]],
             components: [actionRow]
         });
     });
 
-    collector.on('end', (collected, reason) => {
+    collector.on('end', async (collected, reason) => {
         // If message was deleted, do nothing
         if (reason === 'messageDelete') {
             return;
@@ -111,7 +111,7 @@ module.exports = async function(message, pages) {
             }
 
             // Send the new page
-            msg.edit({
+            await msg.edit({
                 content: `Page ${page + 1} of ${pages.length}`,
                 embeds: [pages[page]],
                 components: [actionRow]
