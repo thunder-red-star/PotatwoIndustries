@@ -44,7 +44,7 @@ module.exports = {
                 });
             }
             // Check if the user has enough potatoes
-            if (user.potatoes < args.amount) {
+            if (user.count < args.amount) {
                 return message.reply({
                     embeds: [{
                         color: client.colors.warning,
