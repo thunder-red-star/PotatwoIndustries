@@ -2,6 +2,7 @@
   "token": "your-token-here",
   "defaultPrefix": "!",
   "owner": "your-discord-id-here",
+  "taxRate": 0.05,
   "interactions": {
     "deployGuildId": "your-deploy-guild-id-here"
   },
