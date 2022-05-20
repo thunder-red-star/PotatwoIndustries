@@ -53,6 +53,8 @@ module.exports = {
                 });
             }
 
+            let amount = Math.floor(args.amount);
+
             // Gamble for potatoes.
             // Flip two dice. The sum is the number the bot flips.
             let dice1 = Math.floor(Math.random() * 6) + 1;
@@ -68,25 +70,25 @@ module.exports = {
             if (botSum > userSum) {
                 // User lost.
                 // Remove the potatoes from the user's account.
-                user.addPotatoes(args.amount * -1);
+                user.addPotatoes(amount * -1);
                 client.database.write();
                 // Send the message.
                 return message.reply({
                     embeds: [{
                         color: client.colors.potato,
-                        description: "You flipped: **" + userSum + "**\n" + "I flipped: **" + botSum + "**\n" + "\n\nYou lost " + args.amount + client.customEmojis.potato + ". You now have " + user.count + client.customEmojis.potato + "."
+                        description: "You flipped: **" + userSum + "**\n" + "I flipped: **" + botSum + "**\n" + "\n\nYou lost " + amount + client.customEmojis.potato + ". You now have " + user.count + client.customEmojis.potato + "."
                     }]
                 });
             } else if (botSum < userSum) {
                 // User won.
                 // Add the potatoes to the user's account.
-                user.addPotatoes(args.amount);
+                user.addPotatoes(amount);
                 client.database.write();
                 // Send the message.
                 return message.reply({
                     embeds: [{
                         color: client.colors.potato,
-                        description: "You flipped: **" + userSum + "**\n" + "I flipped: **" + botSum + "**\n" + "\n\nYou won " + args.amount + client.customEmojis.potato + ". You now have " + user.count + client.customEmojis.potato + "."
+                        description: "You flipped: **" + userSum + "**\n" + "I flipped: **" + botSum + "**\n" + "\n\nYou won " + amount + client.customEmojis.potato + ". You now have " + user.count + client.customEmojis.potato + "."
                     }]
                 });
             } else {
