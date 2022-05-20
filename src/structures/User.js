@@ -8,6 +8,7 @@ class User {
 		this.count = 0;
 		this.inventory = new Inventory();
 		this.blacklisted = false;
+		this.passive = false;
 	}
 
 	// Set count
@@ -35,11 +36,27 @@ class User {
 		return this.blacklisted;
 	}
 
+	// Get inventory
+	getInventory () {
+		return this.inventory;
+	}
+
+	// Get passive
+	isPassive () {
+		return this.passive;
+	}
+
+	// Toggle passive
+	togglePassive () {
+		this.passive = !this.passive;
+	}
+
 	fromJSON (json) {
 		this.id = json.id;
 		this.count = json.count;
 		this.inventory = new Inventory().fromJSON(json.inventory);
 		this.blacklisted = json.blacklisted;
+		this.passive = json.passive;
 		return this;
 	}
 
@@ -48,7 +65,8 @@ class User {
 			id: this.id,
 			count: this.count,
 			inventory: this.inventory.toJSON(),
-			blacklisted: this.blacklisted
+			blacklisted: this.blacklisted,
+			passive: this.passive
 		};
 	}
 }
