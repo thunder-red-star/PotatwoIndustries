@@ -16,7 +16,7 @@ module.exports = {
     args: [],
     run: async function(message, client, args) {
         // Create an invite embed.
-        const inviteEmbed = new DJSBuilders.MessageEmbed()
+        const inviteEmbed = new DJSBuilders.Embed()
             .setTitle("Click here invite")
             .setDescription("Pls?")
             .setColor(client.colors.success);
