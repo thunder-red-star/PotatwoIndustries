@@ -40,6 +40,26 @@ module.exports = {
                 }]
             });
         } else {
+            // If the user tries to give potatoes to themselves, return an error.
+            if (message.author.id === args.target.id) {
+                return message.reply({
+                    embeds: [{
+                        color: client.colors.warning,
+                        description: client.customEmojis.warning + " Why would you want to give potatoes to yourself?"
+                    }]
+                });
+            }
+
+            // Check if the user is trying to give potatoes to a bot
+            if (args.target.bot) {
+                return message.reply({
+                    embeds: [{
+                        color: client.colors.warning,
+                        description: client.customEmojis.warning + " You can't give potatoes to a bot!"
+                    }]
+                });
+            }
+
             // Get the target user.
             let target = client.database.users.get(args.target.id);
             if (!target) {
