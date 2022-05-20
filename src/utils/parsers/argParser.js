@@ -89,6 +89,9 @@ module.exports = async function(message, argTemplate) {
         // The current argument value is a number
         // Set the current argument value to the parsed number
         argValue = parseInt(argValue);
+        if (argValue.toString().includes("NaN")) {
+          argValue = null;
+        }
       }
     } else if (argType === "boolean") {
       // The current argument is a boolean
