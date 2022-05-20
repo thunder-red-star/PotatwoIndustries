@@ -47,7 +47,7 @@ module.exports = {
                 return message.reply({
                     embeds: [{
                         color: client.colors.potato,
-                        description: randomArrayElement(client.messages.farmNegativePotatoes).replace("{amount}", potatoCount).replace("{potato}", client.customEmojis.potato)
+                        description: randomArrayElement(client.messages.farmNegativePotatoes).replace("{amount}", potatoCount * -1).replace("{potato}", client.customEmojis.potato)
                     }]
                 });
             }
