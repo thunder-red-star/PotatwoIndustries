@@ -5,7 +5,7 @@ const ms = require("ms");
 const DJSBuilders = require("@discordjs/builders");
 
 module.exports = {
-    botPermissions: ["SEND_MESSAGES"],
+    botPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "ATTACH_FILES", "USE_EXTERNAL_EMOJIS"],
     userPermissions: [],
     enabled: true,
     guildOnly: false,
