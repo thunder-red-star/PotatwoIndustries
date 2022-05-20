@@ -10,6 +10,17 @@ module.exports = async (message) => {
 	if (message.author.bot) return;
 	if (message.webhookId) return;
 
+	// If the bot gets mentioned, respond with the bot's prefix.
+	if (message.mentions.has(client.user)) {
+		message.channel.send({
+			embeds: [{
+				color: client.colors.potato,
+				title: "Hi!",
+				description: "My prefix is `" + client.getServerPrefix(message) + "`. Use `" + client.getServerPrefix(message) + "help` to see my commands."
+			}]
+		});
+	}
+
 	// Check if the message starts with the prefix
 	let guild = message.guild;
 	let prefix = client.getServerPrefix(message);
