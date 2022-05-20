@@ -88,7 +88,7 @@ module.exports = {
                 return message.reply({
                     embeds: [{
                         color: client.colors.potato,
-                        description: "You flipped: **" + userSum + "**\n" + "I flipped: **" + botSum + "**\n" + "\n\nYou won " + amount + client.customEmojis.potato + ". You now have " + user.count + client.customEmojis.potato + "."
+                        description: "You flipped: **" + userSum + "**\n" + "I flipped: **" + botSum + "**" + "\n\nYou won " + amount + client.customEmojis.potato + ". You now have " + user.count + client.customEmojis.potato + "."
                     }]
                 });
             } else {
