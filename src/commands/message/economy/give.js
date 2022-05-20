@@ -76,7 +76,7 @@ module.exports = {
                     message.reply({
                         embeds: [{
                             color: client.colors.success,
-                            description: client.customEmojis.success + " You gave **" + newCount + "** " + client.customEmojis.potato + " to **" + args.target.username + "** (with a tax of " + client.config.taxRate * 100 + "%)."
+                            description: client.customEmojis.check + " You gave **" + newCount + "** " + client.customEmojis.potato + " to **" + args.target.username + "** (with a tax of " + client.config.taxRate * 100 + "%)."
                         }]
                     });
                 }
