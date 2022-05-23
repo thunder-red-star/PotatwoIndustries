@@ -40,7 +40,7 @@ module.exports = {
                 }]
             });
         } else {
-            if (status === null) {
+            if (status === null || status === undefined) {
                 user.togglePassive();
                 client.database.write();
                 return message.reply({
