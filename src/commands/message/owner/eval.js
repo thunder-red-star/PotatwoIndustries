@@ -88,10 +88,6 @@ module.exports = {
             if (charCountLeft > 0) {
                 messagePayload.files = [evalAttachment];
             }
-        }
-        if (time2 - time1 > 10000) {
-            return message.channel.send(messagePayload);
-        } else {
             return message.channel.send(messagePayload);
         }
     }
