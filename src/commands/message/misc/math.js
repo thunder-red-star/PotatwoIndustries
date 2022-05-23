@@ -57,7 +57,7 @@ module.exports = {
                     },
                     {
                         name: "Result",
-                        value: result,
+                        value: result.toString(),
                     }]
                 }]
             });
