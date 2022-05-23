@@ -4,15 +4,15 @@ module.exports = {
     enabled: true,
     guildOnly: false,
     ownerOnly: false,
-    name: "deposit",
-    aliases: ["dep"],
-    description: "Allows you to deposit money into your bank account.",
-    detailedDescription: "Allows you to deposit money into your bank account.",
+    name: "withdraw",
+    aliases: ["with"],
+    description: "Allows you to withdraw money from your bank account.",
+    detailedDescription: "Allows you to withdraw money from your bank account.",
     cooldown: 180000,
     args: [
         {
             name: "amount",
-            description: "The amount of money to deposit.",
+            description: "The amount of money to withdraw.",
             type: "number",
             required: true
         }
@@ -34,24 +34,24 @@ module.exports = {
                 return message.reply({
                     embeds: [{
                         color: client.colors.warning,
-                        description: client.customEmojis.warning + " You cannot deposit a negative amount of money."
+                        description: client.customEmojis.warning + " You cannot withdraw a negative amount of money."
                     }]
                 });
-            } else if (amount > user.count) {
+            } else if (amount > user.bank) {
                 return message.reply({
                     embeds: [{
                         color: client.colors.warning,
-                        description: client.customEmojis.warning + " You do not have that much money."
+                        description: client.customEmojis.warning + " You do not have that much money in your bank account."
                     }]
                 });
             } else {
-                user.addBank(Math.floor(amount));
-                user.addPotatoes(-Math.floor(amount));
+                user.addBank(-Math.floor(amount));
+                user.addPotatoes(Math.floor(amount));
                 client.database.write();
                 return message.reply({
                     embeds: [{
                         color: client.colors.success,
-                        description: client.customEmojis.check + " You have deposited **" + Math.floor(amount) + "**" + client.customEmojis.potato + " into your bank account."
+                        description: client.customEmojis.check + " You have withdrawn **" + Math.floor(amount) + "**" + client.customEmojis.potato + " from your bank account."
                     }]
                 });
             }
