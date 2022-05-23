@@ -83,6 +83,6 @@
     "You tried to rob {target}, but you were caught and had to pay a fine of **{amount}** {potato}.",
     "You made too much noise trying to steal from {target}, and they caught you and had to pay a fine of **{amount}** {potato}.",
     "You tried to rob {target} but you fell over a fence and had to pay **{amount}** {potato} for the hospital bill.",
-    "You tried to rob {target} but you tripped over a rock and had to pay **{amount}** {potato} for damages.",
+    "You tried to rob {target} but you tripped over a rock and had to pay **{amount}** {potato} for damages."
   ]
 }
