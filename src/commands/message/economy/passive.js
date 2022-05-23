@@ -56,7 +56,7 @@ module.exports = {
                     return message.reply({
                         embeds: [{
                             color: client.colors.success,
-                            description: client.customEmojis.success + " You are now in passive mode."
+                            description: client.customEmojis.check + " You are now in passive mode."
                         }]
                     });
                 } else if (falseStatuses.includes(status.toLowerCase())) {
@@ -65,7 +65,7 @@ module.exports = {
                     return message.reply({
                         embeds: [{
                             color: client.colors.success,
-                            description: client.customEmojis.success + " You are now out of passive mode."
+                            description: client.customEmojis.check + " You are now out of passive mode."
                         }]
                     });
                 } else {
