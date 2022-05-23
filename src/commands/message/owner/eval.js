@@ -81,7 +81,7 @@ module.exports = {
                         color: client.colors.warning,
                         fields: [{
                             name: "Result",
-                            value: "```" + result.replace(client.token, "*".repeat(client.token.length)) + "```"
+                            value: "```" + (result !== undefined ? result.toString().replace(client.token, "*".repeat(client.token.length)) : "No output") + "```"
                         },
                             {
                                 name: "Evaluated in",
@@ -97,7 +97,7 @@ module.exports = {
                         color: client.colors.success,
                         fields: [{
                             name: "Result",
-                            value: "```" + result.replace(client.token, "*".repeat(client.token.length)) + "```"
+                            value: "```" + (result !== undefined ? result.toString().replace(client.token, "*".repeat(client.token.length)) : "No output") + "```"
                         },
                         {
                             name: "Evaluated in",
