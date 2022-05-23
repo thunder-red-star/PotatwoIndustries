@@ -44,8 +44,6 @@ module.exports = {
 
         time2 = Date.now();
 
-        console.log(`${message.author.tag} ran code and got ${result} in ${ms(time2 - time1)}`);
-
         // If the result is a string, truncate it to 1000 characters, and count the number of characters left.
 
         let charCountLeft = 0;
@@ -71,7 +69,7 @@ module.exports = {
         } else {
             let evalAttachment;
             if (charCountLeft > 0) {
-                evalAttachment = new Discord.Attachment(result, "eval.txt").setDescription(`${result}\n\n**${charCountLeft}** more characters.`);
+                evalAttachment = new Discord.Attachment(Buffer.from(result), "eval.txt").setDescription(`${result}\n\n**${charCountLeft}** more characters.`);
             }
             let messagePayload = {
                 embeds: [{
