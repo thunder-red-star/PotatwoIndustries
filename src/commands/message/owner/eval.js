@@ -13,14 +13,9 @@ module.exports = {
     description: "Evaluates code.",
     detailedDescription: "Evaluates code. Only the bot owner can use this command.",
     cooldown: 2500,
-    args: [
-        {
-            name: "code",
-            description: "The code to evaluate.",
-            type: "string",
-            required: true
-        }
-    ],
+    args: [{
+        name: "code", description: "The code to evaluate.", type: "string", required: true
+    }],
     run: async function (message, client, args) {
         // Assume args are all parsed, and provided as an object with keys. Get the code key.
         let code = args.code;
@@ -67,12 +62,9 @@ module.exports = {
                     description: client.customEmojis.cross + " I encountered an error while evaluating your code.",
                     color: client.colors.error,
                     fields: [{
-                        name: "Error",
-                        value: "```" + result.toString() + "```"
-                    },
-                    {
-                        name: "Evaluated in",
-                        value: ms(time2 - time1, {long: true})
+                        name: "Error", value: "```" + result.toString() + "```"
+                    }, {
+                        name: "Evaluated in", value: ms(time2 - time1, {long: true})
                     }]
                 }]
             });
@@ -80,41 +72,27 @@ module.exports = {
             if (charCountLeft > 0) {
                 let evalAttachment = new Discord.Attachment(result, "eval.txt").setDescription(`${result}\n\n**${charCountLeft}** more characters.`);
             }
-            if (time2 - time1 > 10000) {
-                return message.channel.send({
-                    embeds: [{
-                        title: "Evaluation",
-                        description: client.customEmojis.warning + " I successfully evaluated your code, but it took longer than 10 seconds to execute.",
-                        color: client.colors.warning,
-                        fields: [{
-                            name: "Result",
-                            value: "```" + (result !== undefined ? result.toString().replace(client.token, "*".repeat(client.token.length)) : "No output") + (charCountLeft > 0 ? " ... " + charCountLeft + " characters left" : "") + "```"
-                        },
-                            {
-                                name: "Evaluated in",
-                                value: ms(time2 - time1, {long: true})
-                            }]
-                    }],
-                    files: [(charCountLeft > 0 ? evalAttachment : undefined)]
-                });
-            } else {
-                return message.channel.send({
-                    embeds: [{
-                        title: "Evaluation",
-                        description: client.customEmojis.check + " I successfully evaluated your code.",
-                        color: client.colors.success,
-                        fields: [{
-                            name: "Result",
-                            value: "```" + (result !== undefined ? result.toString().replace(client.token, "*".repeat(client.token.length)) : "No output") + (charCountLeft > 0 ? " ... " + charCountLeft + " characters left" : "") + "```"
-                        },
-                        {
-                            name: "Evaluated in",
-                            value: ms(time2 - time1, {long: true})
-                        }]
-                    }],
-                    files: [(charCountLeft > 0 ? evalAttachment : undefined)]
-                });
+            let messagePayload = {
+                embeds: [{
+                    title: "Evaluation",
+                    description: client.customEmojis.warning + " I successfully evaluated your code" + (time2 - time1 > 10000 ? " but it took longer than 10 seconds." : "."),
+                    color: client.colors.warning,
+                    fields: [{
+                        name: "Result",
+                        value: "```" + (result !== undefined ? result.toString().replace(client.token, "*".repeat(client.token.length)) : "No output") + (charCountLeft > 0 ? " ... " + charCountLeft + " characters left" : "") + "```"
+                    }, {
+                        name: "Evaluated in", value: ms(time2 - time1, {long: true})
+                    }]
+                }]
             }
+            if (charCountLeft > 0) {
+                messagePayload.files = [evalAttachment];
+            }
+        }
+        if (time2 - time1 > 10000) {
+            return message.channel.send(messagePayload);
+        } else {
+            return message.channel.send(messagePayload);
         }
     }
 }
