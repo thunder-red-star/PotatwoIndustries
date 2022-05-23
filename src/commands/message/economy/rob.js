@@ -107,7 +107,7 @@ module.exports = {
                                 return message.reply({
                                     embeds: [{
                                         color: client.colors.potato,
-                                        description: client.messages.robSuccess.replace("{amount}", potatoes).replace("{target}", args.target.username).replace("{potatoes}", client.customEmojis.potato)
+                                        description: randomArrayElement(client.messages.robSuccess).replace("{amount}", potatoes).replace("{target}", args.target.username).replace("{potatoes}", client.customEmojis.potato)
                                     }]
                                 });
                             } else {
@@ -125,7 +125,7 @@ module.exports = {
                                     return message.reply({
                                         embeds: [{
                                             color: client.colors.warning,
-                                            description: client.messages.robPayFee.replace("{amount}", fee).replace("{potatoes}", client.customEmojis.potato).replace("{target}", args.target.username)
+                                            description: randomArrayElement(client.messages.robPayFee).replace("{amount}", fee).replace("{potatoes}", client.customEmojis.potato).replace("{target}", args.target.username)
                                         }]
                                     });
                                 } else {
@@ -134,7 +134,7 @@ module.exports = {
                                     return message.reply({
                                         embeds: [{
                                             color: client.colors.warning,
-                                            description: client.messages.robFail.replace("{target}", args.target.username)
+                                            description: randomArrayElement(client.messages.robFail).replace("{target}", args.target.username)
                                         }]
                                     });
                                 }
