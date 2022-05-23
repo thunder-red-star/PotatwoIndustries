@@ -46,7 +46,7 @@ module.exports = {
                 return message.reply({
                     embeds: [{
                         color: client.colors.success,
-                        description: client.customEmojis.success + " You are now " + (user.passive ? "in" : "out of") + " passive mode."
+                        description: client.customEmojis.check + " You are now " + (user.passive ? "in" : "out of") + " passive mode."
                     }]
                 });
             } else {
