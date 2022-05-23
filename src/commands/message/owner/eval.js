@@ -1,5 +1,6 @@
 // Bot eval command.
 const ms = require("ms");
+const Discord = require("discord.js");
 
 module.exports = {
     botPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "ATTACH_FILES", "USE_EXTERNAL_EMOJIS"],
@@ -50,9 +51,12 @@ module.exports = {
 
         console.log(`${message.author.tag} ran code and got ${result} in ${ms(time2 - time1)}`);
 
-        // If the result is a string, truncate it to 2000 characters.
+        // If the result is a string, truncate it to 1000 characters, and count the number of characters left.
+
+        let charCountLeft = 0;
         if (typeof result === "string") {
-            result = result.substring(0, 2000);
+            result = result.substring(0, 1000);
+            charCountLeft = result.length - 1000;
         }
 
         // Send the result.
@@ -73,6 +77,9 @@ module.exports = {
                 }]
             });
         } else {
+            if (charCountLeft > 0) {
+                let evalAttachment = new Discord.MessageAttachment(result, "eval.txt");
+            }
             if (time2 - time1 > 10000) {
                 return message.channel.send({
                     embeds: [{
@@ -81,13 +88,14 @@ module.exports = {
                         color: client.colors.warning,
                         fields: [{
                             name: "Result",
-                            value: "```" + (result !== undefined ? result.toString().replace(client.token, "*".repeat(client.token.length)) : "No output") + "```"
+                            value: "```" + (result !== undefined ? result.toString().replace(client.token, "*".repeat(client.token.length)) : "No output") + (charCountLeft > 0 ? " ... " + charCountLeft + " characters left" : "") + "```"
                         },
                             {
                                 name: "Evaluated in",
                                 value: ms(time2 - time1, {long: true})
                             }]
-                    }]
+                    }],
+                    files: [evalAttachment]
                 });
             } else {
                 return message.channel.send({
@@ -97,13 +105,14 @@ module.exports = {
                         color: client.colors.success,
                         fields: [{
                             name: "Result",
-                            value: "```" + (result !== undefined ? result.toString().replace(client.token, "*".repeat(client.token.length)) : "No output") + "```"
+                            value: "```" + (result !== undefined ? result.toString().replace(client.token, "*".repeat(client.token.length)) : "No output") + (charCountLeft > 0 ? " ... " + charCountLeft + " characters left" : "") + "```"
                         },
                         {
                             name: "Evaluated in",
                             value: ms(time2 - time1, {long: true})
                         }]
-                    }]
+                    }],
+                    files: [evalAttachment]
                 });
             }
         }
