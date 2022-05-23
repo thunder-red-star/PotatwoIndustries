@@ -50,8 +50,8 @@ module.exports = {
                 client.database.write();
                 return message.reply({
                     embeds: [{
-                        color: client.colors.success,
-                        description: client.customEmojis.check + " You have deposited **" + Math.floor(amount) + "**" + client.customEmojis.potato + " into your bank account."
+                        color: client.colors.potato,
+                        description: "You have deposited **" + Math.floor(amount) + "**" + client.customEmojis.potato + " into your bank account."
                     }]
                 });
             }
