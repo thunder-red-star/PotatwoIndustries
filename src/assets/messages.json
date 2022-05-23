@@ -62,5 +62,27 @@
     "the original Potato Industries",
     "Bill Nye the Science Guy",
     "Simp515TheReal"
+  ],
+  "robSuccess": [
+    "You stole **{amount}** {potato} from {target}'s \"secret\" warehouse.",
+    "You carefully stepped over {target}'s traps and get away with **{amount}** {potato}.",
+    "The police caught you, but you managed to hide the **{amount}** {potato} you stole from {target}.",
+    "Everyone in the server was shocked when you stole **{amount}** {potato} from {target}.",
+    "While the moon was shining overhead, you stole **{amount}** {potato} from {target}.",
+    "{target} was sleeping, and you stole **{amount}** {potato} from their warehouse."
+  ],
+  "robFail": [
+    "You tried to steal from {target}, but you tripped over your shoelaces and failed.",
+    "You weren't careful and you stepped right into {target}'s trap, and they caught you.",
+    "You're so bad that you couldn't steal from {target}.",
+    "Maybe you should have used a bigger gun.",
+    "Looks like you're not very good at this game. You failed to steal from {target}.",
+    "The potatoes aren't on your side."
+  ],
+  "robPayFee": [
+    "You tried to rob {target}, but you were caught and had to pay a fine of **{amount}** {potato}.",
+    "You made too much noise trying to steal from {target}, and they caught you and had to pay a fine of **{amount}** {potato}.",
+    "You tried to rob {target} but you fell over a fence and had to pay **{amount}** {potato} for the hospital bill.",
+    "You tried to rob {target} but you tripped over a rock and had to pay **{amount}** {potato} for damages.",
   ]
 }
