@@ -64,11 +64,7 @@ module.exports = {
                     fields: [{
                         name: "Error",
                         value: "```" + result.replace(client.token, "*".repeat(client.token.length)) + "```"
-                    },
-                        {
-                            name: "Evaluated in",
-                            value: ms(time2 - time1, {long: true})
-                        }]
+                    }]
                 }]
             });
         } else {
