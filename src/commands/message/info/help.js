@@ -71,8 +71,8 @@ module.exports = {
                     } else {
                         moduleEmbed.setDescription("No commands (yet).");
                     }
+                    paginatorEmbeds.push(moduleEmbed);
                 }
-                paginatorEmbeds.push(moduleEmbed);
             }
             await messagePaginator(message, paginatorEmbeds);
         } else {
