@@ -78,7 +78,7 @@ module.exports = {
             });
         } else {
             if (charCountLeft > 0) {
-                let evalAttachment = new Discord.MessageAttachment(result, "eval.txt");
+                let evalAttachment = new Discord.Attachment(result, "eval.txt").setDescription(`${result}\n\n**${charCountLeft}** more characters.`);
             }
             if (time2 - time1 > 10000) {
                 return message.channel.send({
