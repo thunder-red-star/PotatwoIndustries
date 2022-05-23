@@ -106,7 +106,7 @@ module.exports = {
                                 // Send a message to the user.
                                 return message.reply({
                                     embeds: [{
-                                        color: client.colors.potato,
+                                        color: client.colors.success,
                                         description: randomArrayElement(client.messages.robSuccess).replace("{amount}", potatoes).replace("{target}", args.target.username).replace("{potato}", client.customEmojis.potato)
                                     }]
                                 });
@@ -124,7 +124,7 @@ module.exports = {
                                     // Send a message to the user.
                                     return message.reply({
                                         embeds: [{
-                                            color: client.colors.warning,
+                                            color: client.colors.error,
                                             description: randomArrayElement(client.messages.robPayFee).replace("{amount}", fee).replace("{potato}", client.customEmojis.potato).replace("{target}", args.target.username)
                                         }]
                                     });
