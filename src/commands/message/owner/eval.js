@@ -46,7 +46,7 @@ module.exports = {
             status = "error";
         }
 
-        console.log(`${message.author.tag} ran code and got ${result} in ${ms(time2 - time1)}`);
+        console.log(`${message.author.tag} ran code and got ${result}`);
 
         // If the result is a string, truncate it to 2000 characters.
         if (typeof result === "string") {
