@@ -8,7 +8,7 @@ module.exports = {
     aliases: ["dep"],
     description: "Allows you to deposit money into your bank account.",
     detailedDescription: "Allows you to deposit money into your bank account.",
-    cooldown: 180000,
+    cooldown: 2500,
     args: [
         {
             name: "amount",

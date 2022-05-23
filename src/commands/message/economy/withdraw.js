@@ -8,7 +8,7 @@ module.exports = {
     aliases: ["with"],
     description: "Allows you to withdraw money from your bank account.",
     detailedDescription: "Allows you to withdraw money from your bank account.",
-    cooldown: 180000,
+    cooldown: 2500,
     args: [
         {
             name: "amount",
