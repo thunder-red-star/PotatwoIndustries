@@ -95,7 +95,7 @@ module.exports = {
                                 value: ms(time2 - time1, {long: true})
                             }]
                     }],
-                    files: [evalAttachment]
+                    files: [(charCountLeft > 0 ? evalAttachment : undefined)]
                 });
             } else {
                 return message.channel.send({
@@ -112,7 +112,7 @@ module.exports = {
                             value: ms(time2 - time1, {long: true})
                         }]
                     }],
-                    files: [evalAttachment]
+                    files: [(charCountLeft > 0 ? evalAttachment : undefined)]
                 });
             }
         }
