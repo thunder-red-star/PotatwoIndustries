@@ -20,7 +20,7 @@ module.exports = {
             required: true
         }
     ],
-    run: async function(message, client, args) {
+    run: async function (message, client, args) {
         // Assume args are all parsed, and provided as an object with keys. Get the code key.
         let code = args.code;
 
@@ -56,7 +56,7 @@ module.exports = {
 
         // Send the result.
         if (status === "error") {
-            message.channel.send({
+            return message.channel.send({
                 embeds: [{
                     title: "Error",
                     description: client.customEmojis.cross + " I encountered an error while evaluating your code.",
@@ -65,28 +65,46 @@ module.exports = {
                         name: "Error",
                         value: "```" + result.replace(client.token, "*".repeat(client.token.length)) + "```"
                     },
-                    {
-                        name: "Stack",
-                        value: "```" + result.stack.replace(client.token, "*".repeat(client.token.length)) + "```"
-                    }]
+                        {
+                            name: "Evaluated in",
+                            value: ms(time2 - time1, {long: true})
+                        }]
                 }]
             });
         } else {
-            message.channel.send({
-                embeds: [{
-                    title: "Evaluation",
-                    description: client.customEmojis.check + " I successfully evaluated your code.",
-                    color: client.colors.success,
-                    fields: [{
-                        name: "Result",
-                        value: "```" + result.replace(client.token, "*".repeat(client.token.length)) + "```"
-                    },
-                    {
-                        name: "Evaluated in",
-                        value: ms(time2 - time1, {long: true})
+            if (time2 - time1 > 10000) {
+                return message.channel.send({
+                    embeds: [{
+                        title: "Evaluation",
+                        description: client.customEmojis.warning + " I successfully evaluated your code, but it took longer than 10 seconds to execute.",
+                        color: client.colors.warning,
+                        fields: [{
+                            name: "Result",
+                            value: "```" + result.replace(client.token, "*".repeat(client.token.length)) + "```"
+                        },
+                            {
+                                name: "Evaluated in",
+                                value: ms(time2 - time1, {long: true})
+                            }]
                     }]
-                }]
-            });
+                });
+            } else {
+                return message.channel.send({
+                    embeds: [{
+                        title: "Evaluation",
+                        description: client.customEmojis.check + " I successfully evaluated your code.",
+                        color: client.colors.success,
+                        fields: [{
+                            name: "Result",
+                            value: "```" + result.replace(client.token, "*".repeat(client.token.length)) + "```"
+                        },
+                        {
+                            name: "Evaluated in",
+                            value: ms(time2 - time1, {long: true})
+                        }]
+                    }]
+                });
+            }
         }
     }
 }
