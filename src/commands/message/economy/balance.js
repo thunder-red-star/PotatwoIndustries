@@ -36,8 +36,16 @@ module.exports = {
       return message.reply({
         embeds: [{
           title: target.id === message.author.id ? "Your balance" : `${target.username}'s balance`,
-          description: `${client.customEmojis.potato} **${targetAccount.count}** potatoes`,
-          color: client.colors.potato
+          color: client.colors.potato,
+          fields: [{
+            name: "Pocket",
+            value: `${targetAccount.count} ${client.customEmojis.potato}`,
+            inline: true
+          }, {
+            name: "Bank",
+            value: `${targetAccount.bank} ${client.customEmojis.potato}`,
+            inline: true
+          }
         }]
       });
     }
