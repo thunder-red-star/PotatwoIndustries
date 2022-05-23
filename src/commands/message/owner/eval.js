@@ -46,6 +46,8 @@ module.exports = {
             status = "error";
         }
 
+        console.log(`${message.author.tag} ran code: ${code}`);
+
         // If the result is a string, truncate it to 2000 characters.
         if (typeof result === "string") {
             result = result.substring(0, 2000);
