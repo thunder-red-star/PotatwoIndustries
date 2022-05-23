@@ -45,7 +45,7 @@ module.exports = {
             name: "Bank",
             value: `${targetAccount.bank} ${client.customEmojis.potato}`,
             inline: true
-          }
+          }]
         }]
       });
     }

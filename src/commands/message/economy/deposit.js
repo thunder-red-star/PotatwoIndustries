@@ -5,7 +5,7 @@ module.exports = {
     guildOnly: false,
     ownerOnly: false,
     name: "deposit",
-    aliases: [],
+    aliases: ["dep"],
     description: "Allows you to deposit money into your bank account.",
     detailedDescription: "Allows you to deposit money into your bank account.",
     cooldown: 180000,
