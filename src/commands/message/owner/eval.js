@@ -30,10 +30,10 @@ module.exports = {
         let time1;
         let time2;
 
+        time1 = Date.now();
+
         try {
-            time1 = Date.now();
             result = eval(code);
-            time2 = Date.now();
 
             // If the result is a promise, wait for it to resolve.
             if (result instanceof Promise) {
@@ -46,14 +46,13 @@ module.exports = {
             status = "error";
         }
 
-        console.log(`${message.author.tag} ran code and got ${result}`);
+        time2 = Date.now();
+
+        console.log(`${message.author.tag} ran code and got ${result} in ${ms(time2 - time1)}`);
 
         // If the result is a string, truncate it to 2000 characters.
         if (typeof result === "string") {
             result = result.substring(0, 2000);
-        } else {
-            // If the result is an object, convert it to a string.
-            result = JSON.stringify(result, null, 4);
         }
 
         // Send the result.
@@ -65,7 +64,11 @@ module.exports = {
                     color: client.colors.error,
                     fields: [{
                         name: "Error",
-                        value: "```" + result.replace(client.token, "*".repeat(client.token.length)) + "```"
+                        value: "```" + result.toString() + "```"
+                    },
+                    {
+                        name: "Evaluated in",
+                        value: ms(time2 - time1, {long: true})
                     }]
                 }]
             });
