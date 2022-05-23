@@ -47,8 +47,10 @@ module.exports = {
         // If the result is a string, truncate it to 1000 characters, and count the number of characters left.
 
         let charCountLeft = 0;
+        let fullResult = "";
         if (typeof result === "string" && result.length > 1000) {
             charCountLeft = result.length - 1000;
+            fullResult = result;
             result = result.substring(0, 1000);
         }
 
@@ -69,7 +71,7 @@ module.exports = {
         } else {
             let evalAttachment;
             if (charCountLeft > 0) {
-                evalAttachment = new Discord.Attachment(Buffer.from(result), "eval.txt").setDescription(`${result}\n\n**${charCountLeft}** more characters.`);
+                evalAttachment = new Discord.Attachment(Buffer.from(fullResult), "eval.txt");
             }
             let messagePayload = {
                 embeds: [{
