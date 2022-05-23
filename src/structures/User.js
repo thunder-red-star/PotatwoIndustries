@@ -31,6 +31,11 @@ class User {
 		this.blacklisted = !this.blacklisted;
 	}
 
+	// Set blacklisted
+	setBlacklisted (blacklisted) {
+		this.blacklisted = blacklisted;
+	}
+
 	// Get blacklisted
 	isBlacklisted () {
 		return this.blacklisted;
@@ -51,12 +56,33 @@ class User {
 		this.passive = !this.passive;
 	}
 
+	// Set passive
+	setPassive (passive) {
+		this.passive = passive;
+	}
+
+	// Get bank
+	getBank () {
+		return this.bank;
+	}
+
+	// Set bank
+	setBank (bank) {
+		this.bank = bank;
+	}
+
+	// Add bank
+	addBank (bank) {
+		this.bank += bank;
+	}
+
 	fromJSON (json) {
 		this.id = json.id;
 		this.count = json.count;
 		this.inventory = new Inventory().fromJSON(json.inventory);
 		this.blacklisted = json.blacklisted;
-		this.passive = json.passive;
+		this.passive = json.passive || false;
+		this.bank = json.bank || 0;
 		return this;
 	}
 
@@ -66,7 +92,8 @@ class User {
 			count: this.count,
 			inventory: this.inventory.toJSON(),
 			blacklisted: this.blacklisted,
-			passive: this.passive
+			passive: this.passive,
+			bank: this.bank
 		};
 	}
 }
