@@ -12,7 +12,7 @@ module.exports = {
     name: "math",
     aliases: ["maf"],
     description: "Evaluates an equation.",
-    detailedDescription: "Evaluates a math equation."
+    detailedDescription: "Evaluates a math equation.",
     cooldown: 2500,
     args: [{
         name: "equation", description: "The equation to evaluate.", type: "string", required: true
