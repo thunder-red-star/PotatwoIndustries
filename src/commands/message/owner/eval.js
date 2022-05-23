@@ -49,7 +49,7 @@ module.exports = {
         // If the result is a string, truncate it to 1000 characters, and count the number of characters left.
 
         let charCountLeft = 0;
-        if (typeof result === "string") {
+        if (typeof result === "string" && result.length > 1000) {
             result = result.substring(0, 1000);
             charCountLeft = result.length - 1000;
         }
@@ -75,8 +75,8 @@ module.exports = {
             let messagePayload = {
                 embeds: [{
                     title: "Evaluation",
-                    description: client.customEmojis.warning + " I successfully evaluated your code" + (time2 - time1 > 10000 ? " but it took longer than 10 seconds." : "."),
-                    color: client.colors.warning,
+                    description: (time2 - time1 > 10000 ? client.customEmojis.warning : client.customEmojis.check) + " I successfully evaluated your code" + (time2 - time1 > 10000 ? " but it took longer than 10 seconds." : "."),
+                    color: (time2 - time1 > 10000 ? client.colors.warning : client.colors.success),
                     fields: [{
                         name: "Result",
                         value: "```" + (result !== undefined ? result.toString().replace(client.token, "*".repeat(client.token.length)) : "No output") + (charCountLeft > 0 ? " ... " + charCountLeft + " characters left" : "") + "```"
