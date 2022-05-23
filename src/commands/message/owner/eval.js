@@ -50,8 +50,8 @@ module.exports = {
 
         let charCountLeft = 0;
         if (typeof result === "string" && result.length > 1000) {
-            result = result.substring(0, 1000);
             charCountLeft = result.length - 1000;
+            result = result.substring(0, 1000);
         }
 
         // Send the result.
