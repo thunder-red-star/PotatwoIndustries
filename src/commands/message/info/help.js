@@ -33,21 +33,44 @@ module.exports = {
             for (let i = 0; i < modules.length; i++) {
                 let upperCaseModule = modules[i].charAt(0).toUpperCase() + modules[i].slice(1);
                 let commandsInModule = fs.readdirSync(`./src/commands/message/${modules[i]}`).filter(file => file.endsWith(".js"));
-                let moduleEmbed = new DJSBuilders.Embed()
-                    .setTitle(`${upperCaseModule} Commands`)
-                    .setDescription("You can use `" + serverPrefix + "help <command>` to get more information about a command.")
-                    .setColor(client.colors.success);
-                if (commandsInModule.length > 0) {
-                    for (let j = 0; j < commandsInModule.length; j++) {
-                        let command = require(`../../../commands/message/${modules[i]}/${commandsInModule[j]}`);
-                        moduleEmbed.addField({
-                            name: `\`${serverPrefix}${command.name}\``,
-                            value: command.description,
-                            inline: false
-                        });
+                // If there are more than 25 commands in a module, split them into multiple pages.
+                if (commandsInModule.length > 25) {
+                    for (let j = 0; j < commandsInModule.length; j += 25) {
+                        let moduleEmbed = new DJSBuilders.Embed()
+                            .setTitle(`${upperCaseModule} Commands, Page ${Math.floor(j / 25) + 1}`)
+                            .setDescription("You can use `" + serverPrefix + "help <command>` to get more information about a command.")
+                            .setColor(client.colors.success);
+                        if (commandsInModule.length > 0) {
+                            for (let k = j; k < j + 25; k++) {
+                                let command = require(`../../../commands/message/${modules[i]}/${commandsInModule[j]}`);
+                                moduleEmbed.addField({
+                                    name: `\`${serverPrefix}${command.name}\``,
+                                    value: command.description,
+                                    inline: false
+                                });
+                            }
+                        } else {
+                            moduleEmbed.setDescription("No commands (yet).");
+                        }
+                        paginatorEmbeds.push(moduleEmbed);
                     }
                 } else {
-                    moduleEmbed.setDescription("No commands (yet).");
+                    let moduleEmbed = new DJSBuilders.Embed()
+                        .setTitle(`${upperCaseModule} Commands`)
+                        .setDescription("You can use `" + serverPrefix + "help <command>` to get more information about a command.")
+                        .setColor(client.colors.success);
+                    if (commandsInModule.length > 0) {
+                        for (let j = 0; j < commandsInModule.length; j++) {
+                            let command = require(`../../../commands/message/${modules[i]}/${commandsInModule[j]}`);
+                            moduleEmbed.addField({
+                                name: `\`${serverPrefix}${command.name}\``,
+                                value: command.description,
+                                inline: false
+                            });
+                        }
+                    } else {
+                        moduleEmbed.setDescription("No commands (yet).");
+                    }
                 }
                 paginatorEmbeds.push(moduleEmbed);
             }
