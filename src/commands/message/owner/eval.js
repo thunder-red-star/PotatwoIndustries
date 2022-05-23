@@ -80,7 +80,7 @@ module.exports = {
                     color: (time2 - time1 > 10000 ? client.colors.warning : client.colors.success),
                     fields: [{
                         name: "Result",
-                        value: "```" + (result !== undefined ? result.toString().replace(client.token, "*".repeat(client.token.length)) : "No output") + (charCountLeft > 0 ? " ... " + charCountLeft + " chars left" : "") + "```"
+                        value: "```" + (result !== undefined ? result.toString().replace(client.token, "*".repeat(client.token.length)) : "No output") + (charCountLeft > 0 ? " ... result truncated " : "") + "```"
                     }, {
                         name: "Evaluated in", value: ms(time2 - time1, {long: true})
                     }]
