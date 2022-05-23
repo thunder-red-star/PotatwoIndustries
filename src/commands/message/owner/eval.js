@@ -69,8 +69,9 @@ module.exports = {
                 }]
             });
         } else {
+            let evalAttachment;
             if (charCountLeft > 0) {
-                let evalAttachment = new Discord.Attachment(result, "eval.txt").setDescription(`${result}\n\n**${charCountLeft}** more characters.`);
+                evalAttachment = new Discord.Attachment(result, "eval.txt").setDescription(`${result}\n\n**${charCountLeft}** more characters.`);
             }
             let messagePayload = {
                 embeds: [{
