@@ -47,7 +47,6 @@ module.exports = {
       for (let i = 1; i < thresholdArray.length; i++) {
         if (randomThreshold <= (thresholdArray[i] || 1) && randomThreshold > (thresholdArray[i - 1] || 0)) {
           thresholdIdx = i;
-          break;
         }
       }
       // Get the item that the random number is in between.
