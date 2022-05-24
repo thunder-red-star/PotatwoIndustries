@@ -74,8 +74,8 @@ module.exports = {
             // Send the message.
             return message.reply({
                 embeds: [{
-                    color: client.colors.success,
-                    description: client.customEmojis.success + " You sold " + args.count + " " + itemData.itemData.name + " for " + itemData.itemData.sell * args.count + " " + client.customEmojis.potato + "."
+                    color: client.colors.potato,
+                    description: "You sold **" + args.count + "** " + itemData.itemData.name + " for **" + itemData.itemData.sell * args.count + "** " + client.customEmojis.potato + "."
                 }]
             });
         }
