@@ -51,6 +51,7 @@ module.exports = {
         }
       }
       // Get the item that the random number is in between.
+      console.log(thresholdIdx);
       let item = digPossible[thresholdIdx - 1];
       // Add the item to the user's inventory.
       user.inventory.add(item.name, 1);
