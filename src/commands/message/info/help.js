@@ -33,7 +33,7 @@ module.exports = {
             for (let i = 0; i < modules.length; i++) {
                 let upperCaseModule = modules[i].charAt(0).toUpperCase() + modules[i].slice(1);
                 let commandsInModule = fs.readdirSync(`./src/commands/message/${modules[i]}`).filter(file => file.endsWith(".js"));
-                // If there are more than 25 commands in a module, split them into multiple pages.
+                // If there are more than 10 commands in a module, split them into multiple pages.
                 if (commandsInModule.length > 10) {
                     for (let j = 0; j < commandsInModule.length; j += 10) {
                         let moduleEmbed = new DJSBuilders.Embed()
@@ -42,7 +42,7 @@ module.exports = {
                             .setColor(client.colors.success);
                         if (commandsInModule.length > 0) {
                             for (let k = j; k < j + 10; k++) {
-                                let command = require(`../../../commands/message/${modules[i]}/${commandsInModule[j]}`);
+                                let command = require(`../../../commands/message/${modules[i]}/${commandsInModule[k]}`);
                                 moduleEmbed.addField({
                                     name: `\`${serverPrefix}${command.name}\``,
                                     value: command.description,
