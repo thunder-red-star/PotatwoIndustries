@@ -59,7 +59,7 @@ module.exports = {
       message.reply({
         embeds: [{
           color: client.colors.potato,
-          description: "You managed to dig up a " + item.name + " worth " + ItemDatabase.getItem(item.name).itemData.worth + " " + client.customEmojis.potato + "."
+          description: "You managed to dig up a **" + item.name + "** worth **" + ItemDatabase.getItem(item.name).itemData.worth + "** " + client.customEmojis.potato + "."
         }]
       });
     }
