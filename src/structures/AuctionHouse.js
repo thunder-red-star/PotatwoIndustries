@@ -6,6 +6,7 @@ class AuctionHouse {
     }
 
     addAuction(auction) {
+        console.log(auction);
         this.auctions.push(new Auction().fromJSON(auction));
     }
 
