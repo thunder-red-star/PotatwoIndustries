@@ -18,13 +18,14 @@ class ItemDatabase {
       // For each item in the item type folder
       for (let j = 0; j < items.length; j++) {
         // Load the class and set the json key with the item name to the class
-        this.items[items[j]] = require("../assets/itemdb/" + itemType + "/" + items[j]);
+        let item = require("../assets/itemdb/" + itemType + "/" + items[j]);
+        this.items[item.name] = item;
         // Load the aliases for the item
         let itemAliases = require("../assets/itemdb/" + itemType + "/" + items[j]).itemData.aliases;
         // For each alias
         for (let k = 0; k < itemAliases.length; k++) {
           // Set the alias to the item name
-          this.itemAliases[itemAliases[k]] = items[j];
+          this.itemAliases[itemAliases[k]] = item.name;
         }
       }
     }
