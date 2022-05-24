@@ -67,7 +67,7 @@ module.exports = {
             }
             // Sell the item.
             user.inventory.remove(itemData.itemData.name, args.count);
-            user.balance += itemData.itemData.sell * args.count;
+            user.addPotatoes(itemData.itemData.sell * args.count);
 
             client.database.write();
 
