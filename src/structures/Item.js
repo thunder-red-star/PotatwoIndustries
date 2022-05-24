@@ -2,16 +2,16 @@ const ItemDatabase = require("./ItemDatabase");
 
 class Item {
 	constructor (itemObj) {
-		this.name = itemObj.name;
-		this.description = itemObj.description;
-		this.type = itemObj.type;
-		this.aliases = itemObj.aliases;
-		this.use = itemObj.use;
+		this.name = itemObj.name || "";
+		this.description = itemObj.description || "";
+		this.type = itemObj.type || "";
+		this.aliases = itemObj.aliases || [];
+		this.use = itemObj.use || undefined;
 	}
 
-	use () {
+	use (message) {
 		if (this.use) {
-			this.use();
+			this.use(message);
 		} else {
 			throw new Error ("No use function defined for item: " + this.name);
 		}
