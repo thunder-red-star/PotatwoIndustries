@@ -19,7 +19,7 @@ class TestItem extends BaseItem {
 		super(TestItem.itemData);
 	}
 
-	use(message) {
+	static use(message) {
 		return message.channel.send("Test item used!");
 	}
 }

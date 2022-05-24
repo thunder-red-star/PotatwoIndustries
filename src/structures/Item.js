@@ -5,7 +5,7 @@ class Item {
 
 	}
 
-	use (message) {
+	static use (message) {
 		if (this.use) {
 			this.use(message);
 		} else {

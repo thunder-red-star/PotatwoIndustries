@@ -13,7 +13,7 @@ class BaseItem {
     this.aliases = props.aliases || [];
   }
 
-  use(message) {
+  static use(message) {
     // Do nothing, this will be overridden in subclasses
   }
 }
