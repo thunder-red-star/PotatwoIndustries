@@ -19,7 +19,7 @@ class Item {
 	}
 
 	toJSON () {
-		return this.name;
+		return this.itemData.name;
 	}
 }
 
