@@ -66,8 +66,8 @@ module.exports = {
               for (let j = 0; j < 10; j++) {
                 if (inventory[i + j]) {
                   inventoryPage.addField({
-                    name: `${inventory[i + j].name} x${inventory[i + j].amount}`,
-                    value: inventory[i + j].description
+                    name: `${inventory[i + j].item.itemData.name} x${inventory[i + j].amount}`,
+                    value: inventory[i + j].item.itemData.description
                   });
                 }
               }
@@ -129,8 +129,8 @@ module.exports = {
               for (let j = 0; j < 10; j++) {
                 if (inventory[i + j]) {
                   inventoryPage.addField({
-                    name: `${inventory[i + j].name} x${inventory[i + j].amount}`,
-                    value: inventory[i + j].description
+                    name: `${inventory[i + j].item.itemData.name} x${inventory[i + j].amount}`,
+                    value: inventory[i + j].item.itemData.description
                   });
                 }
               }
@@ -146,8 +146,8 @@ module.exports = {
               .setDescription(`${target.username}'s inventory contains ${totalItems} items.`);
             for (let item in inventory) {
               inventoryPage.addField({
-                name: `${inventory[item].name} x${inventory[item].amount}`,
-                value: inventory[item].description
+                name: `${item.item.itemData.name} x${item.amount}`,
+                value: item.item.itemData.description
               });
             }
             message.channel.send({ embeds: [inventoryPage] });
