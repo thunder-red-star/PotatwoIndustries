@@ -5,6 +5,7 @@ const colors = require('./assets/colors.json');
 const emojis = require('./assets/emojis.json');
 const Database = require('./structures/DatabaseManager');
 const Messages = require('./assets/messages.json');
+const ItemDatabase = require('./structures/ItemDatabase');
 const getServerPrefix = require('./utils/parsers/getServerPrefix');
 const Chalk = require('chalk');
 
@@ -31,5 +32,7 @@ client.messages = Messages;
 client.colors = colors;
 client.customEmojis = emojis;
 client.getServerPrefix = getServerPrefix;
+
+ItemDatabase.init();
 
 client.login(config.token);
