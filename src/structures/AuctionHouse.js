@@ -55,7 +55,11 @@ class AuctionHouse {
     }
 
     fromJSON(json) {
-        this.auctions = json.map(auction => new Auction().fromJSON(auction));
+        try {
+            this.auctions = json.map(auction => new Auction().fromJSON(auction));
+        } catch (e) {
+            this.auctions = [];
+        }
     }
 
     toJSON() {
