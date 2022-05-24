@@ -68,6 +68,7 @@ module.exports = {
             // Use the item.
             // Subtract the item from the user's inventory.
             user.inventory.add(itemData.itemData.name, -args.count);
+            client.database.write();
             for (let i = 0; i < args.count; i++) {
                 // Call the item's use function.
                 itemData.use(message);

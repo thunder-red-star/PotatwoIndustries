@@ -56,7 +56,7 @@ module.exports = {
           let totalPotatoes = 0;
           for (let item in inventory) {
             totalItems += inventory[item].count;
-            totalPotatoes += inventory[item].count * inventory[item].worth;
+            totalPotatoes += inventory[item].count * inventory[item].item.worth;
           }
           if (inventory.length > 10) {
             let inventoryPages = [];
