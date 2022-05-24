@@ -15,7 +15,7 @@ class Item {
 
 	fromJSON (json) {
 		let itemClass = ItemDatabase.getItem(json.name);
-		return new ItemClass();
+		return new itemClass();
 	}
 
 	toJSON () {
