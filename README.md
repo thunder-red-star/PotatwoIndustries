@@ -42,15 +42,15 @@ Hence, Potato Industries is now PotaTwo Industries.
 ( in no particular order )
 - [x] balance
 - [x] farm
-- [ ] dig
+- [x] dig
 - [x] rob
 - [ ] sabotage
 - [x] give
 - [x] beg
-- [ ] shop
-- [ ] buy
-- [ ] sell
-- [ ] shed
+- [x] shop
+- [x] buy
+- [x] sell
+- [x] shed
 - [x] bank
 - [x] deposit
 - [x] withdraw
@@ -58,14 +58,14 @@ Hence, Potato Industries is now PotaTwo Industries.
 - [x] coinflip
 - [x] gamble
 - [x] passive
-- [ ] use
+- [x] use
 #### Moderation Commands
 ( in no particular order )
-- [ ] kick
+- [x] kick
 - [ ] ban
 - [ ] jail
 - [ ] unjail
-- [ ] setprefix
+- [x] setprefix
 - [ ] roleall
 - [x] purge
 #### Misc Commands
