@@ -21,7 +21,7 @@ module.exports = {
         for (let i = 0; i < auctions.length; i += 10) {
             let page = new DJSBuilders.Embed()
                 .setColor(client.colors.potato)
-                .setTitle("Auction House - Page " + Math.floor(i / 10) + 1);
+                .setTitle("Auction House - Page " + Math.floor(i / 10) + 1)
                 .setDescription("Get an item with " + client.getServerPrefix(message) + "ahbuy <id>!");
             for (let j = i; j < i + 10; j++) {
                 if (j >= auctions.length) break;
