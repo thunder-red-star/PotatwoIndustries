@@ -71,13 +71,13 @@ module.exports = {
                 });
             }
             // Execute the buy.
-            user.addPotatoes(-itemData.cost * count);
+            user.addPotatoes(-itemData.itemData.cost * count);
             user.inventory.add(item, count);
             client.database.write();
             return message.reply({
                 embeds: [{
                     color: client.colors.potato,
-                    description: "You bought **" + count + "** " + item + " for **" + itemData.cost * count + "** " + client.customEmojis.potato + "."
+                    description: "You bought **" + count + "** " + item + " for **" + itemData.itemData.cost * count + "** " + client.customEmojis.potato + "."
                 }]
             });
         }

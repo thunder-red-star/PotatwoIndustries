@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "prettier": "prettier .",
-    "dev": "nodemon --exec 'npm start'"
+    "dev": "nodemon --ignore ./src/data/database.json --exec 'npm start'"
   },
   "keywords": [],
   "author": "",
