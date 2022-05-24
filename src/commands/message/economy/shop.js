@@ -19,23 +19,23 @@ module.exports = {
   args: [],
   run: async function(message, client, args) {
     let shopItems = ItemDatabase.getShopItems();
-    console.log(shopItems);
     let shopPages = [];
     for (let i = 0; i < Object.keys(shopItems).length; i++) {
       let shopCategory = Object.keys(shopItems)[i];
+      let shopCategoryItems = shopItems[shopCategory];
       if (shopItems[shopCategory].length > 10) {
-        for (let j = 0; j < shopItems[shopCategory].length; j += 10) {
+        for (let j = 0; j < shopCategoryItems; j += 10) {
           let shopPage = new DJSBuilders.Embed()
             .setColor(client.colors.potato)
             .setTitle(shopCategory + " Shop, Page " + Math.floor(j / 10 + 1))
             .setDescription("Use `" + client.getServerPrefix(message) + "buy <item>` to buy an item");
           for (let k = j; k < j + 10; k++) {
-            if (shopItems[shopCategory][k]) {
-              shopPage.addField({
-                name: shopItems[shopCategory][k].name,
-                value: `${shopItems[shopCategory][k].cost} ${client.customEmojis.potato}`,
-              });
-            }
+            let shopItem = shopCategoryItems[Object.keys(shopCategoryItems)[k]];
+            shopPage.addField({
+              name: shopItem.name,
+              value: `${shopItem.cost} ${client.customEmojis.potato}`,
+            });
+
           }
           shopPages.push(shopPage);
         }
@@ -45,9 +45,10 @@ module.exports = {
           .setTitle(shopCategory + " Shop")
           .setDescription("Use `" + client.getServerPrefix(message) + "buy <item>` to buy an item");
         for (let j = 0; j < shopItems[shopCategory].length; j++) {
+            let shopItem = shopItems[shopCategory][Object.keys(shopItems[shopCategory])[j]];
           shopPage.addField({
-            name: shopItems[shopCategory][j].name,
-            value: `${shopItems[shopCategory][j].cost} ${client.customEmojis.potato}`,
+            name: shopItem.name,
+            value: `${shopItem.cost} ${client.customEmojis.potato}`,
           });
         }
         shopPages.push(shopPage);
