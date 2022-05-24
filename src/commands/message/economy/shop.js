@@ -32,8 +32,8 @@ module.exports = {
           for (let k = j; k < j + 10; k++) {
             let shopItem = shopCategoryItems[Object.keys(shopCategoryItems)[k]];
             shopPage.addField({
-              name: shopItem.name,
-              value: `${shopItem.cost} ${client.customEmojis.potato}`,
+              name: shopItem.itemData.name,
+              value: `${shopItem.itemData.cost} ${client.customEmojis.potato}`,
             });
           }
           shopPages.push(shopPage);
@@ -47,8 +47,8 @@ module.exports = {
         for (let j = 0; j < Object.keys(shopCategoryItems).length; j++) {
             let shopItem = shopCategoryItems[Object.keys(shopCategoryItems)[j]];
           shopPage.addField({
-            name: shopItem.name,
-            value: `${shopItem.cost} ${client.customEmojis.potato}`,
+            name: shopItem.itemData.name,
+            value: `${shopItem.itemData.cost} ${client.customEmojis.potato}`,
           });
         }
         shopPages.push(shopPage);
