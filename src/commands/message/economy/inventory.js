@@ -81,6 +81,7 @@ module.exports = {
               .setTitle(`${target.username}'s Inventory`)
               .setDescription(`${target.username}'s inventory contains ${totalItems} items.`);
             for (let x = 0; x < inventory.length; x++) {
+              console.log(inventory[x]);
               inventoryPage.addField({
                 name: `${inventory[x].item.itemData.name} x${items[x].amount}`,
                 value: inventory[x].item.itemData.description
