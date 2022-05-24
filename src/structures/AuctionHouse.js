@@ -62,3 +62,5 @@ class AuctionHouse {
         return this.auctions.map(auction => auction.toJSON());
     }
 }
+
+module.exports = AuctionHouse;
