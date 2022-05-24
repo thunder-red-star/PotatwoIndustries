@@ -8,7 +8,7 @@ let randomArrayElement = (array) => {
 let digPossible = [
   {
     "name": "Test Item",
-    "threshold": 1.00,
+    "threshold": 0.00,
   }
 ];
 
@@ -45,7 +45,7 @@ module.exports = {
       // Find the index of the threshold that the random number is in between.
       let thresholdIdx;
       for (let i = 1; i < thresholdArray.length; i++) {
-        if (randomThreshold <= thresholdArray[i] && randomThreshold > (thresholdArray[i - 1] || 0)) {
+        if (randomThreshold <= (thresholdArray[i] || 1) && randomThreshold > (thresholdArray[i - 1] || 0)) {
           thresholdIdx = i;
           break;
         }
