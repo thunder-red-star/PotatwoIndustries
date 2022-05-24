@@ -61,6 +61,7 @@ class AuctionHouse {
         } catch (e) {
             this.auctions = [];
         }
+        return this;
     }
 
     toJSON() {

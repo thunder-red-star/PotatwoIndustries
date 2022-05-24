@@ -1,3 +1,5 @@
+const Item = require("./Item");
+
 class Auction {
     constructor() {
 
@@ -40,7 +42,7 @@ class Auction {
 
     fromJSON(json) {
         this.id = json.id;
-        this.item = json.item;
+        this.item = new Item().fromJSON(json.item);
         this.user = json.user;
         this.price = json.price;
         this.time = json.time;
