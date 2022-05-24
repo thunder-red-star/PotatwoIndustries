@@ -23,7 +23,7 @@ module.exports = {
     for (let i = 0; i < Object.keys(shopItems).length; i++) {
       let shopCategory = Object.keys(shopItems)[i];
       let shopCategoryItems = shopItems[shopCategory];
-      if (shopItems[shopCategory].length > 10) {
+      if (shopCategoryItems.length > 10) {
         for (let j = 0; j < shopCategoryItems; j += 10) {
           let shopPage = new DJSBuilders.Embed()
             .setColor(client.colors.potato)
@@ -35,7 +35,6 @@ module.exports = {
               name: shopItem.name,
               value: `${shopItem.cost} ${client.customEmojis.potato}`,
             });
-
           }
           shopPages.push(shopPage);
         }
@@ -44,8 +43,8 @@ module.exports = {
           .setColor(client.colors.potato)
           .setTitle(shopCategory + " Shop")
           .setDescription("Use `" + client.getServerPrefix(message) + "buy <item>` to buy an item");
-        for (let j = 0; j < shopItems[shopCategory].length; j++) {
-            let shopItem = shopItems[shopCategory][Object.keys(shopItems[shopCategory])[j]];
+        for (let j = 0; j < shopCategoryItems.length; j++) {
+            let shopItem = shopCategoryItems[Object.keys(shopCategoryItems)[j]];
           shopPage.addField({
             name: shopItem.name,
             value: `${shopItem.cost} ${client.customEmojis.potato}`,
