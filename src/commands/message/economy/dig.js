@@ -55,6 +55,7 @@ module.exports = {
       let item = digPossible[thresholdIdx - 1];
       // Add the item to the user's inventory.
       user.inventory.add(item.name, 1);
+      client.database.write();
       // Send the user a message.
       message.reply({
         embeds: [{
