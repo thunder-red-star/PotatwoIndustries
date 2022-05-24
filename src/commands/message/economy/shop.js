@@ -19,6 +19,7 @@ module.exports = {
   args: [],
   run: async function(message, client, args) {
     let shopItems = ItemDatabase.getShopItems();
+    console.log(shopItems);
     let shopPages = [];
     for (let i = 0; i < Object.keys(shopItems).length; i++) {
       let shopCategory = Object.keys(shopItems)[i];

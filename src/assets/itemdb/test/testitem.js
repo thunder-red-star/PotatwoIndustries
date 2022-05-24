@@ -10,7 +10,7 @@ class TestItem extends BaseItem {
 		buyable: true,
 		sellable: true,
 		tradeable: true,
-		type: "test",
+		type: "Test",
 		aliases: ["testitem"],
 	};
 
