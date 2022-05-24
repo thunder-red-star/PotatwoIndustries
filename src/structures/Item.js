@@ -1,12 +1,8 @@
 const ItemDatabase = require("./ItemDatabase");
 
 class Item {
-	constructor (itemObj) {
-		this.name = itemObj.name || "";
-		this.description = itemObj.description || "";
-		this.type = itemObj.type || "";
-		this.aliases = itemObj.aliases || [];
-		this.use = itemObj.use || undefined;
+	constructor () {
+
 	}
 
 	use (message) {
