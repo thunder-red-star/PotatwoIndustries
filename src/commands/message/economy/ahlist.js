@@ -89,7 +89,7 @@ module.exports = {
             // Remove the items from the user's inventory.
             user.inventory.remove(targetItem, targetCount);
             // Add the items to the auction house.
-            client.database.auctions.add({
+            client.database.auctions.addAuction({
                 item: targetItem,
                 count: targetCount,
                 price: targetPotatoes,
