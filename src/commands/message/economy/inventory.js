@@ -53,8 +53,10 @@ module.exports = {
           // Get the user's inventory.
           let inventory = client.database.users.get(target.id).inventory.getAll();
           let totalItems = 0;
+          let totalPotatoes = 0;
           for (let item in inventory) {
             totalItems += inventory[item].count;
+            totalPotatoes += inventory[item].count * inventory[item].itemData.worth;
           }
           if (inventory.length > 10) {
             let inventoryPages = [];
@@ -62,7 +64,7 @@ module.exports = {
               let inventoryPage = new DJSBuilders.Embed()
                 .setColor(client.colors.default)
                 .setTitle(`${target.username}'s Inventory`)
-                .setDescription(`${target.username}'s inventory contains ${totalItems} ${totalItems === 1 ? "item" : "items"}.`);
+                .setDescription(`${target.username}'s inventory contains ${totalItems} ${totalItems === 1 ? "item" : "items"} worth ${totalPotatoes} ${client.customEmojis.potato}.`);
               for (let j = 0; j < 10; j++) {
                 if (inventory[i + j]) {
                   inventoryPage.addField({
@@ -79,7 +81,7 @@ module.exports = {
             let inventoryPage = new DJSBuilders.Embed()
               .setColor(client.colors.potato)
               .setTitle(`${target.username}'s Inventory`)
-              .setDescription(`${target.username}'s inventory contains ${totalItems} ${totalItems === 1 ? "item" : "items"}.`);
+              .setDescription(`${target.username}'s inventory contains ${totalItems} ${totalItems === 1 ? "item" : "items"} worth ${totalPotatoes} ${client.customEmojis.potato}.`);
             for (let x = 0; x < inventory.length; x++) {
               inventoryPage.addField({
                 name: `${inventory[x].item.name} x${inventory[x].count}`,
