@@ -18,7 +18,7 @@ class Item {
 	}
 
 	fromJSON (json) {
-		return ItemDatabase.getItem(json.name);
+		return new ItemDatabase.getItem(json.name);
 	}
 
 	toJSON () {
