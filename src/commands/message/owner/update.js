@@ -35,13 +35,6 @@ module.exports = {
                     }]
                 });
             }
-            // Send a message to the channel.
-            message.reply({
-                embeds: [{
-                    color: client.colors.success,
-                    description: client.customEmojis.check + " Update complete!"
-                }]
-            })
         });
     }
 };
