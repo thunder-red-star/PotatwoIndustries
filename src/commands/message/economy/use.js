@@ -70,7 +70,7 @@ module.exports = {
             user.inventory.add(itemData.itemData.name, -args.count);
             for (let i = 0; i < args.count; i++) {
                 // Call the item's use function.
-                itemData.itemData.use(message);
+                itemData.use(message);
             }
         }
     }
