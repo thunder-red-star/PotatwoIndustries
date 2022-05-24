@@ -42,6 +42,8 @@ class ItemDatabase {
   }
 
   static getItem(itemName) {
+    console.log(itemName);
+    console.log(this.items)
     // If the item is not in the database, return null
     if (!this.items[itemName]) {
       return null;
