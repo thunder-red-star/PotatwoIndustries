@@ -19,13 +19,13 @@ class ItemDatabase {
       for (let j = 0; j < items.length; j++) {
         // Load the class and set the json key with the item name to the class
         let item = require("../assets/itemdb/" + itemType + "/" + items[j]);
-        this.items[item.name] = item;
+        this.items[item.itemData.name] = item;
         // Load the aliases for the item
         let itemAliases = require("../assets/itemdb/" + itemType + "/" + items[j]).itemData.aliases;
         // For each alias
         for (let k = 0; k < itemAliases.length; k++) {
           // Set the alias to the item name
-          this.itemAliases[itemAliases[k]] = item.name;
+          this.itemAliases[itemAliases[k]] = item.itemData.name;
         }
       }
     }
