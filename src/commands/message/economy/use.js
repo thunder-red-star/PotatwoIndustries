@@ -39,7 +39,7 @@ module.exports = {
             // Get the item from the database.
             let itemData = ItemDatabase.getItem(args.item);
             // Check if the user has the item.
-            if (!user.inventory.has(itemData.itemData.id)) {
+            if (!user.inventory.has(itemData.itemData.name)) {
                 return message.reply({
                     embeds: [{
                         color: client.colors.warning,
