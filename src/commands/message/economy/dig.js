@@ -45,7 +45,7 @@ module.exports = {
       // Find the index of the threshold that the random number is in between.
       let thresholdIdx;
       for (let i = 1; i < thresholdArray.length; i++) {
-        if (randomThreshold <= thresholdArray[i] && randomThreshold > thresholdArray[i - 1]) {
+        if (randomThreshold <= thresholdArray[i] && randomThreshold > (thresholdArray[i - 1] || 0)) {
           thresholdIdx = i;
           break;
         }
