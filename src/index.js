@@ -23,6 +23,9 @@ Loaders.eventLoader(client);
 Loaders.messageCommandLoader(client);
 Loaders.interactionCommandLoader(client);
 
+// Init ItemDatabase
+ItemDatabase.init();
+
 // Load the database
 client.database = new Database();
 client.database.load();
@@ -32,7 +35,5 @@ client.messages = Messages;
 client.colors = colors;
 client.customEmojis = emojis;
 client.getServerPrefix = getServerPrefix;
-
-ItemDatabase.init();
 
 client.login(config.token);
