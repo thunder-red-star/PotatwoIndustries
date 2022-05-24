@@ -82,8 +82,8 @@ module.exports = {
               .setDescription(`${target.username}'s inventory contains ${totalItems} items.`);
             for (let item in inventory) {
               inventoryPage.addField({
-                name: `${inventory[item].itemData.name} x${inventory[item].amount}`,
-                value: inventory[item].itemData.description
+                name: `${item.item.itemData.name} x${item.amount}`,
+                value: item.item.itemData.description
               });
             }
             message.channel.send({ embeds: [inventoryPage] });
