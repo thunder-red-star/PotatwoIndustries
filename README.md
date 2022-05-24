@@ -23,15 +23,15 @@ Hence, Potato Industries is now PotaTwo Industries.
 ( what a long todo list )
 ### Potato Industries Rewrite
 #### Basic framework
-- [ ] Create message command handler and parser
-- [ ] Create interaction command handler and parser
-- [ ] Utility functions for parsing hex colors, etc.
-- [ ] Database
+- [x] Create message command handler and parser
+- [x] Create interaction command handler and parser
+- [x] Utility functions for parsing hex colors, etc.
+- [x] Database
 #### Info Commands
 ( in no particular order )
-- [ ] help
-- [ ] ping
-- [ ] invite
+- [x] help
+- [x] ping
+- [x] invite
 - [ ] about
 - [ ] stats
 - [ ] github
@@ -40,24 +40,24 @@ Hence, Potato Industries is now PotaTwo Industries.
 - [ ] vote
 #### Economy Commands
 ( in no particular order )
-- [ ] balance
-- [ ] farm
+- [x] balance
+- [x] farm
 - [ ] dig
-- [ ] rob
+- [x] rob
 - [ ] sabotage
-- [ ] give
-- [ ] beg
+- [x] give
+- [x] beg
 - [ ] shop
 - [ ] buy
 - [ ] sell
 - [ ] shed
-- [ ] bank
-- [ ] deposit
-- [ ] withdraw
+- [x] bank
+- [x] deposit
+- [x] withdraw
 - [ ] trade
-- [ ] coinflip
-- [ ] gamble
-- [ ] passive
+- [x] coinflip
+- [x] gamble
+- [x] passive
 - [ ] use
 #### Moderation Commands
 ( in no particular order )
@@ -67,15 +67,16 @@ Hence, Potato Industries is now PotaTwo Industries.
 - [ ] unjail
 - [ ] setprefix
 - [ ] roleall
+- [x] purge
 #### Misc Commands
 ( in no particular order )
-- [ ] say
+- [x] say
 - [ ] customembed
 - [ ] sudo
 #### Owner Commands
 ( in no particular order )
-- [ ] eval
-- [ ] setpotatoes
+- [x eval
+- [x setpotatoes
 - [ ] blacklist
 - [ ] unblacklist
 ### Additional features
