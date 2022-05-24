@@ -62,7 +62,7 @@ module.exports = {
               let inventoryPage = new DJSBuilders.Embed()
                 .setColor(client.colors.default)
                 .setTitle(`${target.username}'s Inventory`)
-                .setDescription(`${target.username}'s inventory contains ${totalItems} items.`);
+                .setDescription(`${target.username}'s inventory contains ${totalItems} ${totalItems === 1 ? "item" : "items"}.`);
               for (let j = 0; j < 10; j++) {
                 if (inventory[i + j]) {
                   inventoryPage.addField({
@@ -79,9 +79,8 @@ module.exports = {
             let inventoryPage = new DJSBuilders.Embed()
               .setColor(client.colors.potato)
               .setTitle(`${target.username}'s Inventory`)
-              .setDescription(`${target.username}'s inventory contains ${totalItems} items.`);
+              .setDescription(`${target.username}'s inventory contains ${totalItems} ${totalItems === 1 ? "item" : "items"}.`);
             for (let x = 0; x < inventory.length; x++) {
-              console.log(inventory[x]);
               inventoryPage.addField({
                 name: `${inventory[x].item.name} x${inventory[x].count}`,
                 value: inventory[x].item.description
@@ -126,7 +125,7 @@ module.exports = {
               let inventoryPage = new DJSBuilders.Embed()
                 .setColor(client.colors.potato)
                 .setTitle(`${target.username}'s Inventory`)
-                .setDescription(`${target.username}'s inventory contains ${totalItems} items.`);
+                .setDescription(`${target.username}'s inventory contains ${totalItems} ${totalItems === 1 ? "item" : "items"}.`);
               for (let j = 0; j < 10; j++) {
                 if (inventory[i + j]) {
                   inventoryPage.addField({
@@ -144,7 +143,7 @@ module.exports = {
             let inventoryPage = new DJSBuilders.Embed()
               .setColor(client.colors.potato)
               .setTitle(`${target.username}'s Inventory`)
-              .setDescription(`${target.username}'s inventory contains ${totalItems} items.`);
+              .setDescription(`${target.username}'s inventory contains ${totalItems} ${totalItems === 1 ? "item" : "items"}.`);
             for (let x = 0; x < inventory.length; x++) {
               inventoryPage.addField({
                 name: `${inventory[x].item.name} x${inventory[x].count}`,
