@@ -16,3 +16,4 @@ class BaseItem {
   }
 }
 
+module.exports = BaseItem;
