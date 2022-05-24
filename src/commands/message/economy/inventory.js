@@ -82,8 +82,8 @@ module.exports = {
               .setDescription(`${target.username}'s inventory contains ${totalItems} items.`);
             for (let x = 0; x < inventory.length; x++) {
               inventoryPage.addField({
-                name: `${items[x].item.itemData.name} x${items[x].amount}`,
-                value: items[x].item.itemData.description
+                name: `${inventory[x].item.itemData.name} x${items[x].amount}`,
+                value: inventory[x].item.itemData.description
               });
             }
             message.channel.send({ embeds: [inventoryPage] });
@@ -146,8 +146,8 @@ module.exports = {
               .setDescription(`${target.username}'s inventory contains ${totalItems} items.`);
             for (let x = 0; x < inventory.length; x++) {
               inventoryPage.addField({
-                name: `${items[x].item.itemData.name} x${items[x].amount}`,
-                value: items[x].item.itemData.description
+                name: `${inventory[x].item.itemData.name} x${items[x].amount}`,
+                value: inventory[x].item.itemData.description
               });
             }
             message.channel.send({ embeds: [inventoryPage] });
