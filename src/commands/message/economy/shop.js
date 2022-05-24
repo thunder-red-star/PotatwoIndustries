@@ -44,7 +44,7 @@ module.exports = {
           .setColor(client.colors.potato)
           .setTitle(shopCategory + " Shop")
           .setDescription("Use `" + client.getServerPrefix(message) + "buy <item>` to buy an item");
-        for (let j = 0; j < shopCategoryItems.length; j++) {
+        for (let j = 0; j < Object.keys(shopCategoryItems).length; j++) {
             let shopItem = shopCategoryItems[Object.keys(shopCategoryItems)[j]];
           shopPage.addField({
             name: shopItem.name,
