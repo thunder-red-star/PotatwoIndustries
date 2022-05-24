@@ -46,6 +46,7 @@ module.exports = {
       let thresholdIdx;
       for (let i = 1; i < thresholdArray.length; i++) {
         if (randomThreshold <= (thresholdArray[i] || 1) && randomThreshold > (thresholdArray[i - 1] || 0)) {
+          console.log(thresholdArray[i - 1], thresholdArray[i]);
           thresholdIdx = i;
         }
       }
