@@ -7,6 +7,7 @@ class TestItem extends BaseItem {
 		cost: 100,
 		sell: 50,
 		worth: 100,
+		buyable: true,
 		sellable: true,
 		tradeable: true,
 		type: "test",
@@ -14,17 +15,7 @@ class TestItem extends BaseItem {
 	};
 
 	constructor() {
-		super({
-			name: "Test Item",
-			description: "A test item that sends a message to channel when used.",
-			cost: 100,
-			sell: 50,
-			worth: 100,
-			sellable: true,
-			tradeable: true,
-			type: "test",
-			aliases: ["testitem"],
-		});
+		super(TestItem.itemData);
 	}
 
 	use(message) {

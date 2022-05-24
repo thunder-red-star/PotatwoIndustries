@@ -6,6 +6,7 @@ class ItemDatabase {
   static init() {
     this.items = {};
     this.itemAliases = {};
+    this.shopItems = {};
     // Reads items folder and list directories within
     let itemTypes = fs.readdirSync("./src/assets/itemdb/").filter(
       file => fs.statSync("./src/assets/itemdb/" + file).isDirectory()
@@ -15,11 +16,15 @@ class ItemDatabase {
       // Read the item type folder
       let itemType = itemTypes[i];
       let items = fs.readdirSync("./src/assets/itemdb/" + itemType);
+      this.shopItems[itemType] = {};
       // For each item in the item type folder
       for (let j = 0; j < items.length; j++) {
         // Load the class and set the json key with the item name to the class
         let item = require("../assets/itemdb/" + itemType + "/" + items[j]);
         this.items[item.itemData.name] = item;
+        if (item.itemData.buyable) {
+          this.shopItems[itemType][item.itemData.name] = item;
+        }
         // Load the aliases for the item
         let itemAliases = require("../assets/itemdb/" + itemType + "/" + items[j]).itemData.aliases;
         // For each alias
@@ -52,6 +57,10 @@ class ItemDatabase {
         return this.items[itemName];
       }
     }
+  }
+
+  static getShopItems() {
+    return this.shopItems;
   }
 }
 

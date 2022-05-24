@@ -5,6 +5,7 @@ class BaseItem {
     this.cost = props.cost || 0;
     this.sell = props.sell || 0;
     this.worth = props.worth || 0;
+    this.buyable = props.buyable || false;
     this.sellable = props.sellable || false;
     this.tradeable = props.tradeable || false;
     this.type = props.type || "";
