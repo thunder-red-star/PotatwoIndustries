@@ -7,7 +7,9 @@ class ItemDatabase {
     this.items = {};
     this.itemAliases = {};
     // Reads items folder and list directories within
-    let itemTypes = fs.readdirSync("./src/assets/itemdb/");
+    let itemTypes = fs.readdirSync("./src/assets/itemdb/").filter(
+      file => fs.statSync("./src/assets/itemdb/" + file).isDirectory()
+    );
     // For each item type
     for (let i = 0; i < itemTypes.length; i++) {
       // Read the item type folder

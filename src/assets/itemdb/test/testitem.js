@@ -1,3 +1,5 @@
+const BaseItem = require('../baseitem');
+
 class TestItem extends BaseItem {
 	static itemData = {
 		name: "Test Item",
