@@ -21,7 +21,7 @@ module.exports = {
   args: [
     {
       name: "target",
-      description: "The amount of potatoes you want to give.",
+      description: "The user you want to view the inventory of.",
       type: "user",
       required: false
     }
@@ -54,7 +54,7 @@ module.exports = {
           let inventory = client.database.users.get(target.id).inventory.getAll();
           let totalItems = 0;
           for (let item in inventory) {
-            totalItems += inventory[item].amount;
+            totalItems += inventory[item].count;
           }
           if (inventory.length > 10) {
             let inventoryPages = [];
@@ -66,7 +66,7 @@ module.exports = {
               for (let j = 0; j < 10; j++) {
                 if (inventory[i + j]) {
                   inventoryPage.addField({
-                    name: `${inventory[i + j].item.name} x${inventory[i + j].amount}`,
+                    name: `${inventory[i + j].item.name} x${inventory[i + j].count}`,
                     value: inventory[i + j].item.description
                   });
                 }
@@ -83,7 +83,7 @@ module.exports = {
             for (let x = 0; x < inventory.length; x++) {
               console.log(inventory[x]);
               inventoryPage.addField({
-                name: `${inventory[x].item.name} x${inventory[x].amount}`,
+                name: `${inventory[x].item.name} x${inventory[x].count}`,
                 value: inventory[x].item.description
               });
             }
@@ -116,7 +116,7 @@ module.exports = {
           let inventory = client.database.users.get(target.id).inventory.getAll();
           let totalItems = 0;
           for (let item in inventory) {
-            totalItems += inventory[item].amount;
+            totalItems += inventory[item].count;
           }
           if (inventory.length > 10) {
             // Create the inventory pages.
@@ -130,7 +130,7 @@ module.exports = {
               for (let j = 0; j < 10; j++) {
                 if (inventory[i + j]) {
                   inventoryPage.addField({
-                    name: `${inventory[i + j].item.itemData.name} x${inventory[i + j].amount}`,
+                    name: `${inventory[i + j].item.itemData.name} x${inventory[i + j].count}`,
                     value: inventory[i + j].item.itemData.description
                   });
                 }
@@ -147,7 +147,7 @@ module.exports = {
               .setDescription(`${target.username}'s inventory contains ${totalItems} items.`);
             for (let x = 0; x < inventory.length; x++) {
               inventoryPage.addField({
-                name: `${inventory[x].item.name} x${inventory[x].amount}`,
+                name: `${inventory[x].item.name} x${inventory[x].count}`,
                 value: inventory[x].item.description
               });
             }
