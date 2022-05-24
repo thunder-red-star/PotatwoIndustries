@@ -82,6 +82,15 @@ class Inventory {
 		}
 	}
 
+	// Returns if the user has the item
+	has(itemName) {
+		if (this.count(itemName) > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	// Returns the entire inventory
 	getAll() {
 		return this.data;

@@ -9,6 +9,7 @@ class TestItem extends BaseItem {
 		worth: 100,
 		buyable: true,
 		sellable: true,
+		usable: true,
 		tradeable: true,
 		type: "Test",
 		aliases: ["testitem"],

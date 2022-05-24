@@ -7,6 +7,7 @@ class BaseItem {
     this.worth = props.worth || 0;
     this.buyable = props.buyable || false;
     this.sellable = props.sellable || false;
+    this.usable = props.usable || false;
     this.tradeable = props.tradeable || false;
     this.type = props.type || "";
     this.aliases = props.aliases || [];
