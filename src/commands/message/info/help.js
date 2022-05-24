@@ -41,7 +41,7 @@ module.exports = {
                             .setDescription("You can use `" + serverPrefix + "help <command>` to get more information about a command.")
                             .setColor(client.colors.success);
                         if (commandsInModule.length > 0) {
-                            for (let k = j; k < j + 10; k++) {
+                            for (let k = j; k < j + 10 && k < commandsInModule.length; k++)
                                 let command = require(`../../../commands/message/${modules[i]}/${commandsInModule[k]}`);
                                 moduleEmbed.addField({
                                     name: `\`${serverPrefix}${command.name}\``,
