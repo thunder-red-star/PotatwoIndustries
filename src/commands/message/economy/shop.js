@@ -39,6 +39,7 @@ module.exports = {
           shopPages.push(shopPage);
         }
       } else {
+        console.log(shopCategoryItems);
         let shopPage = new DJSBuilders.Embed()
           .setColor(client.colors.potato)
           .setTitle(shopCategory + " Shop")
