@@ -1,3 +1,5 @@
+const ItemDatabase = require("./ItemDatabase");
+
 class Item {
 	constructor (itemObj) {
 		this.name = itemObj.name;
@@ -16,11 +18,7 @@ class Item {
 	}
 
 	fromJSON (json) {
-		this.name = json.name;
-		this.description = json.description || "";
-		this.type = json.type || "";
-		this.aliases = json.aliases || [];
-		this.use = json.use || null;
+		return ItemDatabase.getItem(json.name);
 	}
 
 	toJSON () {

@@ -1,4 +1,5 @@
 const Item = require('./Item');
+const ItemDatabase = require('./ItemDatabase');
 
 class Inventory {
 	// Inventory class, allows storage of arrays of items and counts
