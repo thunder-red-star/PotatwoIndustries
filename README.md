@@ -75,8 +75,8 @@ Hence, Potato Industries is now PotaTwo Industries.
 - [ ] sudo
 #### Owner Commands
 ( in no particular order )
-- [x eval
-- [x setpotatoes
+- [x] eval
+- [x] setpotatoes
 - [ ] blacklist
 - [ ] unblacklist
 ### Additional features
