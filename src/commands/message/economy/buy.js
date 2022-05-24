@@ -44,7 +44,7 @@ module.exports = {
             let itemData = ItemDatabase.getItem(item);
 
             // Check if the user has enough money.
-            if (user.getPotatoes() < itemData.cost * count) {
+            if (user.getPotatoes() < itemData.itemData.cost * count) {
                 return message.reply({
                     embeds: [{
                         color: client.colors.warning,
@@ -62,7 +62,7 @@ module.exports = {
                 });
             }
             // Check if the item is buyable.
-            if (!itemData.buyable) {
+            if (!itemData.itemData.buyable) {
                 return message.reply({
                     embeds: [{
                         color: client.colors.warning,
