@@ -28,7 +28,7 @@ module.exports = {
                 let auction = auctions[j];
                 page.addField({
                     name: "**" + auction.count + "x " + auction.item.name + "**",
-                    value: "`" + auction.id + "`",
+                    value: "Id: `" + auction.id + "`",
                 });
             }
             auctionPages.push(page);
