@@ -66,7 +66,6 @@ module.exports = {
           value: seller.tag,
           inline: true
         })
-        .setFooter("Auction House");
         // Send the embed.
       message.reply({
         embeds: [embed]
