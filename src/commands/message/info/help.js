@@ -43,11 +43,11 @@ module.exports = {
                         if (commandsInModule.length > 0) {
                             for (let k = j; k < j + 10 && k < commandsInModule.length; k++) {
                                 let command = require(`../../../commands/message/${modules[i]}/${commandsInModule[k]}`);
-                                moduleEmbed.addFields({
+                                moduleEmbed.addFields([{
                                     name: `\`${serverPrefix}${command.name}\``,
                                     value: command.description,
                                     inline: false
-                                });
+                                }]);
                             }
                         } else {
                             moduleEmbed.setDescription("No commands (yet).");
