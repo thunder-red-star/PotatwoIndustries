@@ -68,7 +68,7 @@ module.exports = {
             return message.reply({
                 embeds: [{
                     title: "Success",
-                    description: client.customEmojis.check + " You have successfully removed the item from the auction house!",
+                    description: client.customEmojis.check + " You have successfully removed " + auction.count + "x " + auction.item.name + " from the auction house!",
                     color: client.colors.success
                 }]
             });
