@@ -52,6 +52,7 @@ class Auction {
         this.price = json.price;
         this.time = json.time;
         this.count = json.count;
+        return this;
     }
 }
 
