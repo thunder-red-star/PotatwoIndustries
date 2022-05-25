@@ -36,7 +36,7 @@ module.exports = {
       });
     } else {
       // Create the embed.
-      let sellerTag = await client.users.fetch(auction.user);
+      let seller = await client.users.fetch(auction.user);
       let embed = new DJSBuilders.Embed()
         .setColor(client.colors.potato)
         .setTitle("Auction House Info - `" + auction.id + "`")
@@ -63,7 +63,7 @@ module.exports = {
         })
         .addField({
           name: "Seller",
-          value: sellerTag,
+          value: seller.tag,
           inline: true
         })
         .setFooter("Auction House");
