@@ -37,7 +37,7 @@ class Auction {
     toJSON() {
         return {
             id: this.id,
-            item: this.item,
+            item: this.item.toJSON(),
             user: this.user,
             price: this.price,
             time: this.time,
