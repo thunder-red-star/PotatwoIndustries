@@ -44,7 +44,11 @@ module.exports = {
                     for (let j = i; j < i + 10; j++) {
                         if (j >= auctions.length) break;
                         if (Date.now() - auctions[j].time > 1000 * 24 * 60 * 60) {
-                            continue;
+                            let auction = auctions[j];
+                            page.addField({
+                                name: "~~**" + auction.count + "x " + auction.item.name + "**~~",
+                                value: "Id: `" + auction.id + "`",
+                            });
                         } else {
                             let auction = auctions[j];
                             page.addField({
