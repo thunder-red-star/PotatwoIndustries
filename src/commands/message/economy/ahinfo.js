@@ -41,27 +41,27 @@ module.exports = {
         .setColor(client.colors.potato)
         .setTitle("Auction House Info - `" + auction.id + "`")
         .setDescription("Get an item with `" + client.getServerPrefix(message) + "ahbuy " + auction.id + "`!")
-        .addField({
+        .addFields({
           name: "Item",
           value: auction.item.name,
           inline: true
         })
-        .addField({
+        .addFields({
           name: "Count",
           value: auction.count + "x",
           inline: true
         })
-        .addField({
+        .addFields({
           name: "Price",
           value: auction.price + " " + client.customEmojis.potato,
           inline: true
         })
-        .addField({
+        .addFields({
           name: "Time until expiration",
           value: (Date.now() - auction.time > 1000 * 24 * 60 * 60) ? "Expired" : ms((auction.time + 1000 * 60 * 60 * 24) - Date.now(), { long: true }),
           inline: true
         })
-        .addField({
+        .addFields({
           name: "Seller",
           value: seller.tag,
           inline: true

@@ -43,7 +43,7 @@ module.exports = {
                         if (commandsInModule.length > 0) {
                             for (let k = j; k < j + 10 && k < commandsInModule.length; k++) {
                                 let command = require(`../../../commands/message/${modules[i]}/${commandsInModule[k]}`);
-                                moduleEmbed.addField({
+                                moduleEmbed.addFields({
                                     name: `\`${serverPrefix}${command.name}\``,
                                     value: command.description,
                                     inline: false
@@ -62,7 +62,7 @@ module.exports = {
                     if (commandsInModule.length > 0) {
                         for (let j = 0; j < commandsInModule.length; j++) {
                             let command = require(`../../../commands/message/${modules[i]}/${commandsInModule[j]}`);
-                            moduleEmbed.addField({
+                            moduleEmbed.addFields({
                                 name: `\`${serverPrefix}${command.name}\``,
                                 value: command.description,
                                 inline: false
@@ -106,27 +106,27 @@ module.exports = {
                     .setTitle(`${serverPrefix}${command.name}`)
                     .setDescription(command.detailedDescription)
                     .setColor(client.colors.success)
-                    .addField({
+                    .addFields({
                         name: "Usage",
                         value: `\`${serverPrefix}${command.name}${cmdArgString}\``,
                     })
-                    .addField({
+                    .addFields({
                         name: "Aliases",
                         value: command.aliases.length > 0 ? command.aliases.map(alias => `\`${serverPrefix}${alias}\``).join(", ") : "None",
                     })
-                    .addField({
+                    .addFields({
                         name: "Cooldown",
                         value: `${ms(command.cooldown, { long: true })}`,
                     })
-                    .addField({
+                    .addFields({
                         name: "Permissions Required",
                         value: command.userPermissions.length > 0 ? command.userPermissions.map(perm => `\`${perm}\``).join(", ") : "None",
                     })
-                    .addField({
+                    .addFields({
                         name: "Bot Permissions Required",
                         value: command.botPermissions.length > 0 ? command.botPermissions.map(perm => `\`${perm}\``).join(", ") : "None",
                     })
-                    .addField({
+                    .addFields({
                         name: "Other command info",
                         value: `Enabled: ${command.enabled ? "Yes" : "No"}\nGuild Only: ${command.guildOnly ? "Yes" : "No"}\nOwner Only: ${command.ownerOnly ? "Yes" : "No"}`
                     });

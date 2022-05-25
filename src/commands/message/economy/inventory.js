@@ -67,7 +67,7 @@ module.exports = {
                 .setDescription(`${target.username}'s inventory contains ${totalItems} ${totalItems === 1 ? "item" : "items"} worth ${totalPotatoes} ${client.customEmojis.potato}.`);
               for (let j = 0; j < 10; j++) {
                 if (inventory[i + j]) {
-                  inventoryPage.addField({
+                  inventoryPage.addFields({
                     name: `${inventory[i + j].item.name} x${inventory[i + j].count}`,
                     value: inventory[i + j].item.description
                   });
@@ -83,7 +83,7 @@ module.exports = {
               .setTitle(`${target.username}'s Inventory`)
               .setDescription(`${target.username}'s inventory contains ${totalItems} ${totalItems === 1 ? "item" : "items"} worth ${totalPotatoes} ${client.customEmojis.potato}.`);
             for (let x = 0; x < inventory.length; x++) {
-              inventoryPage.addField({
+              inventoryPage.addFields({
                 name: `${inventory[x].item.name} x${inventory[x].count}`,
                 value: inventory[x].item.description
               });
@@ -130,7 +130,7 @@ module.exports = {
                 .setDescription(`${target.username}'s inventory contains ${totalItems} ${totalItems === 1 ? "item" : "items"}.`);
               for (let j = 0; j < 10; j++) {
                 if (inventory[i + j]) {
-                  inventoryPage.addField({
+                  inventoryPage.addFields({
                     name: `${inventory[i + j].item.itemData.name} x${inventory[i + j].count}`,
                     value: inventory[i + j].item.itemData.description
                   });
@@ -147,7 +147,7 @@ module.exports = {
               .setTitle(`${target.username}'s Inventory`)
               .setDescription(`${target.username}'s inventory contains ${totalItems} ${totalItems === 1 ? "item" : "items"}.`);
             for (let x = 0; x < inventory.length; x++) {
-              inventoryPage.addField({
+              inventoryPage.addFields({
                 name: `${inventory[x].item.name} x${inventory[x].count}`,
                 value: inventory[x].item.description
               });
