@@ -48,7 +48,7 @@ module.exports = {
         })
         .addField({
           name: "Count",
-          value: auction.count,
+          value: auction.count + "x",
           inline: true
         })
         .addField({
