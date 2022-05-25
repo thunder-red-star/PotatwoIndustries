@@ -62,11 +62,11 @@ module.exports = {
                     if (commandsInModule.length > 0) {
                         for (let j = 0; j < commandsInModule.length; j++) {
                             let command = require(`../../../commands/message/${modules[i]}/${commandsInModule[j]}`);
-                            moduleEmbed.addFields({
+                            moduleEmbed.addFields([{
                                 name: `\`${serverPrefix}${command.name}\``,
                                 value: command.description,
                                 inline: false
-                            });
+                            }]);
                         }
                     } else {
                         moduleEmbed.setDescription("No commands (yet).");
@@ -106,30 +106,30 @@ module.exports = {
                     .setTitle(`${serverPrefix}${command.name}`)
                     .setDescription(command.detailedDescription)
                     .setColor(client.colors.success)
-                    .addFields({
+                    .addFields([{
                         name: "Usage",
                         value: `\`${serverPrefix}${command.name}${cmdArgString}\``,
-                    })
-                    .addFields({
+                    }])
+                    .addFields([{
                         name: "Aliases",
                         value: command.aliases.length > 0 ? command.aliases.map(alias => `\`${serverPrefix}${alias}\``).join(", ") : "None",
-                    })
-                    .addFields({
+                    }])
+                    .addFields([{
                         name: "Cooldown",
                         value: `${ms(command.cooldown, { long: true })}`,
-                    })
-                    .addFields({
+                    }])
+                    .addFields([{
                         name: "Permissions Required",
                         value: command.userPermissions.length > 0 ? command.userPermissions.map(perm => `\`${perm}\``).join(", ") : "None",
-                    })
-                    .addFields({
+                    }])
+                    .addFields([{
                         name: "Bot Permissions Required",
                         value: command.botPermissions.length > 0 ? command.botPermissions.map(perm => `\`${perm}\``).join(", ") : "None",
-                    })
-                    .addFields({
+                    }])
+                    .addFields([{
                         name: "Other command info",
                         value: `Enabled: ${command.enabled ? "Yes" : "No"}\nGuild Only: ${command.guildOnly ? "Yes" : "No"}\nOwner Only: ${command.ownerOnly ? "Yes" : "No"}`
-                    });
+                    }]);
                 message.reply({
                     embeds: [helpEmbed]
                 });
