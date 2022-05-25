@@ -127,7 +127,7 @@ module.exports = async function(message, pages) {
             // Create a new action row, but with all buttons disabled
             let actionRow = new DJSBuilders.ActionRowBuilder();
             for (let i = 0; i < buttonArray.length; i++) {
-                actionRow.addComponents(]buttonArray[i].setDisabled(true)\);
+                actionRow.addComponents(buttonArray[i].setDisabled(true)\);
             }
 
             // Send the new page
