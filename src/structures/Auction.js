@@ -2,7 +2,12 @@ const Item = require("./Item");
 
 class Auction {
     constructor() {
-
+        this.id = "";
+        this.item = new Item();
+        this.user = "";
+        this.price = 0;
+        this.time = 0;
+        this.count = 0;
     }
 
     getId() {
