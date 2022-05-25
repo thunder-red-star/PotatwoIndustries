@@ -31,10 +31,10 @@ module.exports = {
             .setDescription("Use `" + client.getServerPrefix(message) + "buy <item>` to buy an item");
           for (let k = j; k < j + 10; k++) {
             let shopItem = shopCategoryItems[Object.keys(shopCategoryItems)[k]];
-            shopPage.addFields({
+            shopPage.addFields([{
               name: shopItem.itemData.name,
               value: `${shopItem.itemData.cost} ${client.customEmojis.potato}`,
-            });
+            }]);
           }
           shopPages.push(shopPage);
         }
@@ -46,10 +46,10 @@ module.exports = {
           .setDescription("Use `" + client.getServerPrefix(message) + "buy <item>` to buy an item");
         for (let j = 0; j < Object.keys(shopCategoryItems).length; j++) {
             let shopItem = shopCategoryItems[Object.keys(shopCategoryItems)[j]];
-          shopPage.addFields({
+          shopPage.addFields([{
             name: shopItem.itemData.name,
             value: `${shopItem.itemData.cost} ${client.customEmojis.potato}`,
-          });
+          }]);
         }
         shopPages.push(shopPage);
       }

@@ -47,10 +47,10 @@ module.exports = {
                             continue;
                         } else {
                             let auction = auctions[j];
-                            page.addFields({
+                            page.addFields([{
                                 name: "**" + auction.count + "x " + auction.item.name + "**",
                                 value: "Id: `" + auction.id + "`",
-                            });
+                            }]);
                         }
                     }
                     auctionPages.push(page);
@@ -80,16 +80,16 @@ module.exports = {
                         if (j >= userAuctions.length) break;
                         if (Date.now() - auctions[j].time > 1000 * 24 * 60 * 60) {
                             let auction = auctions[j];
-                            page.addFields({
+                            page.addFields([{
                                 name: "~~**" + auction.count + "x " + auction.item.name + "**~~",
                                 value: "Id: `" + auction.id + "`",
-                            });
+                            }]);
                         } else {
                             let auction = auctions[j];
-                            page.addFields({
+                            page.addFields([{
                                 name: "**" + auction.count + "x " + auction.item.name + "**",
                                 value: "Id: `" + auction.id + "`",
-                            });
+                            }]);
                         }
                     }
                     auctionPages.push(page);
