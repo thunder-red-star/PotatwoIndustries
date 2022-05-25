@@ -37,7 +37,7 @@ module.exports = {
     } else {
       // Create the embed.
       let seller = await client.users.fetch(auction.user);
-      let embed = new DJSBuilders.Embed()
+      let embed = new DJSBuilders.EmbedBuilder()
         .setColor(client.colors.potato)
         .setTitle("Auction House Info - `" + auction.id + "`")
         .setDescription("Get an item with `" + client.getServerPrefix(message) + "ahbuy " + auction.id + "`!")

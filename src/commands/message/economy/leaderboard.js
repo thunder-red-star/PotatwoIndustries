@@ -29,7 +29,7 @@ module.exports = {
         let leaderboardPaginatorPages = [];
         // Parse up to 100 users, 10 per page.
         for (let i = 0; i < Math.ceil(users.length / 10); i++) {
-            let leaderboardPage = new DJSBuilders.Embed()
+            let leaderboardPage = new DJSBuilders.EmbedBuilder()
                 .setColor(client.colors.potato)
                 .setTitle("Leaderboard");
             let description = "";

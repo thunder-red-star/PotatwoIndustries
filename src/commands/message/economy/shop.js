@@ -25,7 +25,7 @@ module.exports = {
       let shopCategoryItems = shopItems[shopCategory];
       if (shopCategoryItems.length > 10) {
         for (let j = 0; j < shopCategoryItems; j += 10) {
-          let shopPage = new DJSBuilders.Embed()
+          let shopPage = new DJSBuilders.EmbedBuilder()
             .setColor(client.colors.potato)
             .setTitle(shopCategory + " Shop, Page " + Math.floor(j / 10 + 1))
             .setDescription("Use `" + client.getServerPrefix(message) + "buy <item>` to buy an item");
@@ -40,7 +40,7 @@ module.exports = {
         }
       } else {
         console.log(shopCategoryItems);
-        let shopPage = new DJSBuilders.Embed()
+        let shopPage = new DJSBuilders.EmbedBuilder()
           .setColor(client.colors.potato)
           .setTitle(shopCategory + " Shop")
           .setDescription("Use `" + client.getServerPrefix(message) + "buy <item>` to buy an item");

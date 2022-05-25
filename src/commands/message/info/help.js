@@ -36,7 +36,7 @@ module.exports = {
                 // If there are more than 10 commands in a module, split them into multiple pages.
                 if (commandsInModule.length > 10) {
                     for (let j = 0; j < commandsInModule.length; j += 10) {
-                        let moduleEmbed = new DJSBuilders.Embed()
+                        let moduleEmbed = new DJSBuilders.EmbedBuilder()
                             .setTitle(`${upperCaseModule} Commands, Page ${Math.floor(j / 10) + 1}`)
                             .setDescription("You can use `" + serverPrefix + "help <command>` to get more information about a command.")
                             .setColor(client.colors.success);
@@ -55,7 +55,7 @@ module.exports = {
                         paginatorEmbeds.push(moduleEmbed);
                     }
                 } else {
-                    let moduleEmbed = new DJSBuilders.Embed()
+                    let moduleEmbed = new DJSBuilders.EmbedBuilder()
                         .setTitle(`${upperCaseModule} Commands`)
                         .setDescription("You can use `" + serverPrefix + "help <command>` to get more information about a command.")
                         .setColor(client.colors.success);
@@ -102,7 +102,7 @@ module.exports = {
                         cmdArgString += "[" + command.args[i].name + "]";
                     }
                 }
-                let helpEmbed = new DJSBuilders.Embed()
+                let helpEmbed = new DJSBuilders.EmbedBuilder()
                     .setTitle(`${serverPrefix}${command.name}`)
                     .setDescription(command.detailedDescription)
                     .setColor(client.colors.success)

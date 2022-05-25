@@ -61,7 +61,7 @@ module.exports = {
           if (inventory.length > 10) {
             let inventoryPages = [];
             for (let i = 0; i < inventory.length; i += 10) {
-              let inventoryPage = new DJSBuilders.Embed()
+              let inventoryPage = new DJSBuilders.EmbedBuilder()
                 .setColor(client.colors.default)
                 .setTitle(`${target.username}'s Inventory`)
                 .setDescription(`${target.username}'s inventory contains ${totalItems} ${totalItems === 1 ? "item" : "items"} worth ${totalPotatoes} ${client.customEmojis.potato}.`);
@@ -78,7 +78,7 @@ module.exports = {
             await messagePaginator(message, inventoryPages);
           }
           else {
-            let inventoryPage = new DJSBuilders.Embed()
+            let inventoryPage = new DJSBuilders.EmbedBuilder()
               .setColor(client.colors.potato)
               .setTitle(`${target.username}'s Inventory`)
               .setDescription(`${target.username}'s inventory contains ${totalItems} ${totalItems === 1 ? "item" : "items"} worth ${totalPotatoes} ${client.customEmojis.potato}.`);
@@ -124,7 +124,7 @@ module.exports = {
             let inventoryPages = [];
             for (let i = 0; i < inventory.length; i += 10) {
               // Create the inventory page.
-              let inventoryPage = new DJSBuilders.Embed()
+              let inventoryPage = new DJSBuilders.EmbedBuilder()
                 .setColor(client.colors.potato)
                 .setTitle(`${target.username}'s Inventory`)
                 .setDescription(`${target.username}'s inventory contains ${totalItems} ${totalItems === 1 ? "item" : "items"}.`);
@@ -142,7 +142,7 @@ module.exports = {
           }
           else {
             // Create the inventory page.
-            let inventoryPage = new DJSBuilders.Embed()
+            let inventoryPage = new DJSBuilders.EmbedBuilder()
               .setColor(client.colors.potato)
               .setTitle(`${target.username}'s Inventory`)
               .setDescription(`${target.username}'s inventory contains ${totalItems} ${totalItems === 1 ? "item" : "items"}.`);

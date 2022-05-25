@@ -37,7 +37,7 @@ module.exports = {
                 let auctionPages = [];
                 // Put 10 auctions per page.
                 for (let i = 0; i < auctions.length; i += 10) {
-                    let page = new DJSBuilders.Embed()
+                    let page = new DJSBuilders.EmbedBuilder()
                         .setColor(client.colors.potato)
                         .setTitle("Auction House - Page " + Math.floor(i / 10) + 1)
                         .setDescription("Get an item with `" + client.getServerPrefix(message) + "ahbuy <id>`!\nLearn more about an auction with `" + client.getServerPrefix(message) + "ahinfo <id>`!");
@@ -72,7 +72,7 @@ module.exports = {
                 let auctionPages = [];
                 // Put 10 auctions per page.
                 for (let i = 0; i < userAuctions.length; i += 10) {
-                    let page = new DJSBuilders.Embed()
+                    let page = new DJSBuilders.EmbedBuilder()
                         .setColor(client.colors.potato)
                         .setTitle("Your listings - Page " + Math.floor(i / 10) + 1)
                         .setDescription("Remove an auction with `" + client.getServerPrefix(message) + "ahremove <id>`!\nLearn more about an auction with `" + client.getServerPrefix(message) + "ahinfo <id>`!");

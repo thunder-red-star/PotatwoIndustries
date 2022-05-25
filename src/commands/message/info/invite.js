@@ -16,15 +16,15 @@ module.exports = {
     args: [],
     run: async function(message, client, args) {
         // Create an invite embed.
-        const inviteEmbed = new DJSBuilders.Embed()
+        const inviteEmbed = new DJSBuilders.EmbedBuilder()
             .setTitle("Click here invite")
             .setDescription("Pls?")
             .setColor(client.colors.success);
-        const inviteButton = new DJSBuilders.ButtonComponent()
+        const inviteButton = new DJSBuilders.ButtonBuilder()
             .setLabel("Invite")
             .setURL(`https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot%20applications.commands&permissions=8`)
             .setStyle(5);
-        const inviteButtonRow = new DJSBuilders.ActionRow()
+        const inviteButtonRow = new DJSBuilders.ActionRowBuilder()
             .addComponents(inviteButton);
 
         return message.reply({
