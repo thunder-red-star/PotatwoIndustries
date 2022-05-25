@@ -46,6 +46,17 @@ module.exports = {
         });
       }
 
+      // Check if the user is trying to buy his own item.
+      if (auction.user === message.author.id) {
+        return message.reply({
+          embeds: [{
+            title: "Error",
+            description: client.customEmojis.cross + " You can't buy your own item!",
+            color: client.colors.error
+          }]
+        });
+      }
+
       // Check if the user has enough potatoes.
       if (user.getPotatoes() < auction.price) {
         return message.reply({
