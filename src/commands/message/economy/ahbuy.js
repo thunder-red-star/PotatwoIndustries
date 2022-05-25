@@ -106,6 +106,7 @@ module.exports = {
       return message.reply({
         embeds: [{
           title: "Success",
+          color: client.colors.success,
           description: client.customEmojis.check + " You have bought **" + auction.count + "x " + auction.item.name + "** for **" + auction.price + "** " + client.customEmojis.potato + "!",
         }]
       });
