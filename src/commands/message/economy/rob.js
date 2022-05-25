@@ -103,6 +103,14 @@ module.exports = {
                                 await target.addPotatoes(-potatoes);
                                 // Write to the database.
                                 client.database.write();
+                                // DM the user being robbed.
+                                await args.target.send({
+                                    embeds: [{
+                                        color: client.colors.error,
+                                        description: client.customEmojis.error + " You were robbed by " + message.author.tag + ", who got away with " + potatoes + " " + client.customEmojis.potato + "."
+                                    }]
+                                });
+
                                 // Send a message to the user.
                                 return message.reply({
                                     embeds: [{
@@ -121,6 +129,15 @@ module.exports = {
                                     await target.addPotatoes(fee);
                                     // Write to the database.
                                     client.database.write();
+
+                                    // DM the user being robbed.
+                                    await args.target.send({
+                                        embeds: [{
+                                            color: client.colors.error,
+                                            description: client.customEmojis.error + " You were robbed by " + message.author.tag + ", but they failed and paid you a fee of " + fee + " " + client.customEmojis.potato + "."
+                                        }]
+                                    });
+
                                     // Send a message to the user.
                                     return message.reply({
                                         embeds: [{
@@ -130,6 +147,15 @@ module.exports = {
                                     });
                                 } else {
                                     // The user has to pay nothing.
+
+                                    // DM the user being robbed.
+                                    await args.target.send({
+                                        embeds: [{
+                                            color: client.colors.error,
+                                            description: client.customEmojis.error + " You were robbed by " + message.author.tag + ", but they failed."
+                                        }]
+                                    });
+
                                     // Send a message to the user.
                                     return message.reply({
                                         embeds: [{
