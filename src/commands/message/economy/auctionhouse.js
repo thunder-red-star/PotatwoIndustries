@@ -25,11 +25,15 @@ module.exports = {
                 .setDescription("Get an item with `" + client.getServerPrefix(message) + "ahbuy <id>`!\nLearn more about an auction with `" + client.getServerPrefix(message) + "ahinfo <id>`!");
             for (let j = i; j < i + 10; j++) {
                 if (j >= auctions.length) break;
-                let auction = auctions[j];
-                page.addField({
-                    name: "**" + auction.count + "x " + auction.item.name + "**",
-                    value: "Id: `" + auction.id + "`",
-                });
+                if (Date.now() - auction.time > 1000 * 24 * 60 * 60) {
+                    continue;
+                } else {
+                    let auction = auctions[j];
+                    page.addField({
+                        name: "**" + auction.count + "x " + auction.item.name + "**",
+                        value: "Id: `" + auction.id + "`",
+                    });
+                }
             }
             auctionPages.push(page);
         }
