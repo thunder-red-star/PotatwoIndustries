@@ -42,7 +42,7 @@ class Auction {
 
     fromJSON(json) {
         this.id = json.id;
-        this.item = new Item().fromJSON(json.item);
+        this.item = new Item().fromJSON({ name: json.item });
         this.user = json.user;
         this.price = json.price;
         this.time = json.time;
