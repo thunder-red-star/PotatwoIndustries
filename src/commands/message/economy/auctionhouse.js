@@ -22,13 +22,13 @@ module.exports = {
             let page = new DJSBuilders.Embed()
                 .setColor(client.colors.potato)
                 .setTitle("Auction House - Page " + Math.floor(i / 10) + 1)
-                .setDescription("Get an item with " + client.getServerPrefix(message) + "ahbuy <id>!");
+                .setDescription("Get an item with `" + client.getServerPrefix(message) + "ahbuy <id>`!\nLearn more about an auction with `" + client.getServerPrefix(message) + "ahinfo <id>`!");
             for (let j = i; j < i + 10; j++) {
                 if (j >= auctions.length) break;
                 let auction = auctions[j];
                 page.addField({
-                    name: "`" + auction.id + "`",
-                    value: "**" + auction.price + "** " + client.customEmojis.potato + " for **" + auction.count + "x " + auction.item.name + "**",
+                    name: "**" + auction.count + "x " + auction.item.name + "**",
+                    value: "`" + auction.id + "`",
                 });
             }
             auctionPages.push(page);
