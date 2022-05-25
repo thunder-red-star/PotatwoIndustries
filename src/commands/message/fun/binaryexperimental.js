@@ -69,6 +69,6 @@ module.exports = {
             if (reason === "timeout") {
                 return message.reply({ content: "You took too long to respond." });
             }
-        }
+        });
     }
 };
