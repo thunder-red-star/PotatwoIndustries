@@ -107,7 +107,7 @@ module.exports = {
                                 await args.target.send({
                                     embeds: [{
                                         color: client.colors.error,
-                                        description: client.customEmojis.error + " You were robbed by " + message.author.tag + ", who got away with " + potatoes + " " + client.customEmojis.potato + "."
+                                        description: "You were robbed by " + message.author.tag + ", who got away with " + potatoes + " " + client.customEmojis.potato + "."
                                     }]
                                 });
 
@@ -134,7 +134,7 @@ module.exports = {
                                     await args.target.send({
                                         embeds: [{
                                             color: client.colors.error,
-                                            description: client.customEmojis.error + " You were robbed by " + message.author.tag + ", but they failed and paid you a fee of " + fee + " " + client.customEmojis.potato + "."
+                                            description: "You were robbed by " + message.author.tag + ", but they failed and paid you a fee of " + fee + " " + client.customEmojis.potato + "."
                                         }]
                                     });
 
@@ -152,7 +152,7 @@ module.exports = {
                                     await args.target.send({
                                         embeds: [{
                                             color: client.colors.error,
-                                            description: client.customEmojis.error + " You were robbed by " + message.author.tag + ", but they failed."
+                                            description: "You were robbed by " + message.author.tag + ", but they failed."
                                         }]
                                     });
 
