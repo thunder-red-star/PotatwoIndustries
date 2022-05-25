@@ -64,6 +64,8 @@ module.exports = {
             let user = await client.database.users.get(message.author.id);
             user.inventory.add(auction.item.name, auction.count);
 
+            client.database.write();
+
             // Send a message to the user.
             return message.reply({
                 embeds: [{

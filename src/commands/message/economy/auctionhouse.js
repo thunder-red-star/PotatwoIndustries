@@ -78,7 +78,7 @@ module.exports = {
                 for (let i = 0; i < userAuctions.length; i += 10) {
                     let page = new DJSBuilders.Embed()
                         .setColor(client.colors.potato)
-                        .setTitle("Auction House - Page " + Math.floor(i / 10) + 1)
+                        .setTitle("Your listings - Page " + Math.floor(i / 10) + 1)
                         .setDescription("Remove an auction with `" + client.getServerPrefix(message) + "ahremove <id>`!\nLearn more about an auction with `" + client.getServerPrefix(message) + "ahinfo <id>`!");
                     for (let j = i; j < i + 10; j++) {
                         if (j >= userAuctions.length) break;
