@@ -103,7 +103,7 @@ module.exports = async function(message, pages) {
         let newActionRow = new DJSBuilders.ActionRowBuilder();
         for (let i = 0; i < buttonArray.length; i++) {
             // Copy the button into a new button
-            let newButton = new DJSBuilders.ButtonBuilder().setCustomId(buttonArray[i].custom_id).setStyle(buttonArray[i].style).setEmoji(buttonArray[i].emoji);
+            let newButton = new DJSBuilders.ButtonBuilder().setCustomId(buttonArray[i].data.custom_id).setStyle(buttonArray[i].data.style).setEmoji(buttonArray[i].data.emoji);
             if (page === 0 && (i === 0 || i === 1)) {
                 newButton.setDisabled(true);
             }
