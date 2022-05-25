@@ -29,7 +29,7 @@ module.exports = {
                 let auction = auctions[j];
                 page.addField({
                     name: "`" + auction.id + "`",
-                    value: "**" + auction.price + "** " + client.customEmojis.potato + " for **" + auction.count + "x " + auction.item + "**",
+                    value: "**" + auction.price + "** " + client.customEmojis.potato + " for **" + auction.count + "x " + auction.item.name + "**",
                 });
             }
             auctionPages.push(page);
