@@ -45,7 +45,7 @@ module.exports = async function(message, pages) {
         if (page === pages.length - 1 && (i === 3 || i === 4)) {
             newButton.setDisabled(true);
         }
-        newActionRow.addComponents(newButton);
+        newActionRow.addComponents([newButton]);
     }
 
     // Send the page with the array of buttons
@@ -110,7 +110,7 @@ module.exports = async function(message, pages) {
             if (page === pages.length - 1 && (i === 3 || i === 4)) {
                 newButton.setDisabled(true);
             }
-            newActionRow.addComponents(newButton);
+            newActionRow.addComponents([newButton]);
         }
 
         // Send the new page
@@ -127,7 +127,7 @@ module.exports = async function(message, pages) {
             // Create a new action row, but with all buttons disabled
             let actionRow = new DJSBuilders.ActionRowBuilder();
             for (let i = 0; i < buttonArray.length; i++) {
-                actionRow.addComponents(buttonArray[i].setDisabled(true));
+                actionRow.addComponents(]buttonArray[i].setDisabled(true)\);
             }
 
             // Send the new page
