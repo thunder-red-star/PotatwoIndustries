@@ -61,6 +61,7 @@ class AuctionHouse {
             return this;
         } else {
             this.auctions = json.map(auction => new Auction().fromJSON(auction));
+            console.log(this.auctions);
             return this;
         }
     }
