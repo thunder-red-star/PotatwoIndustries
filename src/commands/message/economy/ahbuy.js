@@ -80,7 +80,7 @@ module.exports = {
       }
 
       // Buy the item.
-      user.inventory.add(auction.item, auction.count);
+      user.inventory.add(auction.item.name, auction.count);
 
       // Remove the potatoes.
       user.setPotatoes(user.getPotatoes() - auction.price);
