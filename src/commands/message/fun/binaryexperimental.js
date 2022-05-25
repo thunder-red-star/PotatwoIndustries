@@ -21,7 +21,7 @@ module.exports = {
         const modal = new DJSBuilders.ModalBuilder()
             .setTitle("Binary Input")
             .setCustomId("binary-input")
-            .addComponents(
+            .addComponents([
                 new DJSBuilders.TextInputBuilder()
                     .setRequired(true)
                     .setMinLength(1)
@@ -29,7 +29,7 @@ module.exports = {
                     .setLabel("Text")
                     .setPlaceholder("Your text here")
                     .setCustomId("binary-input-text")
-            )
+            ])
 
         // Send the modal to the user.
         let msg = await message.reply({
