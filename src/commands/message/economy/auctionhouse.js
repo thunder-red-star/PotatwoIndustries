@@ -17,7 +17,6 @@ module.exports = {
         // List the auction house.
         let auctions = client.database.auctions.getAuctions();
         let auctionPages = [];
-        console.log(auctions);
         // Put 10 auctions per page.
         for (let i = 0; i < auctions.length; i += 10) {
             let page = new DJSBuilders.Embed()

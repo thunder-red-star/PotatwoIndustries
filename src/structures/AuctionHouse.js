@@ -20,7 +20,6 @@ class AuctionHouse {
     }
 
     getAuctions() {
-        console.log(this.auctions);
         return this.auctions;
     }
 
