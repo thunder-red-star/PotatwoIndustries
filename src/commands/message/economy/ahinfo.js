@@ -58,7 +58,7 @@ module.exports = {
         })
         .addField({
           name: "Time until expiration",
-          value: ms((auction.time + 1000 * 60 * 60 * 24) - Date.now(), { long: true }),
+          value: (Date.now() - auction.time > 1000 * 24 * 60 * 60) ? "Expired" : ms((auction.time + 1000 * 60 * 60 * 24) - Date.now(), { long: true }),
           inline: true
         })
         .addField({

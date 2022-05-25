@@ -101,6 +101,7 @@ module.exports = {
             // Send the message.
             return message.reply({
                 embeds: [{
+                    color: client.colors.success,
                     title: "Success",
                     description: client.customEmojis.check + " You've put up **" + targetCount + " " + targetItem + "** for **" + targetPotatoes + "** " + client.customEmojis.potato + "!",
                 }]
