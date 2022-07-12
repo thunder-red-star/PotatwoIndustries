@@ -47,14 +47,16 @@ module.exports = {
               .setTitle("Binary Input")
               .setCustomId("binary-input")
               .addComponents([
-                  new DJSBuilders.TextInputBuilder()
-                    .setRequired(true)
-                    .setMinLength(1)
-                    .setMaxLength(4000)
-                    .setStyle('Paragraph')
-                    .setLabel("Text")
-                    .setPlaceholder("Your text here")
-                    .setCustomId("binary-input-text")
+                  new DJSBuilders.ActionRowBuilder().addComponents(
+                    new DJSBuilders.TextInputBuilder()
+                      .setRequired(true)
+                      .setMinLength(1)
+                      .setMaxLength(4000)
+                      .setStyle('Paragraph')
+                      .setLabel("Text")
+                      .setPlaceholder("Your text here")
+                      .setCustomId("binary-input-text")
+                  ),
               ])
 
             // Send the modal to the user.
