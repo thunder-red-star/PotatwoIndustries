@@ -18,7 +18,7 @@ module.exports = {
     args: [],
     run: async function(message, client, args) {
         // Create a dummy interaction so we can show the user the modal.
-        let button = new DJSBuilders.ButtonBuilder().setCustomId("dummyButton").setText("Dummy Button").setStyle("PRIMARY");
+        let button = new DJSBuilders.ButtonBuilder().setCustomId("dummyButton").setLabel("Dummy Button").setStyle("PRIMARY");
         let buttonRow = new DJSBuilders.ActionRowBuilder().addButton(button);
 
         let msg = await message.reply({
