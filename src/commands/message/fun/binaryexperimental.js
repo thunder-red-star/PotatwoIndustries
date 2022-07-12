@@ -77,17 +77,17 @@ module.exports = {
                     return message.channel.send({ content: "The text is too long to convert to binary." });
                 } else if (binary.length > 2000) {
                     let file = new Discord.Attachment(Buffer.from(binary), "binary.txt");
-                    return message.channel.send({
+                    return m.reply({
                         files: [file]
                     });
                 }
                 else {
-                    return message.channel.send({
+                    return m.reply({
                         content: binary
                     });
                 }
             } catch (e) {
-                return message.reply({
+                return m.reply({
                     content: "You did not enter any text or you took too long. Please try again."
                 });
             }
