@@ -51,7 +51,7 @@ module.exports = {
                     .setRequired(true)
                     .setMinLength(1)
                     .setMaxLength(4000)
-                    .setStyle('PARAGRAPH')
+                    .setStyle('Paragraph')
                     .setLabel("Text")
                     .setPlaceholder("Your text here")
                     .setCustomId("binary-input-text")
