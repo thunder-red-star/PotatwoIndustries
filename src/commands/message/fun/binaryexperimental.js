@@ -74,15 +74,15 @@ module.exports = {
                 let text = modalSubmit.components.get("binary-input-text").value;
                 let binary = binarify(text);
                 if (binary.length > 8 * 1024 * 1024) {
-                    return message.reply({ content: "The text is too long to convert to binary." });
+                    return message.channel.send({ content: "The text is too long to convert to binary." });
                 } else if (binary.length > 2000) {
                     let file = new Discord.Attachment(Buffer.from(binary), "binary.txt");
-                    return message.reply({
+                    return message.channel.send({
                         files: [file]
                     });
                 }
                 else {
-                    return message.reply({
+                    return message.channel.send({
                         content: binary
                     });
                 }
