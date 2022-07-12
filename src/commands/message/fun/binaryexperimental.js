@@ -32,9 +32,7 @@ module.exports = {
             ])
 
         // Send the modal to the user.
-        let msg = await message.reply({
-            components: [modal]
-        });
+        message.showModal(modal);
 
         let filter = (m) => {
             m.author.id === message.author.id;
