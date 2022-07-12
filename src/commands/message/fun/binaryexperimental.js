@@ -31,7 +31,7 @@ module.exports = {
         }
 
         // Create a message component event listener that listens for modal submission.
-        let componentListener = message.createMessageComponentCollector(filter, {
+        let componentListener = msg.createMessageComponentCollector(filter, {
             filter,
             timeout: 60000
         });
