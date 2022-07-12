@@ -63,7 +63,7 @@ module.exports = {
             m.showModal(modal);
 
             let filter = (m) => {
-                m.user.id === message.author.id;
+                m.customId === "binary-input";
             }
 
             // Create a message component event listener that listens for modal submission.
@@ -75,7 +75,7 @@ module.exports = {
                 let text = modalSubmit.fields.getTextInputValue("binary-input-text");
                 let binary = binarify(text);
                 if (binary.length > 8 * 1024 * 1024) {
-                    return n.reply({ content: "The text is too long to convert to binary." });
+                    return m.reply({ content: "The text is too long to convert to binary." });
                 } else if (binary.length > 2000) {
                     let file = new Discord.Attachment(Buffer.from(binary), "binary.txt");
                     return modalSubmit.reply({
