@@ -78,12 +78,12 @@ module.exports = {
                     return n.reply({ content: "The text is too long to convert to binary." });
                 } else if (binary.length > 2000) {
                     let file = new Discord.Attachment(Buffer.from(binary), "binary.txt");
-                    return m.reply({
+                    return modalSubmit.reply({
                         files: [file]
                     });
                 }
                 else {
-                    return m.reply({
+                    return modalSubmit.reply({
                         content: binary
                     });
                 }
