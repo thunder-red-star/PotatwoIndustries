@@ -66,9 +66,10 @@ module.exports = {
                 m.customId === "binary-input";
             }
 
+            let modalSubmit = await m.awaitModalSubmit({filter, time: 60000});
+
             // Create a message component event listener that listens for modal submission.
             try {
-                let modalSubmit = await m.awaitModalSubmit({filter, time: 60000});
                 console.log("Got modal")
 
                 // Get the text from the modal.
