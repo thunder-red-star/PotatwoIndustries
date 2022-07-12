@@ -96,6 +96,6 @@ module.exports = {
                 content: "Please click this button to open the modal! (this is a Discord API limitation, otherwise the modal would be opened automatically)",
                 components: [new DJSBuilders.ActionRowBuilder().addButton(button.setDisabled(true))]
             });
-        );
+        });
     }
 };
