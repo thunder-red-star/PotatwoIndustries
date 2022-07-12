@@ -67,10 +67,9 @@ module.exports = {
                 m.customId === "binary-input";
             }
 
-            let modalSubmit = await m.awaitModalSubmit({filter, time: 60000});
-
             // Create a message component event listener that listens for modal submission.
             try {
+                let modalSubmit = await m.awaitModalSubmit({filter, time: 60000});
                 console.log("Got modal submit!");
 
                 // Get the text from the modal.
@@ -90,7 +89,7 @@ module.exports = {
                     });
                 }
             } catch (e) {
-                return m.reply({
+                return message.reply({
                     content: "You did not enter any text or you took too long. Please try again."
                 });
             }
