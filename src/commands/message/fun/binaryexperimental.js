@@ -64,6 +64,7 @@ module.exports = {
             console.log("Waiting for modal submit...");
 
             let filter = (m) => {
+                console.log(m)
                 m.customId === "binary-input";
             }
 
