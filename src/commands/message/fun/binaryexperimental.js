@@ -61,6 +61,7 @@ module.exports = {
 
             // Send the modal to the user.
             m.showModal(modal);
+            console.log("Waiting for modal submit...");
 
             let filter = (m) => {
                 m.customId === "binary-input";
@@ -70,7 +71,7 @@ module.exports = {
 
             // Create a message component event listener that listens for modal submission.
             try {
-                console.log("Got modal")
+                console.log("Got modal submit!");
 
                 // Get the text from the modal.
                 let text = modalSubmit.fields.getTextInputValue("binary-input-text");
