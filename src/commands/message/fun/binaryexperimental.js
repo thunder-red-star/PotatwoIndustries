@@ -63,7 +63,7 @@ module.exports = {
             m.showModal(modal);
 
             let filter = (m) => {
-                m.author.id === message.author.id;
+                m.user.id === message.author.id;
             }
 
             // Create a message component event listener that listens for modal submission.
