@@ -60,7 +60,7 @@ module.exports = {
               ])
 
             // Send the modal to the user.
-            m.showModal(modal);
+            await m.showModal(modal);
             console.log("Waiting for modal submit...");
 
             let filter = (m) => {
