@@ -64,7 +64,7 @@ module.exports = {
       console.log("Waiting for modal submit...");
 
       let filter = (m) => {
-        m.customId === "binary-input";
+        true;
       };
 
       // Create a message component event listener that listens for modal submission.
