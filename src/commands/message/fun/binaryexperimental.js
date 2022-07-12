@@ -19,7 +19,7 @@ module.exports = {
     run: async function(message, client, args) {
         // Create a dummy interaction so we can show the user the modal.
         let button = new DJSBuilders.ButtonBuilder().setCustomId("dummyButton").setLabel("Dummy Button").setStyle("Primary");
-        let buttonRow = new DJSBuilders.ActionRowBuilder().addButton(button);
+        let buttonRow = new DJSBuilders.ActionRowBuilder().addComponents(button);
 
         let msg = await message.reply({
             content: "Please click this button to open the modal! (this is a Discord API limitation, otherwise the modal would be opened automatically)",
