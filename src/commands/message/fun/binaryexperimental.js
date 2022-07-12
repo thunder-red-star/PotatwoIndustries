@@ -39,7 +39,7 @@ module.exports = {
         componentListener.on("collect", async (m) => {
             await msg.edit({
                 content: "Please click this button to open the modal! (this is a Discord API limitation, otherwise the modal would be opened automatically)",
-                components: [new DJSBuilders.ActionRowBuilder().addButton(button.setDisabled(true))]
+                components: [new DJSBuilders.ActionRowBuilder().addComponents(button.setDisabled(true))]
             });
 
             // Create a modal that will prompt the user to enter text.
@@ -94,7 +94,7 @@ module.exports = {
             // Disable the dummy button.
             await msg.edit({
                 content: "Please click this button to open the modal! (this is a Discord API limitation, otherwise the modal would be opened automatically)",
-                components: [new DJSBuilders.ActionRowBuilder().addButton(button.setDisabled(true))]
+                components: [new DJSBuilders.ActionRowBuilder().addComponents(button.setDisabled(true))]
             });
         });
     }
