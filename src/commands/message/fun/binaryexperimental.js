@@ -68,7 +68,7 @@ module.exports = {
       };
 
       // Create a message component event listener that listens for modal submission.
-      let modalSubmit = await m.awaitModalSubmit({ filter, time: 60000 }).then(async (modalSubmit) => {
+      m.awaitModalSubmit({ filter, time: 60000 }).then(async (modalSubmit) => {
         console.log("Got modal submit!");
 
         // Get the text from the modal.
