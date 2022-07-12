@@ -27,7 +27,7 @@ module.exports = {
     });
 
     let filter = (m) => {
-      m.author.id === message.author.id;
+      m.user.id === message.author.id;
     };
 
     // Create a message component event listener that listens for modal submission.
@@ -62,10 +62,6 @@ module.exports = {
       // Send the modal to the user.
       await m.showModal(modal);
       console.log("Waiting for modal submit...");
-
-      let filter = (m) => {
-        true;
-      };
 
       // Create a message component event listener that listens for modal submission.
       m.awaitModalSubmit({ filter, time: 60000 }).then(async (modalSubmit) => {
