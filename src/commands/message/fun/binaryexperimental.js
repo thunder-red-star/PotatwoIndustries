@@ -64,14 +64,11 @@ module.exports = {
             }
 
             // Create a message component event listener that listens for modal submission.
-            let componentListener1 = message.createMessageComponentCollector(filter, {
-                filter,
-                timeout: 60000
-            });
+            try {
+                let modalSubmit = await m.awaitModalSubmit({filter, time: 60000});
 
-            componentListener1.on("collect", async (m) => {
                 // Get the text from the modal.
-                let text = m.components.get("binary-input-text").value;
+                let text = modalSubmit.components.get("binary-input-text").value;
                 let binary = binarify(text);
                 if (binary.length > 8 * 1024 * 1024) {
                     return message.reply({ content: "The text is too long to convert to binary." });
@@ -86,13 +83,11 @@ module.exports = {
                         content: binary
                     });
                 }
-            });
-
-            componentListener1.on("end", (collected, reason) => {
-                if (reason === "timeout") {
-                    return message.reply({ content: "You took too long to respond." });
-                }
-            });
+            } catch (e) {
+                return message.reply({
+                    content: "You did not enter any text or you took too long. Please try again."
+                });
+            }
         });
 
         componentListener.on("end", async (collected, reason) => {
