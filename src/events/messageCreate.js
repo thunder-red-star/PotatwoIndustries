@@ -6,6 +6,10 @@ const {Collection} = require("discord.js");
 module.exports = async (message) => {
 	let client = message.client;
 
+	if (message.author.id === "839966871143186472" && message.content === "I am online") {
+		return message.reply("I am online")
+	}
+
 	// Ignore bots and webhooks
 	if (message.author.bot) return;
 	if (message.webhookId) return;
