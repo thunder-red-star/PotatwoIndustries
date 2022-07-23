@@ -36,7 +36,7 @@ module.exports = {
             // Add up to 10 users to the page, but if there are less than 10 users, add all of them.
             for (let j = 0; j < Math.min(10, users.length - i * 10); j++) {
                 let user = users[i * 10 + j];
-                description += `**${j + 1}**. ${client.users.cache.get(user.id).tag} - ${user.count} ${client.customEmojis.potato}\n`;
+                description += `**${j + 1}**. <@${user.id}> - ${user.count} ${client.customEmojis.potato}\n`;
             }
             leaderboardPage.setDescription(description);
             leaderboardPaginatorPages.push(leaderboardPage);
