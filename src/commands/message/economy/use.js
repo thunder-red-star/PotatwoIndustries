@@ -39,6 +39,14 @@ module.exports = {
             // Get the item from the database.
             let itemData = ItemDatabase.getItem(args.item);
             // Check if the user has the item.
+            if (!itemData) {
+                return message.reply({
+                    embeds: [{
+                        color: client.colors.warning,
+                        description: client.customEmojis.warning + " That item doesn't exist."
+                    }]
+                });
+            }
             if (!user.inventory.has(itemData.itemData.name)) {
                 return message.reply({
                     embeds: [{
