@@ -9,6 +9,7 @@ class User {
 		this.inventory = new Inventory();
 		this.blacklisted = false;
 		this.passive = false;
+		this.bank = 0;
 	}
 
 	// Set count

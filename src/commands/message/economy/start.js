@@ -28,6 +28,7 @@ module.exports = {
             let user = await client.database.users.get(message.author.id);
             // Give the user some potatoes.
             await user.addPotatoes(500);
+            await user.setBank(0);
             client.database.write();
             return message.reply({
                 embeds: [{
