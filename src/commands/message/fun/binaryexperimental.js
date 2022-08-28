@@ -110,33 +110,39 @@ module.exports = {
         interaction.type === InteractionType.ModalSubmit
       };
 
-      let modalSubmit = await m.awaitModalSubmit({ filter2, time: 15_000 });
-      if (!modalResponse) {
-        await msg.edit({
-          content: "You took too long to submit the modal."
-        });
-        return;
-      } else {
-        console.log("Got modal submit!");
-
-        // Get the text from the modal.
-        let text = modalSubmit.fields.getTextInputValue("binary-input-text");
-        let binary = binarify(text);
-        if (binary.length > 8 * 1024 * 1024) {
-          return message.reply({ content: "The text is too long to convert to binary." });
-        } else if (binary.length > 2000) {
-          let file = new Discord.Attachment(Buffer.from(binary), "binary.txt");
-          await modalSubmit.reply({
-            files: [file]
+      let modalSubmit = m.awaitModalSubmit({ time: 60_000 }).then(async (modalSubmit) => {
+        if (!modalSubmit) {
+          await msg.edit({
+            content: "You took too long to submit the modal."
           });
           return;
         } else {
-          await modalSubmit.reply({
-            content: binary
-          });
-          return;
+          console.log("Got modal submit!");
+
+          // Get the text from the modal.
+          let text = modalSubmit.fields.getTextInputValue("binary-input-text");
+          let binary = binarify(text);
+          if (binary.length > 8 * 1024 * 1024) {
+            return message.reply({ content: "The text is too long to convert to binary." });
+          } else if (binary.length > 2000) {
+            let file = new Discord.Attachment(Buffer.from(binary), "binary.txt");
+            await modalSubmit.reply({
+              files: [file]
+            });
+            return;
+          } else {
+            await modalSubmit.reply({
+              content: binary
+            });
+            return;
+          }
         }
-      }
+      }).catch(async (err) => {
+        console.log(err);
+        await msg.channel.send({
+          content: "You took too long to submit the modal."
+        });
+      });
     });
 
     componentListener.on("end", async (collected, reason) => {
