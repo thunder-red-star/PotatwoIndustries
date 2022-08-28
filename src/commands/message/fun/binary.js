@@ -31,7 +31,8 @@ module.exports = {
       } else {
         let file = new Discord.AttachmentBuilder(Buffer.from(binary), 'binary.txt', {
           name: "binary.txt",
-          description: "The input converted to binary."
+          description: "The input converted to binary.",
+          content_type: "text/plain"
         });
         return message.reply({
           files: [file],
