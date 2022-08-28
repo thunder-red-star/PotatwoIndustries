@@ -64,8 +64,15 @@ module.exports = {
       console.log("Waiting for modal submit...");
 
       // Create a message component event listener that listens for modal submission.
-      m.awaitModalSubmit({ filter, time: 60000 }).then(async (modalSubmit) => {
+      let messageComponentListener2 = m.createMessageComponentCollector(filter, {
+        filter,
+        timeout: 60000
+      });
+
+      messageComponentListener2.on("collect", async (modalSubmit) => {
+        if (interaction.type !== InteractionType.ModalSubmit) return;
         console.log("Got modal submit!");
+
 
         // Get the text from the modal.
         let text = modalSubmit.fields.getTextInputValue("binary-input-text");
@@ -84,12 +91,15 @@ module.exports = {
           });
           return;
         }
-      }).catch((err) => {
-        return message.reply({
-          content: "You did not enter any text or you took too long. Please try again."
-        });
       });
-    });
+
+      messageComponentListener2.on("end", async (collected, reason) => {
+        if (reason === "time") {
+          await msg.channel.send({
+            content: "You took too long to submit the modal."
+          });
+        }
+      });
 
     componentListener.on("end", async (collected, reason) => {
       // Disable the dummy button.
@@ -100,3 +110,6 @@ module.exports = {
     });
   }
 };
+
+no i was working with this feature back when it was still in development, and didn't know how to accept responses
+  now there's a guide to it https://discordjs.guide/interactions/modals.html#building-and-responding-with-modals
