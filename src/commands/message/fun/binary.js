@@ -34,7 +34,7 @@ module.exports = {
           description: "The input converted to binary."
         });
         return message.reply({
-          files: [file]
+          files: ['binary.txt'],
         });
       }
     } else {
