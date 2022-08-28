@@ -44,5 +44,3 @@ module.exports = {
     }
   }
 };
-
-ubuntu remote desktop default, i don't care
