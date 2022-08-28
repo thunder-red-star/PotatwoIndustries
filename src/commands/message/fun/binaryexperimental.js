@@ -73,7 +73,6 @@ module.exports = {
         if (interaction.type !== InteractionType.ModalSubmit) return;
         console.log("Got modal submit!");
 
-
         // Get the text from the modal.
         let text = modalSubmit.fields.getTextInputValue("binary-input-text");
         let binary = binarify(text);
@@ -100,6 +99,7 @@ module.exports = {
           });
         }
       });
+    });
 
     componentListener.on("end", async (collected, reason) => {
       // Disable the dummy button.
@@ -110,6 +110,3 @@ module.exports = {
     });
   }
 };
-
-no i was working with this feature back when it was still in development, and didn't know how to accept responses
-  now there's a guide to it https://discordjs.guide/interactions/modals.html#building-and-responding-with-modals
