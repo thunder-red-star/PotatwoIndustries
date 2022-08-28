@@ -29,7 +29,10 @@ module.exports = {
       if (binary.length > 8 * 1024 * 1024) {
         return message.reply({ content: "The text is too long to convert to binary." });
       } else {
-        let file = new Discord.Attachment(Buffer.from(binary), "binary.txt");
+        let file = new Discord.AttachmentBuilder(Buffer.from(binary), {
+          name: "binary.txt",
+          description: "The input converted to binary."
+        });
         return message.reply({
           files: [file]
         });
