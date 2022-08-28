@@ -3,6 +3,7 @@
 const binarify = require("../../../utils/eval/binarify");
 const Discord = require("discord.js");
 const DJSBuilders = require("@discordjs/builders");
+const { InteractionType } = require('discord.js');
 
 module.exports = {
   botPermissions: ["SEND_MESSAGES"],
@@ -105,7 +106,11 @@ module.exports = {
 
        */
 
-      let modalSubmit = await m.awaitModalSubmit({ filter, time: 15_000 });
+      let filter2 = (m) => {
+        interaction.type === InteractionType.ModalSubmit
+      };
+
+      let modalSubmit = await m.awaitModalSubmit({ filter2, time: 15_000 });
       if (!modalResponse) {
         await msg.edit({
           content: "You took too long to submit the modal."
