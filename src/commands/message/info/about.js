@@ -57,6 +57,7 @@ module.exports = {
 		const supportButton = new DJSBuilders.ButtonBuilder()
 			.setLabel("Support server")
 			.setURL(`https://discord.gg/vX2JgPQC7W`)
+			.setStyle(5);
 
 		const buttonRow = new DJSBuilders.ActionRowBuilder()
 			.addComponents(ytButton, supportButton);
