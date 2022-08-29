@@ -63,7 +63,7 @@ module.exports = async function(message, pages) {
 
     // Create the button collector
     const filter = (button) => {
-        button !== null;
+        button.user.id === message.author.id;
     };
 
     const collector = await msg.createMessageComponentCollector(filter, {
