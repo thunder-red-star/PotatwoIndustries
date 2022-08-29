@@ -45,7 +45,9 @@ module.exports = {
 				}
 			])
 			.setColor(client.colors.success)
-			.setFooter("Expecting other values? Try `" + client.getServerPrefix(message) + "stats` instead.")
+			.setFooter({
+				text: "Expecting other values? Try `" + client.getServerPrefix(message) + "stats` instead."
+			})
 
 		const ytButton = new DJSBuilders.ButtonBuilder()
 			.setLabel("Nick's YT")

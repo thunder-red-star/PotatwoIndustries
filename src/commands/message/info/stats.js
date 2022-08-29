@@ -110,7 +110,9 @@ module.exports = {
 				}
 			])
 			.setColor(client.colors.potato)
-			.setFooter(`${client.user.username} v${package.version}`)
+			.setFooter({
+				text: `${client.user.username} v${package.version}`
+			})
 			.setTimestamp()
 
 		message.channel.send({
