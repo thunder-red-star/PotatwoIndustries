@@ -3,6 +3,7 @@
 const DJSBuilders = require("@discordjs/builders");
 const os = require("os");
 const moment = require("moment");
+const ms = require("ms");
 const package = require("../../../../package.json");
 
 function buildGaugeString (value, max) {
@@ -94,7 +95,7 @@ module.exports = {
 				{
 					name: "Bot statistics",
 					value: `
-					Uptime: ${moment.duration(client.uptime).format("d[ days], h[ hours], m[ minutes], s[ seconds]")}
+					Uptime: ${ms(client.uptime)}
 					Memory Usage: ${calculateMemoryUsageAndReturnAString()}
 					Number of guilds: ${client.guilds.size}
 					Number of users: ${totalUsers}
