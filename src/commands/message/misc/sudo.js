@@ -36,7 +36,8 @@ module.exports = {
 			webhook = await message.channel.createWebhook(user.username, {
 				avatar: user.displayAvatarURL({ format: "png", dynamic: true, size: 1024 })
 			});
-		} catch {
+		} catch (e) {
+			console.log(e.stack);
 			return message.reply({
 				embeds: [{
 					title: "Error",
