@@ -52,7 +52,7 @@ module.exports = {
 		// Send the message as the webhook.
 		await webhook.send({
 			content: messageToSend,
-			attachments: message.attachments.array().map(attachment => {
+			attachments: message.attachments.toJSON().map(attachment => {
 				return new Discord.AttachmentBuilder(attachment.url, attachment.name)
 			})
 		});
