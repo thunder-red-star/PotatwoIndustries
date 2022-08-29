@@ -33,8 +33,10 @@ module.exports = {
 		// Attempt to create a webhook.
 		let webhook;
 		try {
-			webhook = await message.channel.createWebhook(user.username, {
-				avatar: user.displayAvatarURL({ format: "png", dynamic: true, size: 1024 })
+			webhook = await message.channel.createWebhook({
+				name: user.username,
+				avatar: user.displayAvatarURL({ format: "png", dynamic: true, size: 1024 }),
+				reason: "Sending as " + user.username
 			});
 		} catch (e) {
 			console.log(e.stack);
