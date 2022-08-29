@@ -33,6 +33,10 @@ class UserManager {
 	toJSON() {
 		return this.users.map(user => user.toJSON());
 	}
+
+	length() {
+		return this.users.length;
+	}
 }
 
 module.exports = UserManager;
