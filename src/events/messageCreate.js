@@ -14,6 +14,10 @@ module.exports = async (message) => {
 	if (message.author.bot) return;
 	if (message.webhookId) return;
 
+	// Try to get the user
+	let userFromDB = await client.database.users.get(message.author.id);
+	if (userFromDB.isBlacklisted()) return;
+
 	// If the bot gets mentioned, respond with the bot's prefix.
 	if (message.mentions.has(client.user)) {
 		message.channel.send({
