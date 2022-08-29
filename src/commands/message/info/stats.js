@@ -71,7 +71,7 @@ module.exports = {
 		if (otherDependencies.length > 0) {
 			// Create a string of other dependencies. Each line should look like this:
 			// "name@version"
-			otherDependenciesString = otherDependencies.map(dependency => `•  ${dependency}: \`${package.dependencies[dependency].replace(/^(\d+\.\d+\.\d+).*$/, "$1").replace("^", "")}\``).join("\n");
+			otherDependenciesString = otherDependencies.map(dependency => `•  ${dependency}: \`${package.dependencies[dependency].replace(/^(\d+\.\d+\.\d+).*$/, "$1").replace("^", "").replace("~", "")}\``).join("\n");
 		}
 		const statsEmbed = new DJSBuilders.EmbedBuilder()
 			.setTitle("Statistics")
