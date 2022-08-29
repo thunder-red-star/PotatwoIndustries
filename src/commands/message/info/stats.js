@@ -87,7 +87,7 @@ module.exports = {
 					name: "System statistics",
 					value: `
 					OS: ${os.type()} ${os.release()}
-					CPU: ${os.cpus()[0].model} (os.cpus()[0].speed MHz) x${os.cpus().length}
+					CPU: ${os.cpus()[0].model} (${os.cpus()[0].speed} MHz) x${os.cpus().length}
 					System Load: ${calculateLoadPercentAndReturnAString()}
 					System Memory: ${calculateSystemMemoryUsageAndReturnAString()}
 				  `
