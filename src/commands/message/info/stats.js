@@ -71,7 +71,7 @@ module.exports = {
 		if (otherDependencies.length > 0) {
 			// Create a string of other dependencies. Each line should look like this:
 			// "name@version"
-			otherDependenciesString = otherDependencies.map(dependency => `${dependency}@${package.dependencies[dependency].replace(/^(\d+\.\d+\.\d+).*$/, "$1")}`).join(", ");
+			otherDependenciesString = "`" + otherDependencies.map(dependency => `${dependency}@${package.dependencies[dependency].replace(/^(\d+\.\d+\.\d+).*$/, "$1")}`).join("`, `") + "`";
 		}
 		const statsEmbed = new DJSBuilders.EmbedBuilder()
 			.setTitle("Statistics")
@@ -79,7 +79,7 @@ module.exports = {
 				{
 					name: "Development statistics",
 					value: `Node Version: ${process.version}
-					Library: discord.js@${discordJSVersion}
+					Library: discord.js v${discordJSVersion}
 					Depends on: ${otherDependenciesString}
 					`
 				},
@@ -97,7 +97,7 @@ module.exports = {
 					value: `
 					Uptime: ${ms(client.uptime)}
 					Memory Usage: ${calculateMemoryUsageAndReturnAString()}
-					Number of guilds: ${client.guilds.size}
+					Number of guilds: ${client.guilds.cache.size}
 					Number of users: ${totalUsers}
 					Number of cached users: ${client.users.cache.size}
 					`
