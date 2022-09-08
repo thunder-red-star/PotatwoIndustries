@@ -32,9 +32,9 @@ Hence, Potato Industries is now PotaTwo Industries.
 - [x] help
 - [x] ping
 - [x] invite
-- [ ] about
-- [ ] stats
-- [ ] github
+- [x] about
+- [x] stats
+- [x] github
 - [ ] support
 - [ ] website
 - [ ] vote
