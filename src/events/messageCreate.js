@@ -16,6 +16,11 @@ module.exports = async (message) => {
 
 	// Try to get the user
 	let userFromDB = await client.database.users.get(message.author.id);
+	if (!userFromDB) {
+		await client.database.users.addUser(message.author.id);
+		userFromDB = await client.database.users.get(message.author.id);
+		client.database.write();
+	}
 	if (userFromDB.isBlacklisted()) return;
 
 	// If the bot gets mentioned, respond with the bot's prefix.
