@@ -22,6 +22,7 @@ module.exports = {
 
         const ytButton = new DJSBuilders.ButtonBuilder()
             .setLabel("GitHub")
+            .setType(5)
             .setURL(`https://github.com/thunder-red-star/PotatwoIndustries`)
 
         const buttonRow = new DJSBuilders.ActionRowBuilder()
