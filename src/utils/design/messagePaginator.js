@@ -5,27 +5,27 @@ const DJSBuilders = require('@discordjs/builders');
 const buttonArray = [
     new DJSBuilders.ButtonBuilder().setCustomId('first').setStyle(1).setEmoji({
         name: '⏪',
-        id: '975607423161221130',
+        id: '1191429227183091733',
         animated: false
     }),
     new DJSBuilders.ButtonBuilder().setCustomId('back').setStyle(1).setEmoji({
         name: '◀',
-        id: '975607423299616768',
+        id: '1191429194689822811',
         animated: false
     }),
     new DJSBuilders.ButtonBuilder().setCustomId('discard').setStyle(4).setEmoji({
         name: '🗑',
-        id: '975607423345766440',
+        id: '1191429280912113717',
         animated: false
     }),
     new DJSBuilders.ButtonBuilder().setCustomId('forward').setStyle(1).setEmoji({
         name: '▶',
-        id: '975607423257690202',
+        id: '1191429212356218891',
         animated: false
     }),
     new DJSBuilders.ButtonBuilder().setCustomId('last').setStyle(1).setEmoji({
         name: '⏩',
-        id: '975607423215730728',
+        id: '1191429240932024371',
         animated: false
     })
 ];
